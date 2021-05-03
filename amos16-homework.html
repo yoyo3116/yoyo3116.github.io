@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
+    <title>Document</title>
+    <style>
+        .head {
+            width: 960px;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+
+        .head h1 {
+            font-weight: normal;
+            font-size: 28px;
+            color: gray;
+            position: relative;
+        }
+
+        .head ::after {
+            content: "";
+            width: 30px;
+            height: 2px;
+            position: absolute;
+            bottom: -30px;
+            left: 465px;
+            background-color: #FDD000;
+        }
+
+        .container {
+            width: 960px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            margin-bottom: 100px;
+        }
+
+        .item {
+            width: 210px;
+            margin: 15px;
+            box-sizing: border-box;
+        }
+
+        .item img {
+            width: 100%;
+        }
+
+        .container .item h4,
+        .container .item p {
+            margin: 0px 0px 10px;
+            text-align: center;
+        }
+
+
+        .container .item h4>a {
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: normal;
+            color: black;
+        }
+
+        .price {
+            text-decoration: none;
+            color: #FDD000;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 微軟正黑體;
+        }
+
+        .normal-price {
+            text-decoration: none;
+            text-decoration: line-through;
+            color: gray;
+            font-size: 8px;
+            font-family: 微軟正黑體;
+        }
+
+        .black-price {
+            color: black;
+        }
+
+        .page {
+            width: 100%;
+            text-align: center;
+        }
+
+        .page ul {
+
+            list-style: none;
+            padding: 0;
+        }
+
+        .page li {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            font-family: 微軟正黑體;
+
+
+        }
+
+        .page li>a {
+            font-size: 12px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .one {
+            border-bottom: #FDD000 solid 2px;
+        }
+
+        .end {
+            width: 1200px;
+            margin: auto;
+            border-top: 1px solid gray;
+            display: flex;
+        }
+
+        .information,
+        .about {
+            width: 50%;
+            padding: 40px 100px;
+            box-sizing: border-box;
+        }
+
+        .information ul,
+        .about ul {
+            list-style: none;
+        }
+
+        .information li>a,
+        .about li>a {
+            text-decoration: none;
+            line-height: 30px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .left {
+            font-size: 24px;
+        }
+
+        #right {
+            font-size: 24px;
+        }
+
+
+        .footer {
+            background-color: #eee;
+            color: #000;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+            font-family: 微軟正黑體;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="head">
+            <h1>新品上市</h1>
+        </div>
+        <div class="container">
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=1"></a>
+                <h4><a href="#">黃阿瑪的後宮生活《等我回家的你》隨機送後宮出遊趣明信片</a></h4>
+                <p><a href="#" class="price">NT$277</a></p>
+                <p><a href="#" class="normal-price">NT$350</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=2"></a>
+                <h4><a href="#">後宮氣球總動員 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
+                <p><a href="#" class="price">NT$399~NT$499</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=3"></a>
+                <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
+                <p><a href="#" class="price">NT$399~NT$499</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=4"></a>
+                <h4><a href="#">SOSO獨家款安全帽</a></h4>
+                <p><a href="#" class="price">NT$999</a></p>
+                <p><a href="#" class="normal-price">NT$350</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=5"></a>
+                <h4><a href="#">追風阿瑪(夜光版)安全帽</a></h4>
+                <p><a href="#" class="price">NT$2,440</a></p>
+                <p><a href="#" class="normal-price">NT$350</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=6"></a>
+                <h4><a href="#">後宮歡樂派對安全帽</a></h4>
+                <p><a href="#" class="price">NT$1,800</a></p>
+                <p><a href="#" class="normal-price">NT$350</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=7"></a>
+                <h4><a href="#">新年送元寶燙金貼紙</a></h4>
+                <p><a href="#" class="price black-price">NT$120</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=8"></a>
+                <h4><a href="#">純棉帽T後宮去旅行</a></h4>
+                <p><a href="#" class="price">NT$1,380~NT$1.580</a></p>
+            </div>
+            <div class="page">
+                <ul>
+                    <li class="one"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+        <div class="head">
+            <h1>聯名寢具</h1>
+        </div>
+
+        <div class="container">
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=21"></a>
+                <h4><a href="#">【HOYACASA聯名系列】抗菌天絲兩用被床包組(單人/雙人/加大)</a></h4>
+                <p><a href="#" class="price">NT$2,980~NT$3,280</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=22"></a>
+                <h4><a href="#">【HOYACASA聯名系列】水洗冬被運動系列-藍色(單人/雙人)</a></h4>
+                <p><a href="#" class="price">NT$1,180~NT$1,280</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=23"></a>
+                <h4><a href="#">【HOYACASA聯名系列】水洗冬被運動系列-米色(單人/雙人)
+                    </a></h4>
+                <p><a href="#" class="price">NT$1,180~NT$1,280</a></p>
+            </div>
+            <div class="item">
+                <a href="#"><img src="https://picsum.photos/300/200/?random=24"></a>
+                <h4><a href="#">【HOYACASA聯名系列】水洗枕運動系列-米色</a></h4>
+                <p><a href="#" class="price  black-price">NT$790</a></p>
+            </div>
+            <div class="page">
+                <ul>
+                    <li class="one"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="end">
+            <div class="information">
+                <ul>
+                    <li class="left">相關資訊</li>
+                    <li><a href="#">品牌故事</a></li>
+                    <li><a href="#">退貨退款須知</a></li>
+                    <li><a href="#">會員招募</a></li>
+                    <li><a href="#">常見問題</a></li>
+                    <li><a href="#">反詐騙公告</a></li>
+                </ul>
+            </div>
+            <div class="about">
+                <ul>
+                    <li><a href="#" id="right">聯繫我們</a></li>
+                    <li><a>服務時間：週一至週五 10:00-18:30</a></li>
+                    <li><a href="">LINE@閒聊區(只有阿瑪在，小幫手不在)</a></li>
+                    <li><a>客服信箱 ：fumeanstore@gmail.com</a></li>
+                    <li><a>授權合作信箱 ：fumeanstudio@gmail.com</a></li>
+                    <li><a>批發合作信箱 ：fumeancats@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            黃阿瑪的後宮生活© 2019 FUMEANCATS .All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/6ca253113b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

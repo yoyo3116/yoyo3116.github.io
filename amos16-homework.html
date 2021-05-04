@@ -49,10 +49,49 @@
             width: 210px;
             margin: 15px;
             box-sizing: border-box;
+            position: relative;
+        }
+
+        .item::after {
+            position: absolute;
+            content: "";
+            width: 210px;
+            height: 210px;
+            top:0;
+            background-color:rgba(0, 0, 0,0.5);
+            display: none;
         }
 
         .item img {
             width: 100%;
+            height:210px;
+            
+        }
+
+        .join_buy{
+            position: absolute;
+            right: 10px;
+            top: 160px;
+            background-color: #fff;
+            border: none;
+            z-index: 22;
+            border-radius: 5px;
+            height: 40px;
+            width: 190px;
+            transition: .5s;
+            display: none;
+        }
+        .item:hover.item::after
+        {
+        display: block;
+        }
+        .item:hover .join_buy{
+        display: block;
+        }
+        .join_buy:hover
+        {
+            background-color:  #FDD000;
+            color: #fff;
         }
 
         .container .item h4,
@@ -105,14 +144,15 @@
             height: 30px;
             display: inline-block;
             font-family: 微軟正黑體;
-
-
         }
 
         .page li>a {
             font-size: 12px;
             text-decoration: none;
             color: black;
+        }
+        .page li>a:hover{
+            color:#8a131394;
         }
 
         .one {
@@ -178,45 +218,53 @@
         <div class="container">
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=1"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">黃阿瑪的後宮生活《等我回家的你》隨機送後宮出遊趣明信片</a></h4>
                 <p><a href="#" class="price">NT$277</a></p>
                 <p><a href="#" class="normal-price">NT$350</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=2"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮氣球總動員 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=3"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=4"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">SOSO獨家款安全帽</a></h4>
                 <p><a href="#" class="price">NT$999</a></p>
                 <p><a href="#" class="normal-price">NT$350</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=5"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">追風阿瑪(夜光版)安全帽</a></h4>
                 <p><a href="#" class="price">NT$2,440</a></p>
                 <p><a href="#" class="normal-price">NT$350</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=6"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮歡樂派對安全帽</a></h4>
                 <p><a href="#" class="price">NT$1,800</a></p>
                 <p><a href="#" class="normal-price">NT$350</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=7"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">新年送元寶燙金貼紙</a></h4>
                 <p><a href="#" class="price black-price">NT$120</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=8"></a>
+                <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">純棉帽T後宮去旅行</a></h4>
                 <p><a href="#" class="price">NT$1,380~NT$1.580</a></p>
             </div>
@@ -240,42 +288,50 @@
         <div class="container">
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=31"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮運動會三折運動錢包-黑</a></h4>
                 <p><a href="#" class="price black-price">NT$990</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=32"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">黃阿瑪打棒球坐姿娃娃8吋</a></h4>
                 <p><a href="#" class="price black-price">NT$890</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=33"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">黃阿瑪第一棒老帽</a></h4>
                 <p><a href="#" class="price black-price">NT$790</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=34"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮打不倒棒球隊娃娃</a></h4>
                 <p><a href="#" class="price black-price">NT$590</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=35"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮MVP純棉運動毛巾</a></h4>
                 <p><a href="#" class="price black-price">NT$550</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=36"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮棒球隊公仔</a></h4>
                 <p><a href="#" class="price black-price">NT$490</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=37"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮棒球隊公仔-全套7入</a></h4>
                 <p><a href="#" class="price">NT$3,100</a></p>
                 <p><a href="#" class="normal-price">NT$3,430</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=38"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">瑪瑪神宮繪馬祈福便利貼</a></h4>
                 <p><a href="#" class="price black-price">NT$160</a></p>
             </div>
@@ -298,42 +354,50 @@
         <div class="container">
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=61"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
                 
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=62"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮氣球總動員 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=63"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=64"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=65"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=66"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=67"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=68"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">後宮娃娃機款 客制化手機殼 (三款材質可選 支援多型號)</a></h4>
                 <p><a href="#" class="price">NT$399~NT$499</a></p>
             </div>
@@ -357,22 +421,26 @@
         <div class="container">
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=21"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">【HOYACASA聯名系列】抗菌天絲兩用被床包組(單人/雙人/加大)</a></h4>
                 <p><a href="#" class="price">NT$2,980~NT$3,280</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=22"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">【HOYACASA聯名系列】水洗冬被運動系列-藍色(單人/雙人)</a></h4>
                 <p><a href="#" class="price">NT$1,180~NT$1,280</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=23"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">【HOYACASA聯名系列】水洗冬被運動系列-米色(單人/雙人)
                     </a></h4>
                 <p><a href="#" class="price">NT$1,180~NT$1,280</a></p>
             </div>
             <div class="item">
                 <a href="#"><img src="https://picsum.photos/300/200/?random=24"></a>
+                    <input type="button" class="join_buy" value="加入購物車">
                 <h4><a href="#">【HOYACASA聯名系列】水洗枕運動系列-米色</a></h4>
                 <p><a href="#" class="price  black-price">NT$790</a></p>
             </div>

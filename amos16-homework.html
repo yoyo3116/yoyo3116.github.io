@@ -13,14 +13,63 @@
         body{
             margin: 0;
         }
-
         .banner{
             width:1200px;
             margin: auto;
         }
+
         .banner img{
             width: 100%;
         }
+
+        .header {
+            position: sticky;
+            top:0px;
+            width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            z-index: 999;
+            opacity: .9;
+        }
+
+
+        .logo{
+            position: fixed;
+            padding:20px 0px 0px 160px;
+        }
+        .logo img{
+            width: 50px;
+        }
+        .header nav{
+            display: flex;
+            justify-content: center;
+            height: 80px;
+            
+        }
+        .header ul{
+            list-style: none;
+            margin: 20px;
+        }
+
+        .header li {
+            height: 60px;
+            line-height: 60px;
+            list-style: none;
+            display: inline-block;
+            margin: 0px 10px;
+        }
+
+        .header li a{
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+
+
+
+
+
+
         .head {
             width: 960px;
             text-align: center;
@@ -230,14 +279,27 @@
     </style>
 </head>
 
-<header>
+
     <div class="header">
-        
+        <div class="logo"><a href=""><img src="https://img.shoplineapp.com/media/image_clips/60877c91e67283002f8ab371/original.png?1619491985" alt=""></a></div>
+        <nav>
+            <ul>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">品牌故事</a></li>
+                <li><a href="#">所有商品</a></li>
+                <li><a href="#">居家生活</a></li>
+                <li><a href="#">玩具公仔</a></li>
+                <li><a href="#">瑪瑪書店</a></li>
+                <li><a href="#">手機周邊</a></li>
+                <li><a href="#">不想運動運動會</a></li>
+                <li><a href="#">Socles黑漆漆生日館</a></li>
+            </ul>
+        </nav>
     </div>
     <div class="banner">
         <img src="https://shoplineimg.com/5cf4a5bd4956340001e08e0d/6037694d61a190002384aa22/3400x.webp?source_format=jpg" alt="">
     </div>
-</header>
+
 
 <body>
 

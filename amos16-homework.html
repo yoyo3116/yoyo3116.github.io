@@ -13,6 +13,7 @@
         body{
             margin: 0;
         }
+        
         .banner{
             width:960px;
             margin: auto;
@@ -35,8 +36,11 @@
 
 
         .logo{
-            position: fixed;
-            padding:30px 0px 0px 20px;
+            width: 50px;
+            height: 50px;
+            padding:0px 0px 0px 20px;
+            position: relative;
+            top:-10px;
         }
         .logo img{
             width: 50px;
@@ -69,12 +73,37 @@
             text-decoration: none;
             color: #000;
             font-size: 12px;
+        } 
+        .header li a:hover{
+            color: #FDD000;
         }
 
-
-
-
-
+        
+        .dropdown{
+            position: relative;
+        }
+        .dropdown:hover .dropitem{
+            display: block;
+        
+        }
+        .dropitem{
+            padding: 0px;
+            position: absolute;
+            display: none;
+            transition: .5s;
+        
+        }
+        .dropitem li{
+            width: 100px;
+            text-align: center;
+            margin: 0px;
+            padding: 10px 60px 10px 10px;
+            background-color: #FFF;
+            
+        }
+        .dropitem li{
+            margin: 0px;
+        }
 
         .head {
             width: 960px;
@@ -287,7 +316,6 @@
 
 
     <div class="header">
-        <div class="logo"><a href=""><img src="https://img.shoplineapp.com/media/image_clips/60877c91e67283002f8ab371/original.png?1619491985" alt=""></a></div>
         <nav id="right">
             <ul>
                 <li><a href="#"><i class="fas fa-globe"></i>繁體中文</a></li>
@@ -298,12 +326,27 @@
             </ul>
         </nav>
         <nav id="left">
+            <div class="logo"><a href=""><img src="https://img.shoplineapp.com/media/image_clips/60877c91e67283002f8ab371/original.png?1619491985" alt=""></a></div>
             <ul>
                 <li><a href="#">首頁</a></li>
                 <li><a href="#">品牌故事</a></li>
-                <li><a href="#">所有商品</a></li>
-                <li><a href="#">居家生活</a></li>
-                <li><a href="#">玩具公仔</a></li>
+                <li class="dropdown"><a href="#">所有商品<i class="fas fa-chevron-down"></i></a>
+                <ul class="dropitem">
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">現貨商品</a></li>
+                    <li><a href="#">預購商品</a></li>
+                </ul></li>
+                <li class="dropdown"><a href="#">居家生活<i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropitem">
+                        <li><a href="#">生活小物</a></li>
+                        <li><a href="#">聯名寢具</a></li>
+                        <li><a href="#">珪藻土</a></li>
+                    </ul></li>
+                <li class="dropdown"><a href="#">玩具公仔<i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropitem">
+                        <li><a href="#">後宮棒球隊公仔</a></li>
+                        <li><a href="#">絨毛娃娃</a></li>
+                    </ul></li>
                 <li><a href="#">瑪瑪書店</a></li>
                 <li><a href="#">手機周邊</a></li>
                 <li><a href="#">不想運動運動會</a></li>

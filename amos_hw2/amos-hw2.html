@@ -10,10 +10,13 @@
     <title>line練習</title>
 </head>
 <style>
-    /* * {
+    * {
         outline: 1px red solid;
-    } */
-
+    }
+    .header a{
+        text-decoration: none;
+        color: #000;
+    }
     .header {
         position: sticky;
         top: 0;
@@ -36,13 +39,24 @@
     }
 
     .navitem li {
-        height: 30px;
-        line-height: 30px;
+
+        height: 50px;
+        line-height: 50px;
         display: inline-block;
         margin: 0px 45px;
         font-size: 18px;
         font-weight: bolder;
         font-family: 微軟正黑體;
+        
+    }
+    .item_choose{
+        border-bottom:3px black solid ;
+        }
+    .navitem li>a{
+        display: inline-block;
+        height: 50px;
+        text-decoration: none;
+        color: #000;
     }
 
     .transfer {
@@ -104,7 +118,9 @@
     }
 
     .left {
-
+        position: relative;
+        top:0;
+        z-index: 999;
         box-sizing: border-box;
         width: 600px;
         padding: 70px 0px 70px 40px;
@@ -252,7 +268,12 @@
         height: 80px;
         width: 80px;
     }
-
+    .pic2 img {
+        position: relative;
+        top:0;
+        z-index: 0;
+    }
+    
     .change .pic2 {
         width: 880px;
         height: 880px;
@@ -455,7 +476,11 @@
         margin: 20px 20px 0px;
         padding: 10px;
     }
-
+    .content.change{
+        position: relative;
+        z-index: 0;
+        top:0;
+    }
     .app h4 {
         font-size: 20px;
         margin: 0px 20px;
@@ -496,17 +521,17 @@
     <main>
         <div class="header">
             <div class="logo">
-                <img src="https://line.me/static/940874c48d2369be137d812b15491843/f2838/icon-title-pc.png">
+                <a href="#"><img src="https://line.me/static/940874c48d2369be137d812b15491843/f2838/icon-title-pc.png"></a>
             </div>
             <nav class="navitem">
                 <ul>
-                    <li>Life on LINE</li>
-                    <li>通訊軟體</li>
-                    <li>服務總覽</li>
+                    <li class="item_choose"><a href="#">Life on LINE</a></li>
+                    <li><a href="#">通訊軟體</a></li>
+                    <li><a href="#">服務總覽</a></li>
                 </ul>
             </nav>
             <div class="transfer">
-                <p><i class="fas fa-globe"></i> TW-</p>
+                <a href="#"><p><i class="fas fa-globe"></i> TW-</p></a>
             </div>
         </div>
         <div class="banner">
@@ -533,8 +558,7 @@
 
                 </div>
                 <div class="right">
-                    <img src="https://line.me/static/fc6a34517fc06ee4b2c097f2de95cf17/af5ac/0386be561893eaf8b3f444a3b7206b7a.png"
-                        alt="">
+                    <img src="https://line.me/static/fc6a34517fc06ee4b2c097f2de95cf17/af5ac/0386be561893eaf8b3f444a3b7206b7a.png"alt="">
                 </div>
             </div>
             <div class="content border change">
@@ -698,21 +722,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover2"><i class="fas fa-download"></i>
@@ -732,21 +742,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover2"><i class="fas fa-download"></i>
@@ -766,21 +762,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover2"><i class="fas fa-download"></i>
@@ -800,18 +782,10 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                            <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -828,18 +802,10 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                            <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -856,18 +822,10 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                            <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -884,18 +842,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -912,18 +859,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -940,18 +876,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -968,18 +893,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -996,18 +910,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1024,18 +927,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1052,18 +944,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1080,18 +961,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1108,18 +978,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1136,18 +995,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1164,18 +1012,7 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
-                            <div class="app_cover_"><i class="fab fa-google-play"></i>
-                                <p>App store</p>
-                            </div>
-                            <div class="app_cover_2"><i class="fas fa-download"></i>
-                                <p>App store</p>
-                            </div>
-                        </div>
-                        <div class="app">
-                            <img src="https://picsum.photos/70/70/?random=1">
-                            <h4>測試</h4>
-                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
-                            <div class="app_cover"><i class="fab fa-apple"></i>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
@@ -1192,6 +1029,9 @@
                             <div class="app_cover"><i class="fab fa-apple"></i>
                                 <p>App store</p>
                             </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>
                                 <p>App store</p>
                             </div>
@@ -1204,6 +1044,298 @@
                             <h4>測試</h4>
                             <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
                             <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_"><i class="fab fa-google-play"></i>
+                                <p>App store</p>
+                            </div>
+                            <div class="app_cover_2"><i class="fas fa-download"></i>
+                                <p>App store</p>
+                            </div>
+                        </div>
+                        <div class="app">
+                            <img src="https://picsum.photos/70/70/?random=1">
+                            <h4>測試</h4>
+                            <p>動畫說道裡面古代民國二十簽名女朋友怎麼幾次還可以，</p>
+                            <div class="app_cover"><i class="fab fa-apple"></i>
+                                <p>App store</p>
+                            </div>
+                             <div class="app_cover2"><i class="fas fa-download"></i>
                                 <p>App store</p>
                             </div>
                             <div class="app_cover_"><i class="fab fa-google-play"></i>

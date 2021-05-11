@@ -1,0 +1,150 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content {
+  margin: auto;
+  width: 960px;
+  height: 890px;
+  position: relative;
+}
+
+.content a {
+  position: relative;
+  top: -50px;
+  left: 835px;
+}
+
+.content .subject {
+  width: 354px;
+  height: 387px;
+}
+
+.content .title {
+  background-color: #bb0404;
+  color: white;
+  width: 355px;
+  height: 137px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content .title p {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  font-size: 120px;
+  margin: auto px;
+  margin-left: -19px;
+}
+
+.content .title h3 {
+  font-size: 50px;
+  margin: auto;
+  overflow: hidden;
+  font-weight: 100;
+}
+
+.content .picture {
+  position: absolute;
+  top: 137px;
+  left: 186px;
+  z-index: -1;
+}
+
+.content .text {
+  background-color: #000;
+  color: white;
+  width: 355px;
+  height: 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+}
+
+.content .explain {
+  font-family: 微軟正黑體;
+  padding: 0px 25px 20px 25px;
+  top: 540px;
+  width: 655px;
+  background-color: #eeeeee;
+  position: absolute;
+}
+
+.content .explain h3 {
+  font-weight: bolder;
+  color: #c32929;
+  padding: 15px 5px;
+  border-radius: 4px;
+}
+
+.content .explain h4 {
+  font-family: "Times New Roman";
+  background-color: #000;
+  color: #eeeeee;
+  display: inline-block;
+  padding: 4px 5px;
+  border-radius: 4px;
+}
+
+.content .explain p {
+  font-weight: bolder;
+  color: #616161;
+  padding: 0px 5px;
+  margin: 5px 0px;
+  border-radius: 4px;
+}
+
+.content .explain span {
+  color: #c32929;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.content .space {
+  width: 440px;
+  height: 290px;
+  background-color: #eee;
+  position: absolute;
+  right: 0px;
+  top: 38px;
+  z-index: -2;
+}
+
+.content:nth-child(even) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.content:nth-child(even) .title p {
+  margin-right: -19px;
+}
+
+.content:nth-child(even) a {
+  top: 380px;
+  left: -545px;
+  height: 35px;
+}
+
+.content:nth-child(even) .picture {
+  left: 15px;
+}
+
+.content:nth-child(even) .space {
+  width: 520px;
+  height: 415px;
+  top: 60px;
+  right: 165px;
+}
+/*# sourceMappingURL=toyota.css.map */

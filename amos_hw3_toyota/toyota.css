@@ -5,6 +5,70 @@
   list-style: none;
 }
 
+@-webkit-keyframes TestMove {
+  from {
+    top: 36px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes TestMove {
+  from {
+    top: 36px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+.button {
+  width: 960px;
+  text-align: center;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 50px auto;
+  padding-top: 50px;
+}
+
+.button a {
+  position: relative;
+  border: 1px gray dotted;
+  line-height: 38px;
+  height: 38px;
+  display: inline-block;
+  width: 180px;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+
+.button a::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 0;
+  width: 100%;
+  height: 38px;
+  background-color: #ae0014;
+  z-index: -1;
+}
+
+.button a:hover {
+  color: #fff;
+}
+
+.button a:hover::after {
+  -webkit-animation: TestMove .3s forwards linear;
+          animation: TestMove .3s forwards linear;
+}
+
 .content {
   margin: auto;
   width: 960px;
@@ -66,6 +130,16 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 20px;
+}
+
+.content .text h3 {
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+.content .text p {
+  font-size: 22px;
+  line-height: 1.5;
 }
 
 .content .explain {

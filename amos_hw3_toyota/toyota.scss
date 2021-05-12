@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  
 }
 
 @keyframes TestMove{
@@ -10,12 +11,11 @@
   to {top:0px;}
 }
 .button{
-  
   width: 960px;
   text-align: center;
   margin: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin: 50px auto;
   padding-top:50px;
   a{
@@ -49,7 +49,7 @@
 .content {
   margin: auto;
   width: 960px;
-  height: 890px;
+  height: 1000px;
   position: relative;
   a {
     position: relative;
@@ -59,6 +59,7 @@
   .subject {
     width: 354px;
     height: 387px;
+    padding-bottom:10px;
   }
   .title {
     p {
@@ -91,7 +92,8 @@
     background-color: #000;
     color: white;
     width: 355px;
-    height: 250px;
+    height: 290px;
+    
     box-sizing: border-box;
     padding: 20px;
     h3{

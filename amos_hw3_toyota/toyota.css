@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  outline: 1px red solid;
 }
 
 @-webkit-keyframes TestMove {
@@ -29,17 +28,23 @@
   background-color: #fff;
 }
 .video{
+  display: flex;
+  justify-content: center;
+  height: 480px;
+  overflow: hidden;
   margin-bottom: 30px;
   position: relative;
 }
 video{
-  width: 100%;
+  top:3px;
+  width:960px;
   position: relative;
   z-index: 32;
+  overflow: hidden;
 }
 .video img{
-  height: 100%;
-  width: 100%;
+  
+width: 960px;
  font-size: 300px;
  position: absolute;
  z-index: 33;

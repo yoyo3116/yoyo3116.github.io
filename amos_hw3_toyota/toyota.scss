@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  
+  outline: 1px red solid;
 }
 
 @keyframes TestMove{
@@ -45,6 +45,9 @@
   a:hover::after{
     animation:TestMove .3s forwards linear;
   }
+}
+.video{
+  width: 960px;
 }
 .content {
   margin: auto;

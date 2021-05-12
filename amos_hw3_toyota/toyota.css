@@ -35,16 +35,17 @@
   overflow: hidden;
   margin-bottom: 30px;
   position: relative;
+  
 }
 video{
-  top:3px;
   width:960px;
   position: relative;
   z-index: 32;
   overflow: hidden;
+  top:3px;
 }
 .video img{
-  
+
 width: 960px;
  font-size: 300px;
  position: absolute;

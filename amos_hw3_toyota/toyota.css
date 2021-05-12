@@ -29,25 +29,23 @@
   background-color: #fff;
 }
 .video{
-  display: flex;
-  justify-content: center;
+  width: 960px;
+  margin: auto;
   height: 480px;
-  overflow: hidden;
   margin-bottom: 30px;
-
+  overflow: hidden;
 }
 video{
   width:960px;
-  overflow: hidden;
-  top:3px;
 }
 
 .video img{
 width: 960px;
+
 font-size: 300px;
 position: absolute;
 z-index: 33;
-top:189px;
+top:188px;
 }
 
 .button {

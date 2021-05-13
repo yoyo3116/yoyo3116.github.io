@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  outline: 1px red solid;
 }
 
 @-webkit-keyframes TestMove {

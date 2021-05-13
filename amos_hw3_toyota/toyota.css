@@ -69,10 +69,6 @@
           animation: TestMove .3s forwards linear;
 }
 
-.video {
-  width: 960px;
-}
-
 .content {
   margin: auto;
   width: 960px;
@@ -196,7 +192,7 @@
   z-index: -2;
 }
 
-.content:nth-child(even) {
+.content:nth-child(odd) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,21 +202,21 @@
           flex-direction: row-reverse;
 }
 
-.content:nth-child(even) .title p {
+.content:nth-child(odd) .title p {
   margin-right: -19px;
 }
 
-.content:nth-child(even) a {
+.content:nth-child(odd) a {
   top: 380px;
   left: -545px;
   height: 35px;
 }
 
-.content:nth-child(even) .picture {
+.content:nth-child(odd) .picture {
   left: 15px;
 }
 
-.content:nth-child(even) .space {
+.content:nth-child(odd) .space {
   width: 520px;
   height: 415px;
   top: 60px;

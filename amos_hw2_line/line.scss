@@ -1,3 +1,11 @@
+
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
 .header {
   a {
     text-decoration: none;
@@ -319,6 +327,21 @@
 
 
 .tags {
+  input {
+    font-size: 13px;
+    padding: 2px 15px;
+    font-weight: bolder;
+    line-height: 30px;
+    border: rgba(97, 89, 89, 0.8) 1px solid;
+    background-color: rgba(255, 255, 255, 0);
+    display: inline;
+    margin-bottom: 16px;
+    border-radius: 25px;
+  }
+  .tags input:hover {
+    background-color: #07b53b;
+    color: #fff;
+  }
   padding-left: 120px;
   position: sticky;
   top: 180px;
@@ -329,22 +352,9 @@
   box-sizing: border-box;
 }
 
-.tags input {
-  font-size: 13px;
-  padding: 2px 15px;
-  font-weight: bolder;
-  line-height: 30px;
-  border: rgba(97, 89, 89, 0.8) 1px solid;
-  background-color: rgba(255, 255, 255, 0);
-  display: inline;
-  margin-bottom: 16px;
-  border-radius: 25px;
-}
 
-.tags input:hover {
-  background-color: #07b53b;
-  color: #fff;
-}
+
+
 
 .appbox {
   position: relative;
@@ -378,7 +388,6 @@
   background-color: #07b53b;
   opacity: 0;
 }
-
 .app_cover,
 .app_cover_ {
   z-index: 1;
@@ -399,14 +408,12 @@
   font-weight: bolder;
   opacity: 0;
 }
-
 .app_cover_2,
 .app_cover_ {
   top: 230px;
   left: 60px;
   opacity: 0;
 }
-
 .app {
   box-shadow: 0px 5px 20px #c8c8c8;
   height: 340px;
@@ -496,3 +503,30 @@
 .drops {
   height: 2000px;
 }
+.col-1{width: 8.333333%;}
+        .col-2{width: 16.666666%;}
+        .col-3{width:25%;}
+        .col-4{width:33.333333%;}
+        .col-5{width:41.666666%;}
+        .col-6{width:50%;}
+        .col-7{width:58.333333%;}
+        .col-8{width:66.666666%;}
+        .col-9{width:75%;}
+        .col-10{width:83.333333%;}
+        .col-11{width:91.666666%;}
+        .col-12{width:100%;}
+
+        @media screen and (min-width:768px){
+        .col-md-1{width: 8.333333%;}
+        .col-md-2{width: 16.666666%;}
+        .col-md-3{width:25%;}
+        .col-md-4{width:33.333333%;}
+        .col-md-5{width:41.666666%;}
+        .col-md-6{width:50%;}
+        .col-md-7{width:58.333333%;}
+        .col-md-8{width:66.666666%;}
+        .col-md-9{width:75%;}
+        .col-md-10{width:83.333333%;}
+        .col-md-11{width:91.666666%;}
+        .col-md-12{width:100%;}
+        }

@@ -164,6 +164,15 @@ table {
           justify-content: center;
 }
 
+.wrap .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0px 20px 80px;
+}
+
 .wrap .textArea {
   position: relative;
   margin-left: 47px;
@@ -175,7 +184,7 @@ table {
   left: -47px;
   width: 36px;
   height: 36px;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -238,13 +247,25 @@ table {
   display: none;
 }
 
-.item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 0px 20px 80px;
+.servicetitle {
+  margin-top: 92px;
+  margin-bottom: 25px;
+  display: block;
+  width: 100%;
+  position: relative;
+  background-color: #07b53b;
+}
+
+.servicetitle h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #1e1e1e;
+  font-size: 28px;
+  text-align: center;
+  font-weight: 700;
 }
 
 .option ul {
@@ -258,8 +279,14 @@ table {
 }
 
 .option ul li {
-  border: 1px black solid;
-  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(34, 34, 34, 0.15);
+  border-radius: 50px;
+  padding: 8px 15px;
+  color: rgba(30, 30, 30, 0.7);
+  background-color: transparent;
+  font-family: SFPro, Arial, Noto Sans JP, Noto Sans KR, sans-serif;
   margin: 0 5px;
 }
 
@@ -296,6 +323,44 @@ table {
   font-weight: 400;
 }
 
+.section .item2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.section .item2 .content h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 16px 0 12px;
+  text-align: center;
+}
+
+.section .item2 .content p {
+  color: #616161;
+  line-height: 1.6;
+  font-size: 14px;
+  display: block;
+  font-weight: 400;
+}
+
+.lastbanner {
+  position: relative;
+  top: 0px;
+}
+
+.lastbanner h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 20px;
+  z-index: 10;
+  font-weight: 700;
+}
+
 .box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -313,11 +378,14 @@ table {
 
 .box .win {
   width: 100%;
-  border-bottom: 1px gray solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  padding: 25px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .box .win img {
@@ -335,6 +403,19 @@ table {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.box .win .content h3 {
+  font-family: SFPro, Arial, Noto Sans JP, Noto Sans KR, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.box .win .content p {
+  font-size: 13px;
+  color: #616161;
+  font-weight: 400;
 }
 
 .item:nth-of-type(odd) {

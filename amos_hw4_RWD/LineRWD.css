@@ -347,8 +347,13 @@ table {
 }
 
 .lastbanner {
+  max-width: 1200px;
   position: relative;
   top: 0px;
+}
+
+.lastbanner img {
+  width: 100%;
 }
 
 .lastbanner h2 {
@@ -437,10 +442,17 @@ table {
   width: 100%;
 }
 
+.option {
+  width: 100%;
+}
+
 .option ul {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 [class*="col-"] {

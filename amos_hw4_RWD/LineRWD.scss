@@ -239,7 +239,12 @@
     }
   }
 }
+
 .lastbanner {
+  max-width: 1200px;
+  img {
+    width: 100%;
+  }
   position: relative;
   top: 0px;
   h2 {
@@ -252,6 +257,7 @@
     font-weight: 700;
   }
 }
+
 .box {
   display: flex;
   flex-wrap: wrap;
@@ -296,8 +302,13 @@
 .content img {
   width: 100%;
 }
-.option ul {
-  display: flex;
+.option {
+  width: 100%;
+  ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 [class*="col-"] {

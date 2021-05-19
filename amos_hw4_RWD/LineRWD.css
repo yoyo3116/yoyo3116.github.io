@@ -112,7 +112,7 @@ table {
 .header2 {
   position: -webkit-sticky;
   position: sticky;
-  top: 30px;
+  top: 0;
   margin-bottom: 30px;
 }
 
@@ -444,6 +444,7 @@ table {
 }
 
 .option {
+  
   width: 100%;
 }
 
@@ -452,8 +453,8 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  overflow: hidden;
+  
 }
 
 [class*="col-"] {

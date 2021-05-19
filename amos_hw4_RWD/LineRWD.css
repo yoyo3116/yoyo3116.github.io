@@ -386,33 +386,39 @@ table {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: flex;
   position: relative;
   padding: 25px 0;
-  -sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-.box .win .pic{
-  border-radius: 10px;
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-}
-.box .win .content{
-  padding-left: 10PX;
+
+.box .win img {
+  margin: 20px;
 }
 
-
+.box .win .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
 .box .win .content h3 {
   font-family: SFPro, Arial, Noto Sans JP, Noto Sans KR, sans-serif;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 10PX;
   color: #1e1e1e;
 }
 
 .box .win .content p {
-  display: block;
   font-size: 13px;
   color: #616161;
   font-weight: 400;

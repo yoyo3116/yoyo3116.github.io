@@ -286,6 +286,10 @@
   padding: 25px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
+.app_cover{
+  display: none;
+}
+
 .app img {
   position: absolute;
   top: 0;
@@ -377,6 +381,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .header {
+    position: fixed;
+    top:0px;
+  }
   .itd:nth-child(odd) {
     flex-direction: row-reverse;
   }
@@ -515,12 +523,61 @@
   .appList input {
     display: inline-block;
   }
+  .appList span:first-child input{
+    background-color: #07b53b;
+    color: #fff;
+  }
   .app{
     min-height:340px ;
     background-color: #fff;
     margin-bottom:40px;
     box-shadow: 1px 1px 18px rgba(0, 0, 0, 0.15);
     padding: 20px;
+  }
+  .app:hover .app_cover{
+    display: block;
+  }
+  .app_cover{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position:absolute;
+    top:0px;
+    left: 0px;
+  }
+  .btnArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 100%;
+    text-align: center;
+  }
+  .Apple{
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    color:white;
+    padding: 10px;
+    display: inline-block;
+    border: 1px white solid;
+    margin-bottom:10px ;
+  }
+  .Apple:hover{
+    background-color: green;
+  }
+  .Google{
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    color:white;
+    padding: 10px;
+    display: inline-block;
+    border: 1px white solid;
+  }
+  .Google:hover{
+    background-color: green;
   }
   .app img{
     position: static;

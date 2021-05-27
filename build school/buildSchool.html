@@ -20,6 +20,7 @@
     }
 
     .slideOne {
+      animation:TestMove 5s infinite alternate-reverse;
       width: 100% auto;
       background: url('https://static.wixstatic.com/media/11062b_20125b6ebe434abd96c4d7773634d1dbf000.jpg/v1/fill/w_1519,h_710,al_c,q_85,usm_0.33_1.00_0.00/11062b_20125b6ebe434abd96c4d7773634d1dbf000.webp');
     }
@@ -54,8 +55,49 @@
       height: 80px;
     }
 
-    .imgArea{
-      height: 250px;
+    .imgArea {
+      height: 350px;
+    }
+
+    .nav-link:hover {
+      color: #5875f7 !important;
+    }
+
+    .bbtn {
+      height: 45px;
+      top: 100px;
+    }
+
+    .bbtn>a {
+      line-height: 45px;
+      width: 400px;
+      background-color: rgba(52, 119, 219, 0.63);
+      text-decoration: none;
+    }
+
+    .picc{
+      height: 125px;
+    }
+    
+
+    @keyframes TestMove {
+      from {
+        opacity: 0.7;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (min-width:992px) {
+      .navbar {
+        position: absolute !important;
+        background-color: transparent !important;
+      }
+
+      .bbtn {
+        gap: 50px !important;
+      }
     }
   </style>
 </head>
@@ -63,36 +105,36 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
-    <div class="container-fluid ">
+  <nav class="navbar navbar-expand-lg navbar-light  position-fixed w-100 bg-dark bg-gradient  ">
+    <div class="container-fluid d-flex ">
       <a class="navbar-brand" href="https://www.build-school.com/">
         <img
           src="https://static.wixstatic.com/media/5a71f2_1e714a102af34089a58b0544cc0ca35d~mv2.png/v1/fill/w_68,h_74,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_1e714a102af34089a58b0544cc0ca35d~mv2.webp"
           alt="">
-        <span>Build School</span></a>
+        <span class="text-light">Build School</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto ">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">台北班簡介</a>
+            <a class="nav-link text-light active " aria-current="page" href="#">台北班簡介</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">新竹班簡介</a>
+            <a class="nav-link text-light" href="#">新竹班簡介</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">校友會-台灣青築未來協會 Build the Future</a>
+            <a class="nav-link text-light" href="#">校友會-台灣青築未來協會 Build the Future</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
+            <a class="nav-link text-light" href="#">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">歷屆老師</a>
+            <a class="nav-link text-light" href="#">歷屆老師</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">問題洽詢</a>
+            <a class="nav-link text-light" href="#">問題洽詢</a>
           </li>
         </ul>
       </div>
@@ -104,9 +146,15 @@
       <!-- Slides -->
       <div class="swiper-slide slideOne ">
         <div class="info text-center d-flex flex-column justify-content-center h-100">
-          <p class="fs-2 mb-0"><br>前往峰頂的路上</br>有人帶</p>
-          <p class=""><br>START CODING AND GET COACHED FROM MENTORS</br>MENTORS</p>
+          <p class="fs-1  fw-bold mb-0 text-light">前往峰頂的路上<br>有人帶</p>
+          <p class=" fw-bold text-light">START CODING AND GET COACHED FROM MENTORS<br>MENTORS</p>
+          <div class="bbtn d-flex gap-2 flex-wrap justify-content-evenly  fs-6 position-relative">
+            <a href="#" class=" text-light mx-auto px-2 rounded-pill fw-bold ">台北班簡介及報名(2021/5/3開課)</a>
+            <a href="#" class=" text-light mx-auto px-2 rounded-pill fw-bold">新竹班簡介(2021/11月後)</a>
+            <a href="#" class=" text-light mx-auto px-2 rounded-pill fw-bold">招生説明會報名</a>
+          </div>
         </div>
+
       </div>
       <div class="swiper-slide">
       </div>
@@ -223,65 +271,71 @@
   <div class="container">
     <div class="row mb-5">
       <div class="col-6 col-md-3">
-        <div class="item text-center fw">
-          <p class="fw-bold">第1-4個月</p>
-          <div class="ipic  mx-auto w-25 mb-3 ">
-            <img
-              src="data:image/svg+xml;utf8,%3Csvg%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20data-bbox%3D%220%2019.2%20200%20161.6%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%2019.2%20200%20161.6%22%20role%3D%22img%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M190.1%2080.8h-5.5V31.4c0-7.4-4.9-12.2-12.5-12.2H14.8C7.6%2019.2%200%2023.5%200%2031.4v103.4c0%207.6%207.3%2015.1%2014.8%2015.1h56.9L66.8%20173h-5.3c-2.1%200-3.8%201.7-3.8%203.8s1.7%203.8%203.8%203.8h61.6c2.1%200%203.8-1.7%203.8-3.8s-1.7-3.8-3.8-3.8H119l-5-23h32.1v20.9c0%205.4%204.4%209.9%209.9%209.9h34.1c5.4%200%209.9-4.4%209.9-9.9V90.6c0-5.4-4.4-9.8-9.9-9.8zm-36.3%2023h38.5v53.8h-38.5v-53.8zm36.3-15.3c1.2%200%202.2%201%202.2%202.2v5.5h-38.5v-5.5c0-1.2%201-2.2%202.2-2.2h34.1zM156%2080.8c-5.4%200-9.9%204.4-9.9%209.9v28.6H7.7v-77h169.2v38.5H156zM7.7%2031.4c0-3.3%204.4-4.5%207.1-4.5h157.3c4.2%200%204.8%202.2%204.8%204.5v3.2H7.7v-3.2zm103.4%20141.7H74.7l4.9-23.1h26.5l5%2023.1zm-1.8-30.8H14.8c-3.2%200-7.1-4.1-7.1-7.5v-7.9h138.5v15.4h-36.9zm83%2028.6c0%201.2-1%202.2-2.2%202.2H156c-1.2%200-2.2-1-2.2-2.2v-5.5h38.5v5.5z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"
-              class="w-100 h-100" alt="">
+          <div class="card text-center  h-100">
+            <p class="fw-bold pt-2">第1-4個月</p>
+            <div class="picc m-3"><img src="data:image/svg+xml;utf8,%3Csvg%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20data-bbox%3D%220%2019.2%20200%20161.6%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%2019.2%20200%20161.6%22%20role%3D%22img%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M190.1%2080.8h-5.5V31.4c0-7.4-4.9-12.2-12.5-12.2H14.8C7.6%2019.2%200%2023.5%200%2031.4v103.4c0%207.6%207.3%2015.1%2014.8%2015.1h56.9L66.8%20173h-5.3c-2.1%200-3.8%201.7-3.8%203.8s1.7%203.8%203.8%203.8h61.6c2.1%200%203.8-1.7%203.8-3.8s-1.7-3.8-3.8-3.8H119l-5-23h32.1v20.9c0%205.4%204.4%209.9%209.9%209.9h34.1c5.4%200%209.9-4.4%209.9-9.9V90.6c0-5.4-4.4-9.8-9.9-9.8zm-36.3%2023h38.5v53.8h-38.5v-53.8zm36.3-15.3c1.2%200%202.2%201%202.2%202.2v5.5h-38.5v-5.5c0-1.2%201-2.2%202.2-2.2h34.1zM156%2080.8c-5.4%200-9.9%204.4-9.9%209.9v28.6H7.7v-77h169.2v38.5H156zM7.7%2031.4c0-3.3%204.4-4.5%207.1-4.5h157.3c4.2%200%204.8%202.2%204.8%204.5v3.2H7.7v-3.2zm103.4%20141.7H74.7l4.9-23.1h26.5l5%2023.1zm-1.8-30.8H14.8c-3.2%200-7.1-4.1-7.1-7.5v-7.9h138.5v15.4h-36.9zm83%2028.6c0%201.2-1%202.2-2.2%202.2H156c-1.2%200-2.2-1-2.2-2.2v-5.5h38.5v5.5z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" class="card-img-top  mx-auto h-100" alt="..."></div>
+            <div class="card-body">
+              <h4 class="text-danger fs-5 fw-bold">程式基礎教學</h4>
+              <ul class="list-group  ">
+                <li class="amosbg list-group-item border boeder-3 text-dark">業界實戰講師</li>
+                <li class="amosbg list-group-item border boeder-3 text-dark">企業主管/創業家/CTO演講</li>
+              </ul>
+            </div>
           </div>
-          <h4 class="text-danger fs-5 fw-bold">程式基礎教學</h4>
-          <ul class="text-start px-5">
-            <li>業界實戰講師</li>
-            <li>企業主管/創業家/CTO演講</li>
-          </ul>
-        </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="item text-center">
-          <p class="fw-bold">第5-6個月</p>
-          <div class="ipic mx-auto w-25 mb-3"><img
-              src="data:image/svg+xml;utf8,%3Csvg%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20data-bbox%3D%2250%200%20100%20200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2250%200%20100%20200%22%20role%3D%22img%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M97%200h7v33h-7V0z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M75.2%2036.9L66.6%2022l6.5-3.6%208.5%2014.8-6.4%203.7z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M106%2060.5v7.4c11%200%2020.4%208.8%2020.4%2020.2%200%20.1-.1%200-.1%200h7.4c.2-15-12-27.7-27.4-28-.1%200-.3.4-.3.4z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M100%2042.1c-27.6%200-50%2022.3-50%2049.9%200%208%201.9%2015.9%205.6%2023%202.5%205.7%205.8%2011.2%209.3%2016.3C69.3%20138%2073%20143.6%2073%20150v33c0%202%201.6%202.2%203.7%202.2h7.5c.6%207%207.4%2014.8%2015.8%2014.8s15.2-7.8%2015.8-14.8h7.5c2.1%200%203.7%200%203.7-2.2v-33c0-6.4%203.8-12.1%208.2-18.7%203.7-5.3%206.9-10.9%209.4-16.8%203.5-7%205.4-14.7%205.4-22.5%200-27.5-22.4-49.9-50-49.9zm0%20150.5c-4.3%200-7.8-4.4-8.3-7.4h16.7c-.6%203-4.1%207.4-8.4%207.4zm20-14.4H81v-10h39v10zm0-12H81v-7h39v7zm0-9H81v-6h39v6zm17.9-47.1h-.9v1.4c-2%205.6-4.9%2010.7-8.3%2015.7-4.7%207.1-8.4%2013-8.7%2022H80.7c-.3-9-4.5-14.9-9.1-22-3-4.7-6.5-9.4-8.5-15.2v-.3c-3-6-5.2-12.8-5.2-19.6%200-23.5%2018.9-42.5%2042.4-42.5s42.4%2018.4%2042.4%2041.9c-.1%206.7-1.8%2013.6-4.8%2018.6z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M125.3%2036.9l-6.4-3.7%208.5-14.8%206.4%203.7-8.5%2014.8z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"
-              class="h-100" alt=""></div>
-          <h4 class="text-danger fs-5 fw-bold">專案及作品導向實作</h4>
-          <ul class="text-start px-5">
-            <li>Web/App作品開發 - 企業導師指導</li>
-            <li>不只是 Demo - 真實可運作成果</li>
-            <li>團隊開發 - 真實軟體開發團隊的運作及分工 (Agile敏捷, kanban 看板, CI 自動化建置</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="item text-center">
-          <p class="fw-bold">第6-7個月</p>
-          <div class="ipic mx-auto w-25 mb-3">
-            <img
-              src="data:image/svg+xml;utf8,%3Csvg%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20data-bbox%3D%2216.6%200%20166.7%20200.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2216.6%200%20166.7%20200.1%22%20role%3D%22img%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M179.2%200H20.8c-2.3%200-4.2%201.9-4.2%204.2v191.7c0%202.3%201.9%204.2%204.2%204.2h158.3c2.3%200%204.2-1.9%204.2-4.2V4.2c0-2.3-1.8-4.2-4.1-4.2zM175%20191.7H25V8.3h150v183.4zm-45-62c0-.1%200-.1%200%200%20.4-2%20.6-4.1.6-6.2%200-16.1-13.1-29.2-29.2-29.2s-29.2%2013.1-29.2%2029.2c0%202.1.2%204.1.7%206.1l-.1.1-25%2041.7c-.9%201.5-.8%203.4.3%204.8s2.9%201.9%204.6%201.3l22.6-7.5%2014.8%2014.8c.8.8%201.9%201.2%202.9%201.2.4%200%20.7%200%201.1-.2%201.4-.4%202.6-1.5%202.9-3l4.3-17.2%204.3%2017.2c.4%201.5%201.5%202.6%202.9%203%20.4.1.7.2%201.1.2%201.1%200%202.2-.4%202.9-1.2l14.8-14.8%2022.6%207.5c1.7.5%203.5%200%204.6-1.3%201.1-1.4%201.2-3.3.3-4.8L130%20129.7zm-28.6-27.1c11.5%200%2020.8%209.3%2020.8%2020.8s-9.3%2020.8-20.8%2020.8-20.8-9.3-20.8-20.8c0-11.4%209.4-20.8%2020.8-20.8zm-10.6%2071.1l-11.5-11.5c-1.1-1.1-2.8-1.5-4.3-1L60.8%20166l16.1-26.8c4.3%206.7%2011.2%2011.5%2019.3%2013l-5.4%2021.5zm37-12.5c-1.5-.5-3.1-.1-4.3%201L112%20173.7l-5.4-21.5c8.1-1.5%2015-6.3%2019.3-13L142%20166l-14.2-4.8zm-65.3-132c0-2.3%201.9-4.2%204.2-4.2h66.7c2.3%200%204.2%201.9%204.2%204.2s-1.9%204.2-4.2%204.2H66.7c-2.3-.1-4.2-1.9-4.2-4.2zm4.2%2054.1c-2.3%200-4.2-1.9-4.2-4.2s1.9-4.2%204.2-4.2h66.7c2.3%200%204.2%201.9%204.2%204.2s-1.9%204.2-4.2%204.2H66.7zM37.5%2054.2c0-2.3%201.9-4.2%204.2-4.2h116.7c2.3%200%204.2%201.9%204.2%204.2s-1.9%204.2-4.2%204.2H41.7c-2.3-.1-4.2-1.9-4.2-4.2z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"
-              alt="" class="h-100 w-100">
+        <div class="card text-center h-100">
+          <p class="fw-bold pt-2">第5-6個月</p>
+          <div class="picc m-3">
+            <img src="data:image/svg+xml;utf8,%3Csvg%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20data-bbox%3D%2250%200%20100%20200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2250%200%20100%20200%22%20role%3D%22img%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M97%200h7v33h-7V0z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M75.2%2036.9L66.6%2022l6.5-3.6%208.5%2014.8-6.4%203.7z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M106%2060.5v7.4c11%200%2020.4%208.8%2020.4%2020.2%200%20.1-.1%200-.1%200h7.4c.2-15-12-27.7-27.4-28-.1%200-.3.4-.3.4z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M100%2042.1c-27.6%200-50%2022.3-50%2049.9%200%208%201.9%2015.9%205.6%2023%202.5%205.7%205.8%2011.2%209.3%2016.3C69.3%20138%2073%20143.6%2073%20150v33c0%202%201.6%202.2%203.7%202.2h7.5c.6%207%207.4%2014.8%2015.8%2014.8s15.2-7.8%2015.8-14.8h7.5c2.1%200%203.7%200%203.7-2.2v-33c0-6.4%203.8-12.1%208.2-18.7%203.7-5.3%206.9-10.9%209.4-16.8%203.5-7%205.4-14.7%205.4-22.5%200-27.5-22.4-49.9-50-49.9zm0%20150.5c-4.3%200-7.8-4.4-8.3-7.4h16.7c-.6%203-4.1%207.4-8.4%207.4zm20-14.4H81v-10h39v10zm0-12H81v-7h39v7zm0-9H81v-6h39v6zm17.9-47.1h-.9v1.4c-2%205.6-4.9%2010.7-8.3%2015.7-4.7%207.1-8.4%2013-8.7%2022H80.7c-.3-9-4.5-14.9-9.1-22-3-4.7-6.5-9.4-8.5-15.2v-.3c-3-6-5.2-12.8-5.2-19.6%200-23.5%2018.9-42.5%2042.4-42.5s42.4%2018.4%2042.4%2041.9c-.1%206.7-1.8%2013.6-4.8%2018.6z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M125.3%2036.9l-6.4-3.7%208.5-14.8%206.4%203.7-8.5%2014.8z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"
+            class="card-img-top mx-auto h-100" alt="...">
           </div>
-          <h4 class="text-danger fs-5 fw-bold">作品發表</h4>
-          <ul class="text-start px-5">
-            <li>簡報 Demo 及溝通技巧</li>
-            <li>作品及程式碼講解</li>
-            <li>個人履歷準備 – GitHub, CodePen …</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="item text-center">
-          <p class="fw-bold">未來及展望</p>
-          <div class="ipic mx-auto w-25 mb-3">
-            <img
-              src="https://static.wixstatic.com/media/9f34614e8922485da75285918bc07a85.png/v1/fill/w_138,h_138,al_c,q_85,usm_0.66_1.00_0.01/9f34614e8922485da75285918bc07a85.webp"
-              class="h-100 w-100" alt="">
+          <div class="card-body">
+            <h4 class="text-danger fs-5 fw-bold">專案及作品導向實作</h4>
+            <ul class="list-group  ">
+              <li class="amosbg list-group-item border boeder-3 text-dark">Web / App 作品開發 - 企業導師指導</li>
+              <li class="amosbg list-group-item border boeder-3 text-dark">不只是 Demo - 真實可運作成果</li>
+              <li class="amosbg list-group-item border boeder-3 text-dark">團隊開發 - 真實軟體開發團隊的運作及分工 (Agile敏捷, kanban 看板, CI 自動化建置)</li>
+            </ul>
           </div>
-          <h4 class="text-danger fs-5 fw-bold">就業及企業導師諮詢</h4>
-          <ul class="text-start px-5">
-            <li>就業媒合或未來職涯諮詢</li>
-            <li>企業導師 -人際連結及資源</li>
-          </ul>
         </div>
       </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card text-center h-100">
+          <p class="fw-bold pt-2">第6-7個月</p>
+          <div class="picc m-3">
+            <img src="data:image/svg+xml;utf8,%3Csvg%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20data-bbox%3D%2216.6%200%20166.7%20200.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2216.6%200%20166.7%20200.1%22%20role%3D%22img%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M179.2%200H20.8c-2.3%200-4.2%201.9-4.2%204.2v191.7c0%202.3%201.9%204.2%204.2%204.2h158.3c2.3%200%204.2-1.9%204.2-4.2V4.2c0-2.3-1.8-4.2-4.1-4.2zM175%20191.7H25V8.3h150v183.4zm-45-62c0-.1%200-.1%200%200%20.4-2%20.6-4.1.6-6.2%200-16.1-13.1-29.2-29.2-29.2s-29.2%2013.1-29.2%2029.2c0%202.1.2%204.1.7%206.1l-.1.1-25%2041.7c-.9%201.5-.8%203.4.3%204.8s2.9%201.9%204.6%201.3l22.6-7.5%2014.8%2014.8c.8.8%201.9%201.2%202.9%201.2.4%200%20.7%200%201.1-.2%201.4-.4%202.6-1.5%202.9-3l4.3-17.2%204.3%2017.2c.4%201.5%201.5%202.6%202.9%203%20.4.1.7.2%201.1.2%201.1%200%202.2-.4%202.9-1.2l14.8-14.8%2022.6%207.5c1.7.5%203.5%200%204.6-1.3%201.1-1.4%201.2-3.3.3-4.8L130%20129.7zm-28.6-27.1c11.5%200%2020.8%209.3%2020.8%2020.8s-9.3%2020.8-20.8%2020.8-20.8-9.3-20.8-20.8c0-11.4%209.4-20.8%2020.8-20.8zm-10.6%2071.1l-11.5-11.5c-1.1-1.1-2.8-1.5-4.3-1L60.8%20166l16.1-26.8c4.3%206.7%2011.2%2011.5%2019.3%2013l-5.4%2021.5zm37-12.5c-1.5-.5-3.1-.1-4.3%201L112%20173.7l-5.4-21.5c8.1-1.5%2015-6.3%2019.3-13L142%20166l-14.2-4.8zm-65.3-132c0-2.3%201.9-4.2%204.2-4.2h66.7c2.3%200%204.2%201.9%204.2%204.2s-1.9%204.2-4.2%204.2H66.7c-2.3-.1-4.2-1.9-4.2-4.2zm4.2%2054.1c-2.3%200-4.2-1.9-4.2-4.2s1.9-4.2%204.2-4.2h66.7c2.3%200%204.2%201.9%204.2%204.2s-1.9%204.2-4.2%204.2H66.7zM37.5%2054.2c0-2.3%201.9-4.2%204.2-4.2h116.7c2.3%200%204.2%201.9%204.2%204.2s-1.9%204.2-4.2%204.2H41.7c-2.3-.1-4.2-1.9-4.2-4.2z%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"
+            class="card-img-top mx-auto h-100" alt="...">
+          </div>
+          <div class="card-body">
+            <h4 class="text-danger fs-5 fw-bold">作品發表</h4>
+            <ul class="list-group  ">
+              <li class="amosbg list-group-item border boeder-3 text-dark">簡報 Demo 及溝通技巧</li>
+              <li class="amosbg list-group-item border boeder-3 text-dark">作品及程式碼講解</li>
+              <li class="amosbg list-group-item border boeder-3 text-dark">個人履歷準備 –<br>GitHub, CodePen …</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-6 col-md-3">
+        <div class="card text-center h-100">
+          <p class="fw-bold pt-2">未來及展望</p>
+          <div class="picc m-3">
+            <img src="https://static.wixstatic.com/media/9f34614e8922485da75285918bc07a85.png/v1/fill/w_138,h_138,al_c,q_85,usm_0.66_1.00_0.01/9f34614e8922485da75285918bc07a85.webp"
+            class="card-img-top mx-auto w-50" alt="...">
+          </div>
+          <div class="card-body">
+            <h4 class="text-danger fs-5 fw-bold">就業及企業導師諮詢</h4>
+            <ul class="list-group  ">
+              <li class="amosbg list-group-item border boeder-3 text-dark">就業媒合或未來職涯諮詢</li>
+              <li class="amosbg list-group-item border boeder-3 text-dark">企業導師 -人際連結及資源</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 
@@ -290,77 +344,97 @@
       src="https://static.wixstatic.com/media/5b7e139d046c40c1a1acde7162607721.jpg/v1/fill/w_1899,h_158,al_c,q_80,usm_0.66_1.00_0.01/5b7e139d046c40c1a1acde7162607721.webp"
       class="w-100" alt="">
   </div>
-  
+
   <div class="container">
-      <div class="row">
-          <div class="col-12 col-md-3">
-            <div class="item">
-              <div class="imgArea w-50 d-grid gap-4  pt-3 mb-5 mx-auto">
-                <img src="https://static.wixstatic.com/media/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.png/v1/fill/w_175,h_73,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.webp" class="w-100">
-                <img src="https://static.wixstatic.com/media/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.png/v1/fill/w_150,h_124,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.webp" class="w-100">
-              </div>
-              <div class="txtArea mx-auto text-center">
-                <h4 class="mb-3">版本控管及程式碼管理</h4>
-                <ul class="text-start px-5">
-                  <li>
-                    學員之練習及作品之程式碼，皆採用主流的 Git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉 Open Source 生態及工具
-                  </li>
-                </ul>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <div class="item">
+          <div class="imgArea pt-3  mx-auto">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.png/v1/fill/w_175,h_73,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.webp"
+              class="mx-auto my-5 d-block ">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.png/v1/fill/w_150,h_124,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.webp"
+              class="mx-auto  my-5 d-block ">
           </div>
-          <div class="col-12 col-md-3">
-            <div class="item">
-              <div class="imgArea w-50  d-grid gap-4  pt-3 mb-5 mx-auto">
-                <img src="https://static.wixstatic.com/media/5a71f2_58bbd95542dc470f99be85f345893405~mv2.png/v1/fill/w_176,h_91,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_58bbd95542dc470f99be85f345893405~mv2.webp" class="w-100">
-                <img src="https://static.wixstatic.com/media/5a71f2_8a30597f0eaa4e219e8e19ce484061a5~mv2.png/v1/fill/w_175,h_55,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_8a30597f0eaa4e219e8e19ce484061a5~mv2.webp" class="w-100">
-              </div>
-              <div class="txtArea mx-auto text-center">
-                <h4 class="mb-3">作品開發及團隊管理</h4>
-                <ul class="text-start px-5">
-                  <li>
-                    除了使用 GitHub 外，專題開發階段也將使用 Microsoft Azure DevOps Services 進行團隊開發、包括程式碼管理、工作項目追蹤、自動化建置等，熟悉一個軟體開發專案之流程、分工及日常工作。
-                  </li>
-                  <li>
-                    也可透過目前許多開發團隊常用的專案管理及看板工具 - Trello 進行工作分派、追蹤、或整個班的工作事項管理
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div class="txtArea mx-auto text-center">
+            <h4 class="mb-3">版本控管及程式碼管理</h4>
+            <ul class="text-start px-5">
+              <li>
+                學員之練習及作品之程式碼，皆採用主流的 Git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉
+                Open Source 生態及工具
+              </li>
+            </ul>
           </div>
-          <div class="col-12 col-md-3">
-            <div class="item">
-              <div class="imgArea w-50 d-grid gap-4 pt-3 mb-5 mx-auto">
-                <img src="https://static.wixstatic.com/media/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.png/v1/fill/w_175,h_73,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.webp" class="w-100">
-                <img src="https://static.wixstatic.com/media/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.png/v1/fill/w_150,h_124,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.webp" class="w-100">
-              </div>
-              <div class="txtArea mx-auto text-center">
-                <h4 class="mb-3">版本控管及程式碼管理</h4>
-                <ul class="text-start px-5">
-                  <li>
-                    學員之練習及作品之程式碼，皆採用主流的 Git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉 Open Source 生態及工具
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3">
-            <div class="item">
-              <div class="imgArea w-50 d-grid gap-4 pt-3 mb-5 mx-auto">
-                <img src="https://static.wixstatic.com/media/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.png/v1/fill/w_175,h_73,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_868f17332f214b9d86734bf26e59940a~mv2.webp" class="w-100">
-                <img src="https://static.wixstatic.com/media/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.png/v1/fill/w_150,h_124,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_c6c8344c1efd4032a1231408aa6b6c37~mv2.webp" class="w-100">
-              </div>
-              <div class="txtArea mx-auto text-center">
-                <h4 class="mb-3">版本控管及程式碼管理</h4>
-                <ul class="text-start px-5">
-                  <li>
-                    學員之練習及作品之程式碼，皆採用主流的 Git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉 Open Source 生態及工具
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        </div>
       </div>
+      <div class="col-12 col-md-3">
+        <div class="item">
+          <div class="imgArea pt-3  mx-auto">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_58bbd95542dc470f99be85f345893405~mv2.png/v1/fill/w_176,h_91,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_58bbd95542dc470f99be85f345893405~mv2.webp"
+              class="mx-auto my-5 d-block ">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_8a30597f0eaa4e219e8e19ce484061a5~mv2.png/v1/fill/w_175,h_55,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_8a30597f0eaa4e219e8e19ce484061a5~mv2.webp"
+              class="mx-auto  my-5 d-block ">
+          </div>
+          <div class="txtArea mx-auto text-center">
+            <h4 class="mb-3">作品開發及團隊管理</h4>
+            <ul class="text-start px-5">
+              <li>
+                除了使用 GitHub 外，專題開發階段也將使用 Microsoft Azure DevOps Services
+                進行團隊開發、包括程式碼管理、工作項目追蹤、自動化建置等，熟悉一個軟體開發專案之流程、分工及日常工作。
+              </li>
+              <li>
+                也可透過目前許多開發團隊常用的專案管理及看板工具 - Trello 進行工作分派、追蹤、或整個班的工作事項管理
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="item">
+          <div class="imgArea pt-3  mx-auto">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_448128a8a264471aa0039db6de58e648~mv2_d_5554_1600_s_2.png/v1/fill/w_220,h_64,al_c,q_85,usm_0.66_1.00_0.01/Microsoft_Azure_Logo_1600.webp"
+              class=" mx-auto my-5 d-block">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_8ba5a1af3eb04e1ca2171c37a386ab1e~mv2_d_1200_1591_s_2.png/v1/fill/w_69,h_91,al_c,q_85,usm_0.66_1.00_0.01/AzureSQL.webp"
+              class=" mx-auto  my-5 d-block">
+          </div>
+          <div class="txtArea mx-auto text-center">
+            <h4 class="mb-3">版本控管及程式碼管理</h4>
+            <ul class="text-start px-5">
+              <li>
+                學員之練習及作品之程式碼，皆採用主流的 Git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉
+                Open Source 生態及工具
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="item">
+          <div class="imgArea pt-3  mx-auto">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_82b3c4f58443454d908e8561b65c41e9~mv2.png/v1/fill/w_266,h_64,al_c,q_85,usm_0.66_1.00_0.01/MSTeamsIcon.webp"
+              class="mx-auto  my-5 d-block">
+            <img
+              src="https://static.wixstatic.com/media/5a71f2_87ff2dd25a6343f1bcf7af34735cfb4e~mv2.png/v1/fill/w_200,h_91,al_c,q_85,usm_0.66_1.00_0.01/5a71f2_87ff2dd25a6343f1bcf7af34735cfb4e~mv2.webp"
+              class="mx-auto  my-5 d-block">
+          </div>
+          <div class="txtArea mx-auto text-center">
+            <h4 class="mb-3">版本控管及程式碼管理</h4>
+            <ul class="text-start px-5">
+              <li>
+                學員之練習及作品之程式碼，皆採用主流的 Git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉
+                Open Source 生態及工具
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 

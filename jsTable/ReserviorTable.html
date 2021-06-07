@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="jumbotron bg-info">
+
+    <h1>台灣水庫即時水情</h1>
+
+  </div>
+
+  <div id="container">
+
+
+  </div>
+  <script>
+   
+    let Titles = ['項目', '水庫名稱', '有效蓄水量', '剩餘百分比'];
+    let Reservoir = [
+      { no: 1, name: "新山水庫(基隆)", capacity: 901.48, percent: 89.9 },
+      { no: 2, name: "翡翠水庫(台北、新北)", capacity: 28220.84, percent: 84.1 },
+      { no: 3, name: "石門水庫(新北、桃園、新竹)", capacity: 5413.72, percent: 26.7 },
+      { no: 4, name: "永和山水庫(新竹、苗栗)", capacity: 464.41, percent: 15.4 },
+      { no: 5, name: "寶山水庫(新竹)", capacity: 128.57, percent: 25.5 },]
+
+    let container = document.getElementById('container');
+    let table = document.createElement('table');
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
+
+    window.onload = function () {
+      createTable();
+      container.appendChild(table)
+    }
+
+    function createTable(){
+      addthead(thead, Titles);
+      addtbody(Reservoir)
+    }
+
+    function addthead(target,DataArray){
+      let _row = document.createElement('tr');
+      DataArray.forEach(function(item){
+        let td = document.createElement('td');
+        let tdText =document.createTextNode(item);
+        td.appendChild(tdText);
+        _row.appendChild(td);
+      })
+      target.appendChild(_row);
+      table.appendChild(target);
+    }
+
+    function addtbody(data){
+      
+      for(let i =0 ; i<data.length ;i++){
+        let row =`<tr>
+                      <td>${data[i].no}</td>
+                      <td>${data[i].name}</td>
+                      <td>${data[i].capacity}</td>
+                      <td>${data[i].percent}</td>
+                      </tr>`
+        tbody.innerHTML+=row;
+      }
+      table.appendChild(tbody)
+    }
+
+
+
+
+
+    table.setAttribute("class", "table table-bordered table-striped table-dark");
+  </script>
+
+</body>
+
+</html>

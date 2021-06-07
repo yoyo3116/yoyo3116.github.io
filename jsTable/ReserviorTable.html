@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div class="jumbotron bg-info">
+  <div class="jumbotron text-center bg-info w-50 mx-auto text-light" style="background-image: url('https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2020/12/01/realtime/9173751.png&x=0&y=0&sw=0&sh=0&sl=W&fw=800&exp=3600&w=930&nt=1');">
 
     <h1>台灣水庫即時水情</h1>
 
@@ -25,11 +25,11 @@
    
     let Titles = ['項目', '水庫名稱', '有效蓄水量', '剩餘百分比'];
     let Reservoir = [
-      { no: 1, name: "新山水庫(基隆)", capacity: 901.48, percent: 89.9 },
-      { no: 2, name: "翡翠水庫(台北、新北)", capacity: 28220.84, percent: 84.1 },
-      { no: 3, name: "石門水庫(新北、桃園、新竹)", capacity: 5413.72, percent: 26.7 },
-      { no: 4, name: "永和山水庫(新竹、苗栗)", capacity: 464.41, percent: 15.4 },
-      { no: 5, name: "寶山水庫(新竹)", capacity: 128.57, percent: 25.5 },]
+      { no: 1, name: "新山水庫(基隆)", capacity: '901.48萬立方公尺', percent: '89.9%' },
+      { no: 2, name: "翡翠水庫(台北、新北)", capacity: '28220.84萬立方公尺', percent: '84.1%' },
+      { no: 3, name: "石門水庫(新北、桃園、新竹)", capacity: '5413.72萬立方公尺', percent: '26.7%' },
+      { no: 4, name: "永和山水庫(新竹、苗栗)", capacity: '464.41萬立方公尺', percent: '15.4%' },
+      { no: 5, name: "寶山水庫(新竹)", capacity: '128.57萬立方公尺', percent: '25.5%' },]
 
     let container = document.getElementById('container');
     let table = document.createElement('table');
@@ -50,8 +50,7 @@
       let _row = document.createElement('tr');
       DataArray.forEach(function(item){
         let td = document.createElement('td');
-        let tdText =document.createTextNode(item);
-        td.appendChild(tdText);
+        td.innerHTML=item
         _row.appendChild(td);
       })
       target.appendChild(_row);
@@ -60,23 +59,39 @@
 
     function addtbody(data){
       
-      for(let i =0 ; i<data.length ;i++){
-        let row =`<tr>
-                      <td>${data[i].no}</td>
-                      <td>${data[i].name}</td>
-                      <td>${data[i].capacity}</td>
-                      <td>${data[i].percent}</td>
-                      </tr>`
-        tbody.innerHTML+=row;
-      }
-      table.appendChild(tbody)
+      data.forEach (function(item){
+        let _row= document.createElement('tr');
+        let value = Object.values(item);
+        value.forEach(function(col){
+          let td =document.createElement('td');
+          td.innerHTML=col;
+          _row.appendChild(td);
+        })
+        tbody.appendChild(_row);
+        table.appendChild(tbody);
+      })
     }
 
 
 
+    // function addtbody(data){
+    //   for(let i =0 ; i<data.length ;i++){
+    //     let row =`<tr>
+    //                   <td>${data[i].no}</td>
+    //                   <td>${data[i].name}</td>
+    //                   <td>${data[i].capacity}</td>
+    //                   <td>${data[i].percent}</td>
+    //                   </tr>`
+    //     tbody.innerHTML+=row;
+    //   }
+    //   table.appendChild(tbody)
+    // }
 
 
-    table.setAttribute("class", "table table-bordered table-striped table-dark");
+
+
+    
+    table.setAttribute("class", "table table-bordered table-striped table-primary text-center mx-auto w-50 text-dark font-weight-bold");
   </script>
 
 </body>

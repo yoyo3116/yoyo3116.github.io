@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>1A2B</title>
+
+  <style>
+    #showbox {
+      height: 300px;
+      border-radius: 6px;
+      border: 1px solid black;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, .6);
+      background-image: url('http://www.ypppt.com/uploads/allimg/180317/1-1P31G14H8-50.jpg');
+      background-size: cover;
+
+    }
+
+    .inputArea {
+      display: flex;
+      width: 100% !important;
+    }
+
+    .input {
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box w-75 mx-auto">
+      <div class="btnArea w-100 d-flex mb-3">
+        <button class="btn border  w-100" id="start" type="button">開始</button>
+        <button class="btn border  w-100" id="restart" disabled type="button">放棄重來</button>
+        <button class="btn border  w-100" id="showAnswer" disabled type="button">看答案</button>
+      </div>
+      <div id="showbox">
+
+      </div>
+      <div class="inputArea">
+        <input id="input" disabled class=" w-50" placeholder="請輸入四個不重複數字" type="text" maxlength="4"
+          onkeyup="value=value.replace(/[^\d]/g,'') ">
+        <button class="btn border w-50" disabled id='submit' type="text">猜</button>
+      </div>
+    </div>
+  </div>
+  <script>
+
+
+    let btn = document.getElementsByTagName('button');
+    let start = document.querySelector('#start');
+    let restart = document.querySelector('#restart');
+    let showAnswer = document.querySelector('#showAnswer');
+
+    showAnswer.addEventListener('click', function () {
+      showbox.innerHTML = '';
+      showbox.innerHTML = `答案底家啦${answer.join('')}`;
+      btn[3].disabled = true;
+      input.disabled = true;
+    })
+
+    restart.addEventListener('click', function () {
+      let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      shuffle(num);
+      answer = num.splice(0, 4);
+      showbox.innerHTML = '';
+      showbox.innerHTML = `<h4 class="text-center badge bg-primary">重新開始 讚啦</h4>`
+      btn[3].disabled = false;
+    })
+
+    //點擊開始
+
+    let answer = [];
+    start.addEventListener('click', function () {
+      let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      shuffle(num);
+      answer = num.splice(0, 4);
+      console.log(answer);
+      btn[0].disabled = true;
+      showbox.innerHTML = `<h4 class="text-center badge bg-primary">開始遊戲了 加油</h4>`
+      for (let i = 1; i <= 3; i++) {
+        btn[i].disabled = false;
+      }
+      input.disabled = false;
+    })
+
+    //把陣列順序打亂
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+
+
+
+    let showbox = document.querySelector('#showbox');
+    let submit = document.querySelector('#submit');
+    let input = document.querySelector("#input");
+
+
+    //送出
+    submit.addEventListener('click', function () {
+      if (input.value.length != 4) {
+        alert('請輸入四個數字!!!!');
+      }
+      else {
+
+        let inputArray = input.value.split("");
+        let repalynum=0;
+        outer:
+        for (let i = 0; i <= 3; i++) {
+          let a = inputArray[i];
+          for (let j = i + 1; j <= 3; j++) {
+            if (a === inputArray[j]) {
+              repalynum++;
+            }
+          }
+        }
+        console.log(repalynum);
+
+        if(repalynum==0){
+        let A = 0;
+        let B = 0;
+
+
+        //算A的數量,根據Index位置
+        inputArray.forEach(function (item, index) {
+          if (item == answer[index]) {
+            A++;
+          }
+
+        });
+        //算B的數量,有無包含值跟answer比較 , item要轉數值
+        inputArray.forEach(function (item) {
+          if (answer.includes(parseInt(item))) {
+            B++;
+          }
+        })
+
+        B = B - A;
+
+        if (A == 4) {
+          showbox.innerHTML += `<span class="badge bg-success mb-1 w-25">${A}A${B}B<sapn>`
+          showbox.innerHTML += `<h4 class="text-center badge bg-success">過關了 哭哭</h4>`
+        }
+        else {
+          showbox.innerHTML += `<span class="badge bg-danger mb-1 w-25">${A}A${B}B<sapn>`
+        }
+
+        input.value = '';
+        }
+        else{
+          alert("你輸入的數字有重複");
+          input.value='';
+        }
+      }
+
+    });
+
+
+
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

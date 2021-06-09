@@ -66,7 +66,7 @@
 
     showAnswer.addEventListener('click', function () {
       showbox.innerHTML = '';
-      showbox.innerHTML = `答案底家啦${answer.join('')}`;
+      showbox.innerHTML = `<h3 class="text-center badge bg-primary">答案底家啦${answer.join('')}</h3>`;
       btn[3].disabled = true;
       input.disabled = true;
     })
@@ -76,8 +76,10 @@
       shuffle(num);
       answer = num.splice(0, 4);
       showbox.innerHTML = '';
-      showbox.innerHTML = `<h4 class="text-center badge bg-primary">重新開始 讚啦</h4>`
+      showbox.innerHTML = `<h3 class="text-center badge bg-primary">重新開始 讚啦</h3>`
       btn[3].disabled = false;
+      input.disabled=false;
+      input.value='';
     })
 
     //點擊開始
@@ -89,7 +91,7 @@
       answer = num.splice(0, 4);
       console.log(answer);
       btn[0].disabled = true;
-      showbox.innerHTML = `<h4 class="text-center badge bg-primary">開始遊戲了 加油</h4>`
+      showbox.innerHTML = `<h3 class="text-center badge bg-primary">開始遊戲了 加油</h3>`
       for (let i = 1; i <= 3; i++) {
         btn[i].disabled = false;
       }
@@ -154,11 +156,11 @@
         B = B - A;
 
         if (A == 4) {
-          showbox.innerHTML += `<span class="badge bg-success mb-1 w-25">${A}A${B}B<sapn>`
-          showbox.innerHTML += `<h4 class="text-center badge bg-success">過關了 哭哭</h4>`
+          showbox.innerHTML += `<span class="fs-2 badge bg-success mb-1 w-25">${A}A${B}B<sapn>`
+          showbox.innerHTML += `<h3 class="text-center badge bg-success">過關了 哭哭</h3>`
         }
         else {
-          showbox.innerHTML += `<span class="badge bg-danger mb-1 w-25">${A}A${B}B<sapn>`
+          showbox.innerHTML += `<span class="badge fs-2 bg-danger mb-1 w-25">${A}A${B}B<sapn>`
         }
 
         input.value = '';

@@ -128,9 +128,9 @@
     IPad.addEventListener('click', function () {
       product_pic.innerHTML = `<img class="h-100" src=${Product.IPad.Detail.baseImgUrl} alt="">`;
       color.innerHTML = '<h3>顏色</h3>';
-      color.innerHTML+=`<button class="btn border me-2 mx-md-2 mb-2" onclick="ipad_silver()"><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[1].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[1].color}</span></button> 
-                        <button class="btn border me-2 mx-md-2 mb-2" onclick="ipad_golden()"><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[2].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[2].color}</span></button> 
-                        <button class="btn border  me-2 mx-md-2 mb-2" onclick="ipad_gray()"><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[0].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[0].color}</span></button> `
+      color.innerHTML+=`<button class="btn border me-2 mx-md-2 mb-2" onclick="ipad_silver()"><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[0].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[0].color}</span></button> 
+                        <button class="btn border me-2 mx-md-2 mb-2" onclick="ipad_golden()"><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[1].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[1].color}</span></button> 
+                        <button class="btn border  me-2 mx-md-2 mb-2" onclick="ipad_gray()"><i class="fas fa-circle" style="color: ${Product.IPad.OutWard[2].colorValue}; font-size:40px;"></i><span class='text-center d-block'>${Product.IPad.OutWard[2].color}</span></button> `
       type.innerHTML = '<h3>規格</h3>';
       type.innerHTML +=`<button class="btn border me-2 mx-md-2 mb-2" onclick="ipad_show_price_32G()"><span class='text-center mb-2 d-block'>${Product.IPad.Spec.Storge[0].size}</span><span class='text-center d-block'>NT$${Product.IPad.Spec.Storge[0].price}</span></button>
       <button class="btn border me-2 mx-md-2 mb-2" onclick="ipad_show_price_128G()"><span class='text-center mb-2 d-block'>${Product.IPad.Spec.Storge[1].size}</span><span class='text-center d-block'>NT$${Product.IPad.Spec.Storge[1].price}</span></button>`

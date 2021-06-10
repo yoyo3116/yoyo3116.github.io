@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./Pokeball_icon-icons.com_67448.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
+
+  <title>Pokémon Website </title>
+  <style>
+    * {
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .banner {
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    #pkc {
+      position: absolute;
+      bottom: 30px;
+      left: 50px;
+      z-index: 77;
+    }
+
+    .banner .bg {
+      filter: brightness(50%);
+    }
+
+    .banner h2 {
+      position: absolute;
+      top: 30px;
+      left: 50px;
+      color: white;
+      font-size: 80px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      font-size: 20px;
+
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
+    }
+
+    .btn:active {
+      box-shadow: none !important;
+    }
+
+    .btn:focus {
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
+    }
+
+
+    .btnArea {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="banner">
+      <img src="https://i.pinimg.com/originals/4a/20/de/4a20de0d1aea7470e8321812b6400ee5.png" class="h-100 bg" alt="">
+      <img src="http://img.yao51.com/jiankangtuku/qhucactrcx.jpeg" id="pkc" alt="">
+      <h2>Pokémon Website</h2>
+    </div>
+    <div class="btnArea">
+
+      <button class="btn border" id='addone'>Click +1</button>
+      <button class="btn  border" id='removeone'>Clear -1</button>
+      <button class="btn  border" id='reset'>Reset</button>
+      <button class="btn  border" id='loadstart'>Load Start</button>
+      <button class="btn  border" id='loadstop' disabled>Stop</button>
+    </div>
+    <div id='container'></div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+
+
+  <script>
+    let addone = document.querySelector('#addone');
+    let removeone = document.querySelector('#removeone');
+    let reset = document.querySelector('#reset');
+    let loadstart = document.querySelector('#loadstart');
+    let loadstop = document.querySelector('#loadstop');
+    let container = document.querySelector('#container');
+    let index = 1;
+    let no = "";
+
+
+    window.onload = function () {
+      let imgUrl = document.createElement('img');
+      imgUrl.addEventListener('click', removeImg);
+      imgUrl.setAttribute('src', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png');
+      container.appendChild(imgUrl);
+
+
+    }
+
+
+    function createPokemons() {
+      index++;
+      no = index.toString().padStart(3, '0');
+      console.log(no);
+      let imgUrl = document.createElement('img');
+      imgUrl.addEventListener('click', removeImg);
+      imgUrl.setAttribute('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${no}.png`);
+      imgUrl.setAttribute('id', `${no}`);
+      container.appendChild(imgUrl);
+      
+
+    }
+
+
+
+
+    let container_img = document.getElementsByTagName('img');
+
+
+
+    addone.addEventListener('click', createPokemons)
+
+
+    removeone.addEventListener('click', function () {
+      var len = container.childNodes.length;
+      if (len > 0) {
+        container.removeChild(container.childNodes[len - 1]);
+      }
+    })
+
+    reset.addEventListener('click', function () {
+      container.innerHTML = '';
+      let imgUrl = document.createElement('img');
+      imgUrl.setAttribute('src', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png');
+      container.appendChild(imgUrl);
+      index = 1;
+    })
+
+    let timeoutId;
+    loadstart.addEventListener('click', function () {
+      timeoutId = setInterval(createPokemons, 700);
+      loadstop.disabled = false;
+      event.target.disabled = true;
+      addone.disabled = true;
+      removeone.disabled = true;
+      reset.disabled = true;
+    })
+
+
+    loadstop.addEventListener('click', function () {
+      clearInterval(timeoutId);
+      loadstart.disabled = false;
+      event.target.disabled = true;
+      addone.disabled = false;
+      removeone.disabled = false;
+      reset.disabled = false;
+    })
+
+    function removeImg(event) {
+
+      container.removeChild(event.target);
+
+    }
+
+    setInterval(move, 30);
+    let leftOffset = -300;
+    let pkc = document.querySelector('#pkc');
+    console.log(pkc)
+    function move() {
+
+      pkc.style.left = leftOffset + "px";
+
+      leftOffset += 10;
+
+      if (leftOffset > 1000) {
+
+        leftOffset = -300;
+
+      }
+    };
+
+
+  </script>
+</body>
+
+</html>

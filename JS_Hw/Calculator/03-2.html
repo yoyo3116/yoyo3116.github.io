@@ -10,15 +10,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <Style>
-    ::placeholder {}
-
     .container {
-      position: relative;
+
       overflow: hidden;
     }
 
     .calc {
-
+      position: relative;
       width: 500px;
       margin: auto;
       border-radius: 8px;
@@ -64,8 +62,8 @@
       width: 490px;
       color: white;
       position: absolute;
-      bottom: -62%;
-      left: 25px;
+      bottom:-450px;
+      left: 5px;
       transition: .5s;
       overflow: auto;
       flex-direction: column-reverse;
@@ -96,25 +94,25 @@
             <button class="col-3 operator topQ btn">1/x</button>
             <button class="col-3 operator topQ btn">x²</button>
             <button class="col-3 operator topQ btn">²√x</button>
-            <button class="col-3 operator math btn">÷</button>
+            <button class="col-3 operator math btn" disabled >÷</button>
           </div>
           <div class="row number">
             <button class="col-3 btn num">7</button>
             <button class="col-3 btn num">8</button>
             <button class="col-3 btn num">9</button>
-            <button class="col-3 operator math btn">×</button>
+            <button class="col-3 operator math btn" disabled >×</button>
           </div>
           <div class="row  number">
             <button class="col-3 btn num">4</button>
             <button class="col-3 btn num">5</button>
             <button class="col-3 btn num">6</button>
-            <button class="col-3 operator math btn">-</button>
+            <button class="col-3 operator math btn" disabled >-</button>
           </div>
           <div class="row  number">
             <button class="col-3 btn num">1</button>
             <button class="col-3 btn num">2</button>
             <button class="col-3 btn num">3</button>
-            <button class="col-3 operator math btn">+</button>
+            <button class="col-3 operator math btn" disabled >+</button>
           </div>
           <div class="row  number">
             <button class="col-3 btn num">±</button>
@@ -156,72 +154,92 @@
 
     topQ.forEach(x => {
       x.addEventListener('click', function (event) {
-        if(input.value==''){}
-        else{
+        if (input.value == '') { }
+        else {
           switch (x.innerText) {
-          case "1/x":
-            record.value = `1/(${input.value})`
-            input.value = 1 / Number(input.value)
-            break;
-          case "x²":
-            record.value = `sqr(${input.value})`
-            input.value = Math.pow(Number(input.value), 2)
-            break;
-          case "²√x":
-            record.value = `√(${input.value})`
-            input.value = Math.sqrt(Number(input.value))
-            break;
+            case "1/x":
+              record.value = `1/(${input.value})`
+              input.value = 1 / Number(input.value)
+              break;
+            case "x²":
+              record.value = `sqr(${input.value})`
+              input.value = Math.pow(Number(input.value), 2)
+              break;
+            case "²√x":
+              record.value = `√(${input.value})`
+              input.value = Math.sqrt(Number(input.value))
+              break;
+          }
+          historyArea.innerHTML += `<div class="text-end mb-2">${record.value}<br>${input.value}</div>`
         }
-        historyArea.innerHTML += `<div class="text-end mb-2">${record.value}<br>${input.value}</div>`}
 
-        
+
       })
     })
 
 
     del.addEventListener('click', function (event) {
+      math.forEach(x=>{x.disabled = true})
       input.value = '';
       record.value = "";
       input.setAttribute("placeholder", 0);
       p = false
       H = true
       G = true
+     
     })
     let p = false
     back.addEventListener('click', function (event) {
       if (Array.from(record.value).includes('=')) {
-        record.value=''
+        record.value = ''
         p = true
       }
       else {
-        if(p == true){ }
-        else{
+        if (p == true) { }
+        else {
           let a = Array.from(input.value);
           a.pop(a.length - 1);
           input.value = a.join('');
           p = false
         }
-        }
+      }
 
-      
+
 
     })
     //加減乘除
+    let calcss='';
     let temp = '';
     let calc = '';
     let G = true
+    let changeCal = false
+    let nowNum = 0
     math.forEach(x => {
+      
       x.addEventListener('click', function (event) {
         input.setAttribute("placeholder", temp);
-        calc = input.value += event.target.innerText;
-        input.value = '';
-        if (G == true){
-          record.value = calc;
-          G = false}
-        else{
-          record.value = temp+calc;
-          console.log('aaa');
+        calcss = event.target.innerText;
+        console.log(calcss);
+        
+        if (!changeCal) {
+          nowNum = input.value
+          console.log('ww');
+          record.value = `${input.value}${calcss}`
+          input.value = ""
+          changeCal = true
         }
+        else {
+          record.value = `${nowNum}${calcss}`
+          
+        }
+        
+        // if (G == true){
+        //   record.value = calc;
+        //   G = false}
+        // else{
+        //   record.value = temp+calc;
+        //   console.log('aaa');
+        // }
         H = true
       })
     })
@@ -239,50 +257,50 @@
       //按下後 將加之前的數字放到上方
       record.value += `${input.value}=`
       //宣告 較舊的值 
-      
+
 
       //判斷H
-      if(H == true){
+      if (H == true) {
         //這是按等於之前的值
         oldValue = Number(input.value)
         switch (calcs) {
-        case "+":
-          //按下之後的值 = 舊的上方值去掉,符號 + 
-          input.value = Number(b) + Number(input.value);
-          break;
-        case "-":
-          input.value = Number(b) - Number(input.value);
-          break;
-        case "×":
-          input.value = Number(b) * Number(input.value);
-          break;
-        case "÷":
-          input. value= Number(b) / Number(input.value);
-          break;
+          case "+":
+            //按下之後的值 = 舊的上方值去掉,符號 + 
+            input.value = Number(b) + Number(input.value);
+            break;
+          case "-":
+            input.value = Number(b) - Number(input.value);
+            break;
+          case "×":
+            input.value = Number(b) * Number(input.value);
+            break;
+          case "÷":
+            input.value = Number(b) / Number(input.value);
+            break;
+        }
+        H = false
       }
-      H = false
-      }
-      else{
+      else {
         switch (calcs) {
-        case "+":
-          //按下之後的值 = 舊的上方值去掉,符號 + 
-          input.value = Number(input.value) + Number(oldValue)
-          record.value = `${input.value-oldValue}${calcs}${oldValue}=`
-          break;
-        case "-":
-          input.value = Number(input.value) - Number(oldValue)
-          record.value = `${Number(input.value) + Number(oldValue)}${calcs}${oldValue}=`
-          break;
-        case "×":
-          input.value = Number(input.value) * Number(oldValue)
-          record.value = `${Number(input.value) / Number(oldValue)}${calcs}${oldValue}=`
-          break;
-        case "÷":
-          input. value= Number(input.value) / Number(oldValue)
-          record.value = `${Number(input.value) *  Number(oldValue)}${calcs}${oldValue}=`
-          break;
+          case "+":
+            //按下之後的值 = 舊的上方值去掉,符號 + 
+            input.value = Number(input.value) + Number(oldValue)
+            record.value = `${input.value - oldValue}${calcs}${oldValue}=`
+            break;
+          case "-":
+            input.value = Number(input.value) - Number(oldValue)
+            record.value = `${Number(input.value) + Number(oldValue)}${calcs}${oldValue}=`
+            break;
+          case "×":
+            input.value = Number(input.value) * Number(oldValue)
+            record.value = `${Number(input.value) / Number(oldValue)}${calcs}${oldValue}=`
+            break;
+          case "÷":
+            input.value = Number(input.value) / Number(oldValue)
+            record.value = `${Number(input.value) * Number(oldValue)}${calcs}${oldValue}=`
+            break;
+        }
       }
-      }
 
 
 
@@ -292,15 +310,16 @@
 
 
 
-      
+
       historyArea.innerHTML += `<div class="text-end mb-2">${record.value}<br>${input.value}</div>`
-      p=false
+      p = false
     })
 
     //給數字鍵功能
     number.forEach(x => {
       x.addEventListener('click', function (event) {
-
+        math.forEach(x=>{x.disabled = false})
+        changeCal = false
         //判斷正負數
         if (event.target.innerText == "±") {
           if (Array.from(input.value).includes('-')) {
@@ -332,17 +351,16 @@
         }
         //判斷0
         else if (event.target.innerText == "0") {
-          if (input.value == ''||input.value == '-') {
+          if (input.value == '' || input.value == '-') {
             //不要動作
           }
-          
+
           else {
             input.value += event.target.innerText;
           }
         }
         else {
-
-          input.value += event.target.innerText;
+            input.value += event.target.innerText;
         }
         temp = input.value
       })

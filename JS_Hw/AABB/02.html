@@ -135,25 +135,33 @@
         console.log(repalynum);
 
         if(repalynum==0){
-        let A = 0;
-        let B = 0;
+
+        let A=inputArray.filter((x,index)=>x==answer[index]).length;
+        console.log(A);
+
+        let B =inputArray.filter(x=>answer.map(x=>Number(x)).includes(Number(x))).length;
+        B=B-A
+        // let B =inputArray.filter(x => Number(answer.indexOf(Number(x))) !== -1 ).length -A
+        console.log(A,B);
+        // let A = 0;
+        // let B = 0;
 
 
-        //算A的數量,根據Index位置
-        inputArray.forEach(function (item, index) {
-          if (item == answer[index]) {
-            A++;
-          }
+        // 算A的數量,根據Index位置
+        // inputArray.forEach(function (item, index) {
+        //   if (item == answer[index]) {
+        //     A++;
+        //   }
 
-        });
-        //算B的數量,有無包含值跟answer比較 , item要轉數值
-        inputArray.forEach(function (item) {
-          if (answer.includes(parseInt(item))) {
-            B++;
-          }
-        })
+        // });
+        // 算B的數量,有無包含值跟answer比較 , item要轉數值
+        // inputArray.forEach(function (item) {
+        //   if (answer.includes(parseInt(item))) {
+        //     B++;
+        //   }
+        // })
 
-        B = B - A;
+        // B = B - A;
 
         if (A == 4) {
           showbox.innerHTML += `<span class="fs-2 badge bg-success mb-1 w-25">${A}A${B}B<sapn>`

@@ -12,6 +12,23 @@
   <script src="https://kit.fontawesome.com/6a1af89718.js" crossorigin="anonymous"></script>
   <title>買IPHONE</title>
 </head>
+<style>
+  #product_pic {
+    
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #product_pic img {
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+  }
+</style>
 
 <body>
   <div class="container">
@@ -74,19 +91,19 @@
           { size: '128GB', price: 13900 },
         ]
       },
-      { 
-          productName: 'MacPro 13',
-          baseImgUrl: 'https://choujustice.github.io/Fake-Apple/img/mbp13touch-space-gallery1-201907.png',
-          OutWard: [
+      {
+        productName: 'MacPro 13',
+        baseImgUrl: 'https://choujustice.github.io/Fake-Apple/img/mbp13touch-space-gallery1-201907.png',
+        OutWard: [
           { color: '太空灰色', colorValue: '#6e6969', imageUrl: 'https://choujustice.github.io/Fake-Apple/img/mbp13touch-space.png' },
           { color: '銀色', colorValue: '#b9aeae', imageUrl: 'https://choujustice.github.io/Fake-Apple/img/mbp13touch-silver.png' },
         ],
-          Storage: [
-            { size: '256GB', price: 51300 },
-            { size: '512GB', price: 57300 },
-            { size: '1TB', price: 63300 },
-            { size: '2TB', price: 75300 },
-          ]
+        Storage: [
+          { size: '256GB', price: 51300 },
+          { size: '512GB', price: 57300 },
+          { size: '1TB', price: 63300 },
+          { size: '2TB', price: 75300 },
+        ]
       }
     ];
 
@@ -110,51 +127,51 @@
 
 
         //color
-        
-        color.innerHTML+='<h3>顏色</h3>'
-        let colorItem =Product[index].OutWard;
-        colorItem.forEach(function(item){
-          let btn =document.createElement('button');
+
+        color.innerHTML += '<h3>顏色</h3>'
+        let colorItem = Product[index].OutWard;
+        colorItem.forEach(function (item) {
+          let btn = document.createElement('button');
           let icon = document.createElement('i');
           let colortxt = document.createElement('span');
-          btn.classList.add('btn','border','me-2','mx-md-2','mb-2');
-          icon.classList.add('fas','fa-circle');
-          icon.setAttribute('font-size','40px');
-          icon.style.color=item.colorValue;
-          colortxt.classList.add('text-center','d-block');
-          colortxt.innerHTML=item.color;
-          btn.append(icon,colortxt);
+          btn.classList.add('btn', 'border', 'me-2', 'mx-md-2', 'mb-2');
+          icon.classList.add('fas', 'fa-circle');
+          icon.setAttribute('font-size', '40px');
+          icon.style.color = item.colorValue;
+          colortxt.classList.add('text-center', 'd-block');
+          colortxt.innerHTML = item.color;
+          btn.append(icon, colortxt);
           color.appendChild(btn);
-          btn.addEventListener('click',function(){
-            img.setAttribute('src',item.imageUrl)
+          btn.addEventListener('click', function () {
+            img.setAttribute('src', item.imageUrl)
           })
         })
 
         //Storage
-        type.innerHTML+='<h3>規格</h3>'
-        let typeItem =Product[index].Storage;
-        typeItem.forEach(function(e){
-          let btn =document.createElement('button');
+        type.innerHTML += '<h3>規格</h3>'
+        let typeItem = Product[index].Storage;
+        typeItem.forEach(function (e) {
+          let btn = document.createElement('button');
           let typetxt = document.createElement('span');
-          let pricetxt =document.createElement('span');
-          btn.classList.add('btn','border','me-2','mx-md-2','mb-2');
-          typetxt.classList.add('text-center','d-block');
-          pricetxt.classList.add('text-center','d-block','mb-2');
-          typetxt.innerHTML=e.size;
-          pricetxt.innerHTML=`NT$${e.price}`;
-          btn.append(typetxt,pricetxt);
+          let pricetxt = document.createElement('span');
+          btn.classList.add('btn', 'border', 'me-2', 'mx-md-2', 'mb-2');
+          typetxt.classList.add('text-center', 'd-block');
+          pricetxt.classList.add('text-center', 'd-block', 'mb-2');
+          typetxt.innerHTML = e.size;
+          pricetxt.innerHTML = `NT$${e.price}`;
+          btn.append(typetxt, pricetxt);
           type.appendChild(btn);
-          btn.addEventListener('click',function(){
-            price.innerHTML=`<h3>價格</h3>`;
-            price.innerHTML+=`<h1><b>NT$${e.price}</b></h1>`
+          btn.addEventListener('click', function () {
+            price.innerHTML = `<h3>價格</h3>`;
+            price.innerHTML += `<h1><b>NT$${e.price}</b></h1>`
           })
 
         })
-          
+
       })
 
     })
-    
+
 
 
   </script>

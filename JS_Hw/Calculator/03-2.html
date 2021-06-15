@@ -11,7 +11,6 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <Style>
     .container {
-
       overflow: hidden;
     }
 
@@ -62,7 +61,7 @@
       width: 490px;
       color: white;
       position: absolute;
-      bottom:-450px;
+      bottom: -450px;
       left: 5px;
       transition: .5s;
       overflow: auto;
@@ -80,7 +79,7 @@
       <div class="row">
         <div class="screen p-0">
           <input id="record" class="py-3 text-end fs-2 w-100" disabled type="text">
-          <input id="show" class="py-3 text-end fs-1 w-100" disabled type="text" placeholder="0">
+          <input id="show" class="py-3 text-end fs-1 w-100" disabled type="text">
         </div>
       </div>
       <div class="row">
@@ -94,25 +93,25 @@
             <button class="col-3 operator topQ btn">1/x</button>
             <button class="col-3 operator topQ btn">x²</button>
             <button class="col-3 operator topQ btn">²√x</button>
-            <button class="col-3 operator math btn" disabled >÷</button>
+            <button class="col-3 operator math btn" disabled>÷</button>
           </div>
           <div class="row number">
             <button class="col-3 btn num">7</button>
             <button class="col-3 btn num">8</button>
             <button class="col-3 btn num">9</button>
-            <button class="col-3 operator math btn" disabled >×</button>
+            <button class="col-3 operator math btn" disabled>×</button>
           </div>
           <div class="row  number">
             <button class="col-3 btn num">4</button>
             <button class="col-3 btn num">5</button>
             <button class="col-3 btn num">6</button>
-            <button class="col-3 operator math btn" disabled >-</button>
+            <button class="col-3 operator math btn" disabled>-</button>
           </div>
           <div class="row  number">
             <button class="col-3 btn num">1</button>
             <button class="col-3 btn num">2</button>
             <button class="col-3 btn num">3</button>
-            <button class="col-3 operator math btn" disabled >+</button>
+            <button class="col-3 operator math btn" disabled>+</button>
           </div>
           <div class="row  number">
             <button class="col-3 btn num">±</button>
@@ -137,189 +136,104 @@
     let math = document.querySelectorAll('.math');
     let record = document.querySelector('#record');
     let submit = document.querySelector('#submit');
-    let topQ = document.querySelectorAll('.topQ');
-    let hs = document.querySelector('.hs');
-    let historyArea = document.querySelector('.historyArea');
+    let textbox = document.querySelector('.historyArea');
+    let calHardBtn = document.querySelectorAll('.topQ');
+    let hs = document.querySelector(".hs")
 
-    let up = false
-    hs.addEventListener('click', function (event) {
-      if (up == false) {
-        historyArea.style.transform = "translateY(-450px)"
-        up = true
-      } else {
-        historyArea.style.transform = "translateY(0)"
-        up = false
-      }
-    })
-
-    topQ.forEach(x => {
-      x.addEventListener('click', function (event) {
-        if (input.value == '') { }
-        else {
-          switch (x.innerText) {
-            case "1/x":
-              record.value = `1/(${input.value})`
-              input.value = 1 / Number(input.value)
-              break;
-            case "x²":
-              record.value = `sqr(${input.value})`
-              input.value = Math.pow(Number(input.value), 2)
-              break;
-            case "²√x":
-              record.value = `√(${input.value})`
-              input.value = Math.sqrt(Number(input.value))
-              break;
-          }
-          historyArea.innerHTML += `<div class="text-end mb-2">${record.value}<br>${input.value}</div>`
-        }
-
-
-      })
-    })
-
-
-    del.addEventListener('click', function (event) {
-      math.forEach(x=>{x.disabled = true})
-      input.value = '';
-      record.value = "";
-      input.setAttribute("placeholder", 0);
-      p = false
-      H = true
-      G = true
-     
-    })
-    let p = false
-    back.addEventListener('click', function (event) {
-      if (Array.from(record.value).includes('=')) {
-        record.value = ''
-        p = true
-      }
-      else {
-        if (p == true) { }
-        else {
-          let a = Array.from(input.value);
-          a.pop(a.length - 1);
-          input.value = a.join('');
-          p = false
-        }
-      }
-
-
-
-    })
-    //加減乘除
-    let calcss='';
-    let temp = '';
-    let calc = '';
-    let G = true
-    let changeCal = false
-    let nowNum = 0
+    //設定加減乘除
+    let cal = null
+    let first = null
     math.forEach(x => {
-      
       x.addEventListener('click', function (event) {
-        input.setAttribute("placeholder", temp);
-        calcss = event.target.innerText;
-        console.log(calcss);
-        
-        if (!changeCal) {
-          nowNum = input.value
-          console.log('ww');
-          record.value = `${input.value}${calcss}`
+        cal = x.innerHTML
+        if (record.value == "") {
+          first = input.value
+          record.value = `${input.value}${cal}`
           input.value = ""
-          changeCal = true
         }
-        else {
-          record.value = `${nowNum}${calcss}`
-          
-        }
-        
-        // if (G == true){
-        //   record.value = calc;
-        //   G = false}
-        // else{
-        //   record.value = temp+calc;
-        //   console.log('aaa');
-        // }
-        H = true
+        record.value = `${first}${cal}`
       })
     })
-    //等於判斷
-    let H = true;
-    let oldValue;
-    submit.addEventListener('click', function () {
-      //拆解 calcs 取得 加減乘除符號
-      let calcs = Array.from(calc).pop(calc.length - 1);
-      let a = Array.from(record.value)
+    //清空
+    del.addEventListener('click', function () {
+      record.value = '';
+      input.value = 0;
+    })
+    //到退鍵
+    back.addEventListener('click', function () {
+      let a = Array.from(input.value);
       a.pop();
-      //將拆後的陣列轉字串
-      let b = a.join('')
-      // console.log(b)
-      //按下後 將加之前的數字放到上方
-      record.value += `${input.value}=`
-      //宣告 較舊的值 
+      input.value = a.join('');
+      if (a.length == 0) input.value = 0;
+    })
 
+    //顯示歷史紀錄
+    let show = true
+    hs.addEventListener('click', function () {
+      if (show==true) {
+        textbox.style.bottom = '0px'
+        show = false
+      }
+      else{
+        textbox.style.bottom = '-450px';
+        show = true
+      }
+    })
 
-      //判斷H
-      if (H == true) {
-        //這是按等於之前的值
-        oldValue = Number(input.value)
-        switch (calcs) {
-          case "+":
-            //按下之後的值 = 舊的上方值去掉,符號 + 
-            input.value = Number(b) + Number(input.value);
+    //特殊符號
+    let QQ = ''
+    calHardBtn.forEach((x) => {
+      x.addEventListener("click", (e) => {
+        QQ = e.target.innerHTML;
+        switch (QQ) {
+          case "²√x":
+            record.value = `√(${input.value})=`;
+            input.value = Math.sqrt(Number(input.value));
             break;
-          case "-":
-            input.value = Number(b) - Number(input.value);
+          case "x²":
+            record.value = `sqr(${input.value})=`;
+            input.value = Math.pow(Number(input.value), 2);
             break;
-          case "×":
-            input.value = Number(b) * Number(input.value);
-            break;
-          case "÷":
-            input.value = Number(b) / Number(input.value);
+          case "1/x":
+            record.value = `1/(${input.value})=`;
+            input.value = 1 / Number(input.value);
             break;
         }
-        H = false
+        textbox.innerHTML += `<div><p>${record.value}</p><p>${input.value}</p></div>`;
+      });
+    });
+
+
+    //按下等於
+    submit.addEventListener('click', function () {
+      let nowNum = Number(input.value);
+      let temp = Array.from(record.value);
+      let calc = temp.pop();
+      switch (calc) {
+        case '+':
+          record.value += `${nowNum}= `
+          input.value = nowNum + Number(temp.join(''));
+          break;
+        case '-':
+          record.value += `${nowNum}= `
+          input.value = Number(temp.join('')) - nowNum
+          break;
+        case '÷':
+          record.value += `${nowNum}= `
+          input.value = nowNum / Number(temp.join(''))
+          break;
+        case '×':
+          record.value += `${nowNum}= `
+          input.value = nowNum * Number(temp.join(''))
+          break;
       }
-      else {
-        switch (calcs) {
-          case "+":
-            //按下之後的值 = 舊的上方值去掉,符號 + 
-            input.value = Number(input.value) + Number(oldValue)
-            record.value = `${input.value - oldValue}${calcs}${oldValue}=`
-            break;
-          case "-":
-            input.value = Number(input.value) - Number(oldValue)
-            record.value = `${Number(input.value) + Number(oldValue)}${calcs}${oldValue}=`
-            break;
-          case "×":
-            input.value = Number(input.value) * Number(oldValue)
-            record.value = `${Number(input.value) / Number(oldValue)}${calcs}${oldValue}=`
-            break;
-          case "÷":
-            input.value = Number(input.value) / Number(oldValue)
-            record.value = `${Number(input.value) * Number(oldValue)}${calcs}${oldValue}=`
-            break;
-        }
-      }
-
-
-
-
-
-
-
-
-
-
-      historyArea.innerHTML += `<div class="text-end mb-2">${record.value}<br>${input.value}</div>`
-      p = false
+      textbox.innerHTML += `<div><p>${record.value}</p><p>${input.value}</p></div>`;
     })
 
     //給數字鍵功能
     number.forEach(x => {
       x.addEventListener('click', function (event) {
-        math.forEach(x=>{x.disabled = false})
-        changeCal = false
+        math.forEach(x => { x.disabled = false })
         //判斷正負數
         if (event.target.innerText == "±") {
           if (Array.from(input.value).includes('-')) {
@@ -341,11 +255,11 @@
           else {
             if (input.value == '') {
               input.value = '0.'
-          
+
             }
             else {
               input.value += event.target.innerText
-             
+
             }
           }
         }
@@ -360,9 +274,11 @@
           }
         }
         else {
-            input.value += event.target.innerText;
+          if (input.value == 0) {
+            input.value = ''
+          }
+          input.value += event.target.innerText;
         }
-        temp = input.value
       })
     })
 

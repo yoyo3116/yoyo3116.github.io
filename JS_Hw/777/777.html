@@ -16,17 +16,19 @@
     i {
       font-size: 60px;
     }
-    .talk{
+
+    .talk {
       background-color: white;
-      height:100px;
-      color:black;
+      height: 100px;
+      color: black;
       font-size: 20px;
       border-radius: 4px;
     }
-    .pay{
+
+    .pay {
       border: 2px black solid;
       background-color: rgb(25, 25, 206);
-      color:yellow;
+      color: yellow;
       width: 100%;
       margin-top: 22px;
       font-size: 30px;
@@ -128,7 +130,8 @@
       color: white;
       font-size: 30px;
     }
-    .coinArea{
+
+    .coinArea {
       background-color: black;
       border-radius: 100px;
       border: 5px solid yellow;
@@ -559,7 +562,7 @@
     let point = document.querySelectorAll('.point');
     let msgBox2 = document.getElementById("msg2");
     let msgBox = document.getElementById("msg");
-    let supply =document.getElementById("supply")
+    let supply = document.getElementById("supply")
 
     //排序1~32
     bricks = Array.from(bricks).sort((a, b) => {
@@ -580,7 +583,7 @@
     document.querySelector("button").addEventListener("click", () => {
       point.forEach(x => submitarr.push(x.innerHTML));
       submitarr.forEach(x => {
-      num += x
+        num += x
       })
       if (num == '000000') {
         alert('請下注');
@@ -610,7 +613,7 @@
         setTimeout(secndAround, speed)
         if (steps < Math.floor((allSteps / 3))) speed += 7
       } else {
-        
+
         let color1 = brickData[currentIndex].color
         let color2 = brickData[firstEnd].color
         if (color1 == color2) {
@@ -622,8 +625,6 @@
         }
         setTimeout(reset, 2500)
       }
-
-
     }
     let vla1 = 0
     function turnAround() {
@@ -636,14 +637,15 @@
       if (steps > 0) {
         setTimeout(turnAround, speed)
         if (steps < Math.floor((allSteps / 3))) speed += 7
-      } else {
+      }
+      else {
         firstEnd = brickData[currentIndex].id;
-        if(firstEnd=='32')firstEnd=1;
+        if (firstEnd == '32') firstEnd = 1;
         let random = Math.floor(Math.random() * brickData.length) + 1;
         speed = 50;
         steps = random + (1 * bricks.length);
         allSteps = steps;
-        
+
         let val = brickData[currentIndex].target()
         if (val == 0) {
           msgBox.innerText = "請再接再厲!";
@@ -671,12 +673,13 @@
       add.forEach(x => x.disabled = false)
       less.forEach(x => x.disabled = false)
       num = '';
-      msgBox.innerHTML='';
-      msgBox2.innerHTML='';
-      currentIndex=0
-      firstEnd=0
-      steps=0
-      allSteps=0
+      msgBox.innerHTML = '';
+      msgBox2.innerHTML = '';
+      currentIndex = 0;
+      firstEnd = 0;
+      steps = 0;
+      allSteps = 0;
+      speed=0;
     }
 
 
@@ -716,32 +719,32 @@
 
     buypoint.addEventListener('click', function () {
       if (myscore.innerHTML < 10) {
-      let div =document.createElement('div');
-      let img =document.createElement('img');
-      let talk =document.createElement('div');
-      let pay =document.createElement('button');
-      pay.innerHTML='借我';
-      pay.classList.add("btn")
-      talk.innerHTML='<h3 class="text-center ">你沒錢了 我借你<h3>'
-      talk.classList.add('talk');
-      pay.classList.add('pay');
-      div.style.position='absolute';
-      div.style.height='300px'
-      div.style.top='-30px';
-      div.style.left='0px';
-      div.classList.add('d-flex')
-      img.setAttribute('src','http://clipart.coolclips.com/480/vectors/tf05032/CoolClips_cart0453.png');
-      talk.appendChild(pay);
-      div.appendChild(img);
-      div.appendChild(talk);
-      supply.style.position='relative';
-      supply.appendChild(div);
-      pay.addEventListener('click',function(){
-        myscore.innerHTML=100;
-        supply.removeChild(div);
-      })
-    
-    }
+        let div = document.createElement('div');
+        let img = document.createElement('img');
+        let talk = document.createElement('div');
+        let pay = document.createElement('button');
+        pay.innerHTML = '借我';
+        pay.classList.add("btn")
+        talk.innerHTML = '<h3 class="text-center ">你沒錢了 我借你<h3>'
+        talk.classList.add('talk');
+        pay.classList.add('pay');
+        div.style.position = 'absolute';
+        div.style.height = '300px'
+        div.style.top = '-30px';
+        div.style.left = '0px';
+        div.classList.add('d-flex')
+        img.setAttribute('src', 'http://clipart.coolclips.com/480/vectors/tf05032/CoolClips_cart0453.png');
+        talk.appendChild(pay);
+        div.appendChild(img);
+        div.appendChild(talk);
+        supply.style.position = 'relative';
+        supply.appendChild(div);
+        pay.addEventListener('click', function () {
+          myscore.innerHTML = 100;
+          supply.removeChild(div);
+        })
+
+      }
       else {
         myscore.innerHTML -= 10;
         mypoint.innerHTML++

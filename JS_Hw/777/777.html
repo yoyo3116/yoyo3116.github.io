@@ -165,8 +165,8 @@
           <i class="far fa-thumbs-up" style=color:purple></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <div class="btn col-6 bg-success add"><i class="fas fa-plus"></i></div>
-            <div class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></div>
+            <button class="btn col-6 bg-success add"><i class="fas fa-plus"></i></button>
+            <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
       </div>
@@ -176,8 +176,8 @@
           <i class="fas fa-seedling" style=color:blue></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <div class="btn col-6 bg-success add"><i class="fas fa-plus"></i></div>
-            <div class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></div>
+            <button class="btn col-6 bg-success add"><i class="fas fa-plus"></i></button>
+            <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
       </div>
@@ -187,8 +187,8 @@
           <i class="fas fa-glass-cheers" style=color:orange></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <div class="btn col-6 bg-success add"><i class="fas fa-plus"></i></div>
-            <div class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></div>
+            <button class="btn col-6 bg-success add"><i class="fas fa-plus"></i></button>
+            <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
       </div>
@@ -198,8 +198,8 @@
           <i class="fas fa-lemon" style=color:green></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <div class="btn col-6 bg-success add"><i class="fas fa-plus"></i></div>
-            <div class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></div>
+            <butto class="btn col-6 bg-success add"><i class="fas fa-plus"></i></butto>
+            <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
       </div>
@@ -209,8 +209,8 @@
           <i class="fas fa-apple-alt" style=color:red></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <div class="btn col-6 bg-success add"><i class="fas fa-plus"></i></div>
-            <div class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></div>
+            <button class="btn col-6 bg-success add"><i class="fas fa-plus"></i></button>
+            <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
       </div>
@@ -220,8 +220,8 @@
           <i class="fas fa-bell" style=color:yellow></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <div class="btn col-6 bg-success add"><i class="fas fa-plus"></i></div>
-            <div class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></div>
+            <button class="btn col-6 bg-success add"><i class="fas fa-plus"></i></button>
+            <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
       </div>
@@ -535,6 +535,8 @@
     let submitarr = [];
     document.querySelector("button").addEventListener("click", () => {
       document.querySelector("button").disabled = true
+      add.forEach(x=>x.disabled=true)
+      less.forEach(x=>x.disabled=true)
       let point = document.querySelectorAll('.point')
       speed = 50;
       let random = Math.floor(Math.random() * brickData.length) + 1;
@@ -581,6 +583,8 @@
       point.forEach(x => x.innerHTML = 0)
       submitarr = [];
       document.querySelector("button").disabled = false;
+      add.forEach(x=>x.disabled=false)
+      less.forEach(x=>x.disabled=false)
     }
     let mypoint = document.querySelector('.mypoint');
  

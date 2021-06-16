@@ -9,29 +9,57 @@
   <script src="https://kit.fontawesome.com/3524cb55bc.js" crossorigin="anonymous"></script>
   <title>Labar</title>
   <style>
+    .container {
+      background-image: url('./img/—Pngtree—black\ wood\ grain\ background_975679.jpg');
+    }
+
     i {
-      font-size: 50px;
+      font-size: 60px;
+    }
+    .talk{
+      background-color: white;
+      height:100px;
+      color:black;
+      font-size: 20px;
+      border-radius: 4px;
+    }
+    .pay{
+      border: 2px black solid;
+      background-color: rgb(25, 25, 206);
+      color:yellow;
+      width: 100%;
+      margin-top: 22px;
+      font-size: 30px;
     }
 
     [box-id] {
+      background-color: black;
       width: 100px;
       height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid rgba(0, 0, 0, .3);
-      border-radius: 10px;
       transition: 0.3s;
+      border-radius: 100%;
     }
 
     [box-id].active {
-      border: 5px solid red;
-      box-shadow: 0 0 20px red;
+      border: 5px solid rgb(251, 255, 0);
+      box-shadow: 0 0 50px rgb(251, 255, 0);
       transition: 0s;
     }
 
-    #msg {
-      font-size: 36px;
+    [box-id].active2 {
+      border: 5px solid rgb(255, 0, 0);
+      box-shadow: 0 0 40px rgb(255, 0, 0);
+      transition: 0s;
+    }
+
+
+    #msg,
+    #msg2 {
+      color: yellow;
+      font-size: 48px;
       text-align: center;
     }
 
@@ -41,6 +69,7 @@
       border: 5px solid yellow;
       border-radius: 10px;
       overflow: hidden;
+      background-color: black;
     }
 
     .pointrow .col-2 {
@@ -55,7 +84,7 @@
     }
 
     .addpointbox .point {
-      background-color: gray;
+      background-color: white;
       margin-top: 10px;
       margin-bottom: 10px;
       font-size: 30px;
@@ -66,7 +95,6 @@
     .btnArea {
       width: 100%;
       margin: auto;
-
     }
 
     .add,
@@ -78,7 +106,7 @@
     }
 
     .mypoint {
-      font-size: 100px;
+      font-size: 80px;
       text-align: center;
       color: gold;
       font-weight: bolder;
@@ -91,14 +119,19 @@
       font-weight: bolder;
     }
 
-    #buypoint {
-      border: 1px solid red;
-      width: 100%;
-      height: 50px;
-      border-radius: 8px;
-      color: red;
+
+    .star,
+    .buy {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
       color: white;
-      background-color: red;
+      font-size: 30px;
+    }
+    .coinArea{
+      background-color: black;
+      border-radius: 100px;
+      border: 5px solid yellow;
     }
   </style>
 </head>
@@ -128,12 +161,14 @@
     </div>
     <div class="row">
       <div box-id="31" class="col-1"></div>
-      <div class="col-10"></div>
+      <div class="col-10">
+        <p id="msg2" class="m-0"></p>
+      </div>
       <div box-id="14" class="col-1"></div>
     </div>
     <div class="row">
       <div box-id="30" class="col-1"></div>
-      <div class="col-10"></div>
+      <div id="supply" class="col-10"></div>
       <div box-id="15" class="col-1"></div>
     </div>
     <div class="row">
@@ -155,10 +190,21 @@
       <div box-id="18" class="col-1"></div>
       <div box-id="17" class="col-1"></div>
     </div>
-    <div class="row mt-3">
-      <button class="btn btn-primary w-100">Start</button>
+    <div class="row coinArea d-flex align-items-center mt-3">
+      <button class=" col-2 star btn btn-primary">Start</button>
+      <div class="col-2 youcion">
+        <img src="https://freepngimg.com/thumb/categories/1658.png" alt="" class='w-100'>
+      </div>
+      <div class="col-2 mypoint">10</div>
+      <div class="col-2">
+        <img src="https://i.pinimg.com/originals/6f/89/f9/6f89f959aecedb410a85805bf4159a45.png" class='w-100' alt="">
+      </div>
+      <div class="col-2">
+        <div id="myscore">50</div>
+      </div>
+      <button class='buy col-2 bg-danger bg-gradient' id='buypoint'>BUY</button>
     </div>
-    <div class="row pointrow">
+    <div class="row pointrow mt-3">
       <div class="col-2">
         <div class='text-center addpointbox'>
           <p class="score bg-dark bg-gradient">100</p>
@@ -198,7 +244,7 @@
           <i class="fas fa-lemon" style=color:green></i>
           <p class='point'>0</p>
           <div class="row btnArea">
-            <butto class="btn col-6 bg-success add"><i class="fas fa-plus"></i></butto>
+            <button class="btn col-6 bg-success add"><i class="fas fa-plus"></i></button>
             <button class="btn col-6 bg-danger less"><i class="fas fa-minus"></i></button>
           </div>
         </div>
@@ -225,20 +271,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-3 youcion">
-        <img src="https://pngimg.com/uploads/coin/coin_PNG36893.png" alt="" class='w-100'>
-      </div>
-      <div class="col-3 mypoint">10</div>
-      <div class="col-3">
-        <img src="https://i.pinimg.com/originals/6f/89/f9/6f89f959aecedb410a85805bf4159a45.png" class='w-75' alt="">
-      </div>
-      <div class="col-3">
-        <div id="myscore">100</div>
-        <button class=' bg-danger bg-gradient' id='buypoint'>買</button>
-      </div>
-
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -519,10 +551,21 @@
     let currentIndex = 0
     let speed;
     let add = document.querySelectorAll('.add');
-    let bricks = document.querySelectorAll('[box-id]')
+    let less = document.querySelectorAll('.less');
+    let bricks = document.querySelectorAll('[box-id]');
+    let mypoint = document.querySelector('.mypoint');
+    let buypoint = document.getElementById('buypoint');
+    let myscore = document.getElementById('myscore');
+    let point = document.querySelectorAll('.point');
+    let msgBox2 = document.getElementById("msg2");
+    let msgBox = document.getElementById("msg");
+    let supply =document.getElementById("supply")
+
+    //排序1~32
     bricks = Array.from(bricks).sort((a, b) => {
       return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
     })
+    //附上外觀
     bricks.forEach((x, index) => {
       let id = index + 1;
       let data = brickData.find(x => x.id == id);
@@ -531,64 +574,113 @@
       icon.style.color = data.color;
       x.appendChild(icon);
     })
-    
+    let num = ''
+    let firstEnd = 0
     let submitarr = [];
     document.querySelector("button").addEventListener("click", () => {
-      document.querySelector("button").disabled = true
-      add.forEach(x=>x.disabled=true)
-      less.forEach(x=>x.disabled=true)
-      let point = document.querySelectorAll('.point')
-      speed = 50;
-      let random = Math.floor(Math.random() * brickData.length) + 1;
-      steps = random + (2 * bricks.length);
-      allSteps = steps;
-      turnAround();
-
-
       point.forEach(x => submitarr.push(x.innerHTML));
-      console.log(submitarr);
+      submitarr.forEach(x => {
+      num += x
+      })
+      if (num == '000000') {
+        alert('請下注');
+        num = ''
+      }
+      else {
+        document.querySelector("button").disabled = true
+        add.forEach(x => x.disabled = true)
+        less.forEach(x => x.disabled = true)
+        speed = 50;
+        let random = Math.floor(Math.random() * brickData.length) + 1;
+        steps = random + (1 * bricks.length);
+        allSteps = steps;
+        turnAround();
+      }
+
 
     })
+    let ss = 0
+    function secndAround() {
+      bricks[firstEnd].classList.remove("active2");
+      firstEnd++
+      if (firstEnd >= bricks.length) firstEnd = 0;
+      bricks[firstEnd].classList.add("active2")
+      steps--
+      if (steps > 0) {
+        setTimeout(secndAround, speed)
+        if (steps < Math.floor((allSteps / 3))) speed += 7
+      } else {
+        
+        let color1 = brickData[currentIndex].color
+        let color2 = brickData[firstEnd].color
+        if (color1 == color2) {
+          msgBox2.innerText = '恭喜達成雙倍獎勵!!!';
+          myscore.innerHTML = ss + val1;
+        }
+        else {
+          msgBox2.innerText = '無達成雙倍獎勵,再加油!';
+        }
+        setTimeout(reset, 2500)
+      }
+
+
+    }
+    let vla1 = 0
     function turnAround() {
       bricks[currentIndex].classList.remove("active")
       currentIndex++
       if (currentIndex >= bricks.length) currentIndex = 0;
       bricks[currentIndex].classList.add("active")
       steps--
-      //一般
-      // if(steps > 0){
-      //     setTimeout(turnAround,speed)
-      // } else{
-      //     let msgBox = document.getElementById("msg")
-      //     let val = brickData[currentIndex].target()
-      //     msgBox.innerText = `接下來 -> ${val}`;
-      // }
       //變速
       if (steps > 0) {
         setTimeout(turnAround, speed)
         if (steps < Math.floor((allSteps / 3))) speed += 7
       } else {
-        let msgBox = document.getElementById("msg")
+        firstEnd = brickData[currentIndex].id;
+        if(firstEnd=='32')firstEnd=1;
+        let random = Math.floor(Math.random() * brickData.length) + 1;
+        speed = 50;
+        steps = random + (1 * bricks.length);
+        allSteps = steps;
+        
         let val = brickData[currentIndex].target()
-        msgBox.innerText = `恭喜獲得 ${val}分`;
-        let ss = Number(val) + Number(myscore.innerHTML)
-        myscore.innerHTML = ss;
-        setTimeout(reset, 1000)
+        if (val == 0) {
+          msgBox.innerText = "請再接再厲!";
+          reset();
+        }
+        else {
+          msgBox.innerText = `恭喜獲得 ${val}分`;
+          ss = Number(val) + Number(myscore.innerHTML)
+          val1 = Number(val)
+          myscore.innerHTML = ss;
+          setTimeout(secndAround, 1500)
+        }
+
       }
 
     }
- 
+
     function reset() {
       let point = document.querySelectorAll('.point');
       point.forEach(x => x.innerHTML = 0)
       submitarr = [];
+      bricks[firstEnd].classList.remove("active2")
+      bricks[currentIndex].classList.remove("active")
       document.querySelector("button").disabled = false;
-      add.forEach(x=>x.disabled=false)
-      less.forEach(x=>x.disabled=false)
+      add.forEach(x => x.disabled = false)
+      less.forEach(x => x.disabled = false)
+      num = '';
+      msgBox.innerHTML='';
+      msgBox2.innerHTML='';
+      currentIndex=0
+      firstEnd=0
+      steps=0
+      allSteps=0
     }
-    let mypoint = document.querySelector('.mypoint');
- 
-    
+
+
+
     //加籌碼
     add.forEach((x, index) => {
       let point = document.querySelectorAll('.point')[index]
@@ -604,7 +696,7 @@
       })
     })
     //減少籌碼
-    let less = document.querySelectorAll('.less')
+
     less.forEach((x, index) => {
       let point = document.querySelectorAll('.point')[index]
       x.addEventListener('click', function (e) {
@@ -621,12 +713,35 @@
 
 
     //換籌碼
-    let buypoint = document.getElementById('buypoint');
-    let myscore = document.getElementById('myscore');
+
     buypoint.addEventListener('click', function () {
       if (myscore.innerHTML < 10) {
-        alert('你沒錢了');
-      }
+      let div =document.createElement('div');
+      let img =document.createElement('img');
+      let talk =document.createElement('div');
+      let pay =document.createElement('button');
+      pay.innerHTML='借我';
+      pay.classList.add("btn")
+      talk.innerHTML='<h3 class="text-center ">你沒錢了 我借你<h3>'
+      talk.classList.add('talk');
+      pay.classList.add('pay');
+      div.style.position='absolute';
+      div.style.height='300px'
+      div.style.top='-30px';
+      div.style.left='0px';
+      div.classList.add('d-flex')
+      img.setAttribute('src','http://clipart.coolclips.com/480/vectors/tf05032/CoolClips_cart0453.png');
+      talk.appendChild(pay);
+      div.appendChild(img);
+      div.appendChild(talk);
+      supply.style.position='relative';
+      supply.appendChild(div);
+      pay.addEventListener('click',function(){
+        myscore.innerHTML=100;
+        supply.removeChild(div);
+      })
+    
+    }
       else {
         myscore.innerHTML -= 10;
         mypoint.innerHTML++

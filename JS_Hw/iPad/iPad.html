@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Hello,iPad Air!</title>
+  <style>
+    .colorbtn,
+    .storagebtn,
+    .WIFIbtn {
+      border: 1px solid gray;
+      width: 47.777777%;
+      display: inline-block;
+      border-radius: 20px;
+      margin: 5px;
+    }
+
+    .colortxt {
+      margin: 0;
+      padding-top: 10px;
+      color: gray;
+      font-size: 14px;
+
+    }
+
+    .btnArea>p {
+      position: relative;
+    }
+
+    #changeColor,
+    #changeStorage,
+    #changeWIFI {
+      position: absolute;
+      top: 40%;
+      left: 90%;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      margin-right: auto;
+    }
+    .row{
+      height: 650px;
+      overflow: hidden;
+    }
+    .btnArea{
+      padding-top:90px;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="imgArea text-center">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=443&hei=535&fmt=jpeg&qlt=95&.v=1599066777000"
+            class="w-100" id="img" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="btnArea">
+          <h3>購買 iPad Air</h3>
+          <p>
+            <span id="chooseColor" class="">外觀</span>
+            <a id="changeColor" class="fz-2 d-none " data-bs-toggle="collapse" href="#collapseExample" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              更改
+            </a>
+          </p>
+          <!-- //collapse -->
+          <div class="show " id="collapseExample">
+            <div class=" d-flex flex-wrap ">
+              <div class="btn colorbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <img
+                  src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-201903?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1552422652805"
+                  class="w-25" alt="">
+                <p class="colortxt">太空灰色</p>
+              </div>
+              <div class="btn colorbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <img
+                  src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-silver-201903?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1552422655664"
+                  class="w-25" alt="">
+                <p class="colortxt">銀色</p>
+              </div>
+              <div class="btn colorbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <img
+                  src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-gold-202009?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1599240136000"
+                  class="w-25" alt="">
+                <p class="colortxt">玫瑰金色</p>
+              </div>
+              <div class="btn colorbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <img
+                  src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-green-202009?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1599240136000"
+                  class="w-25" alt="">
+                <p class="colortxt">綠色</p>
+              </div>
+              <div class="btn colorbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <img
+                  src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1599240136000"
+                  class="w-25" alt="">
+                <p class="colortxt">天藍色</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- //storage -->
+          <p>
+            <span id="chooseStorage" class="">儲存裝置</span>
+            <a id="changeStorage" class="fz-2  d-none" data-bs-toggle="collapse" href="#collapseExample1" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              更改
+            </a>
+          </p>
+          <!-- STORAGE -->
+          <div class="show" id="collapseExample1">
+            <div class=" d-flex flex-wrap ">
+              <div class="btn storagebtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1"
+                aria-expanded="false" aria-controls="collapseExample">
+                <h3 class="storagetxt fs-5 pt-3">64GB</h3>
+                <p>NT$18,900起</p>
+              </div>
+              <div class="btn storagebtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1"
+                aria-expanded="false" aria-controls="collapseExample">
+                <h3 class="storagetxt fs-5 pt-3">256GB</h3>
+                <p class="my-0">NT$23,900起</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- //WIFI-->
+          <p>
+            <span id="chooseWIFI" class="">連線能力</span>
+            <a id="changeWIFI" class="fz-2 d-none" data-bs-toggle="collapse" href="#collapseExample2" role="button"
+              aria-expanded="false" aria-controls="collapseExample">更改</a>
+          </p>
+          <!-- STORAGE -->
+          <div class="show" id="collapseExample2">
+            <div class=" d-flex flex-wrap ">
+              <div class="btn WIFIbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+                aria-expanded="false" aria-controls="collapseExample2">
+                <h3 class="WIFItxt fs-5 pt-3">Wi-Fi</h3>
+                <p>NT$18,900起</p>
+              </div>
+              <div class="btn WIFIbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+                aria-expanded="false" aria-controls="collapseExample2">
+                <h3 class="WIFItxt fs-5 pt-3">Wi-Fi+行動網路</h3>
+                <p>NT$23,900起</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    const iPad = [
+      { color: "太空灰色", storage: "64GB", internet: "Wi-Fi", price: "NT$18,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-spacegray-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "太空灰色", storage: "256GB", internet: "Wi-Fi", price: "NT$23,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-spacegray-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "太空灰色", storage: "64GB", internet: "Wi-Fi+行動網路", price: "NT$23,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-spacegray-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "太空灰色", storage: "256GB", internet: "Wi-Fi+行動網路", price: "NT$28,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-spacegray-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "銀色", storage: "64GB", internet: "Wi-Fi", price: "NT$18,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-silver-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650645000" },
+      { color: "銀色", storage: "256GB", internet: "Wi-Fi", price: "NT$23,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-silver-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650645000" },
+      { color: "銀色", storage: "64GB", internet: "Wi-Fi+行動網路", price: "NT$23,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-silver-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650645000" },
+      { color: "銀色", storage: "256GB", internet: "Wi-Fi+行動網路", price: "NT$28,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-silver-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650645000" },
+      { color: "玫瑰金色", storage: "64GB", internet: "Wi-Fi", price: "NT$18,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-gold-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "玫瑰金色", storage: "256GB", internet: "Wi-Fi", price: "NT$23,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-gold-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "玫瑰金色", storage: "64GB", internet: "Wi-Fi+行動網路", price: "NT$23,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-gold-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "玫瑰金色", storage: "256GB", internet: "Wi-Fi+行動網路", price: "NT$28,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-gold-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "綠色", storage: "64GB", internet: "Wi-Fi", price: "NT$18,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-green-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "綠色", storage: "256GB", internet: "Wi-Fi", price: "NT$23,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-green-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "綠色", storage: "64GB", internet: "Wi-Fi+行動網路", price: "NT$23,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-green-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "綠色", storage: "256GB", internet: "Wi-Fi+行動網路", price: "NT$28,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-green-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650642000" },
+      { color: "天藍色", storage: "64GB", internet: "Wi-Fi", price: "NT$18,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-blue-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650643000" },
+      { color: "天藍色", storage: "256GB", internet: "Wi-Fi", price: "NT$23,900", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-blue-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650643000" },
+      { color: "天藍色", storage: "64GB", internet: "Wi-Fi+行動網路", price: "NT$23,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-blue-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650643000" },
+      { color: "天藍色", storage: "256GB", internet: "Wi-Fi+行動網路", price: "NT$28,200", imageurl: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-cell-blue-202009?wid=470&hei=556&fmt=png-alpha&.v=1598650643000" },
+    ]
+    let chooseColor = document.querySelector("#chooseColor");
+    let chooseStorage = document.querySelector("#chooseStorage");
+    let chooseWIFI = document.querySelector("#chooseWIFI");
+
+    let colorbtn = document.querySelectorAll(".colorbtn");
+    let storagebtn = document.querySelectorAll('.storagebtn');
+    let WIFIbtn = document.querySelectorAll('.WIFIbtn');
+
+    let colortxt = document.querySelectorAll(".colortxt");
+    let storagetxt = document.querySelectorAll(".storagetxt");
+    let WIFItxt = document.querySelectorAll(".WIFItxt");
+
+    let changeColor = document.querySelector("#changeColor");
+    let changeStorage = document.querySelector("#changeStorage");
+    let changeWIFI = document.querySelector("#changeWIFI");
+    let img = document.querySelector('#img');
+    let btnArea = document.querySelector('.btnArea')
+    let price = document.createElement('p');
+
+    let _color, _storage, _internet
+    let urls ;
+    colorbtn.forEach((e, index) => {
+      e.addEventListener('click', function () {
+        chooseColor.innerHTML = colortxt[index].innerHTML;
+        chooseColor.classList.add('fs-2', 'fw-bolder')
+        changeColor.classList.remove('d-none');
+        console.log(iPad.filter(x => x.color ==chooseColor.innerHTML));
+        urls =iPad.filter(x => x.color ==chooseColor.innerText)[0].imageurl
+
+        img.setAttribute('src',urls )
+        console.log(chooseColor.innerHTML);
+
+    })
+    })
+    changeColor.addEventListener('click', function () {
+      this.classList.add('d-none')
+    })
+
+
+    function showPrice() {
+      if( chooseStorage.innerHTML=='儲存裝置' ||chooseWIFI.innerHTML=="連線能力"){
+        price.innerHTML = ''
+        return;
+      }
+      else{
+      _color = chooseColor.innerHTML
+      _storage = chooseStorage.innerHTML
+      _internet = chooseWIFI.innerHTML
+      price.innerHTML = iPad.filter(x => x.color == _color && x.internet == _internet && x.storage == _storage)[0].price
+      console.log(price.innerHTML);
+      btnArea.appendChild(price);}
+      price.classList.add('fs-2','fw-bolder')
+    }
+
+
+    storagebtn.forEach((e, index) => {
+      e.addEventListener('click', function () {
+        chooseStorage.innerHTML = storagetxt[index].innerHTML;
+        chooseStorage.classList.add('fs-2', 'fw-bolder')
+        changeStorage.classList.remove('d-none');
+        showPrice();
+
+      })
+    })
+    changeStorage.addEventListener('click', function () {
+      this.classList.add('d-none')
+    })
+
+
+    // let color, storage, wifi;
+    // let price = document.createElement('p')
+    //  price .classList.add('fs-1','fw-bolder')
+    WIFIbtn.forEach((e, index) => {
+      e.addEventListener('click', function () {
+        chooseWIFI.innerHTML = WIFItxt[index].innerHTML;
+        chooseWIFI.classList.add('fs-2', 'fw-bolder')
+        changeWIFI.classList.remove('d-none');
+        showPrice();
+      })
+    })
+    changeWIFI.addEventListener('click', function () {
+      this.classList.add('d-none')
+    })
+
+
+
+
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+  <style>
+    .itembtn
+    {
+      border: 1px solid gray;
+      width: 47.777777%;
+      display: inline-block;
+      border-radius: 20px;
+      margin: 5px;
+    }
+    .txt {
+      margin: 0;
+      color: gray;
+      font-size: 14px;
+    }
+    .row{
+      padding-top:90px;
+      
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <template id="productBtn">
+    <button class=" itembtn btn">
+      <img src="" class="w-25" alt="">
+      <h3></h3>
+      <p class="txt"></p>
+    </button>
+  </template>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="imgArea text-center">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=443&hei=535&fmt=jpeg&qlt=95&.v=1599066777000"
+            class="w-100" id="img" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="btnArea">
+          <h3>購買 iPad Air</h3>
+          <p id="chooseColor" class="fs-2">外觀</p>
+          <div class=" d-flex flex-wrap color">
+
+          </div>
+          <p id="chooseSotrage" class="fs-2">儲存空間</p>
+          <div class=" d-flex flex-wrap storage">
+
+          </div>
+          <p id="choosenetwork" class="fs-2">連線能力</p>
+          <div class=" d-flex flex-wrap network">
+
+          </div>
+          <div id='price'>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const url = "https://raw.githubusercontent.com/apprunner/FileStorage/master/iPadAir2020_Data.json";
+    const circle = ['https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-201903?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1552422652805',
+      'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-silver-201903?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1552422655664',
+      'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-gold-202009?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1599240136000',
+      "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-green-202009?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1599240136000",
+      "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1599240136000"
+    ]
+    window.onload = function () {
+      requestIpadJson();
+
+    }
+    let ipadArray = []
+    function requestIpadJson() {
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function () {
+        ipadArray = JSON.parse(this.responseText);
+        addcolorbtn(ipadArray);
+        addnetworkbtn(ipadArray);
+        addstoragebtn(ipadArray);
+        let titles = Object.keys(ipadArray);
+        let values = Object.values(ipadArray)
+      }
+      xhr.open("GET", url);
+      xhr.send();
+
+    }
+
+    function addcolorbtn(list) {
+      let productBtn = document.querySelector('#productBtn');
+      let color = document.querySelector('.color');
+      let chooseColor = document.querySelector('#chooseColor')
+      for (let i = 0; i < 5; i++) {
+        let cloneContent = productBtn.content.cloneNode(true);
+        let btn = cloneContent.querySelector('button');
+        cloneContent.querySelector('img').setAttribute('src', circle[i]);
+        cloneContent.querySelector('p').innerHTML = list[i].color;
+        btn.addEventListener('click', function (e) {
+          document.querySelector('.imgArea img').setAttribute('src',list[i].picture)
+          chooseColor.innerHTML = list[i].color;
+          chooseColor.classList.add('fs-2', 'fw-bolder')
+          showPrice();
+        })
+        color.appendChild(cloneContent)
+      };
+    }
+
+    function addstoragebtn(list) {
+      let productBtn = document.querySelector('#productBtn');
+      let storage = document.querySelector('.storage');
+      let chooseSotrage = document.querySelector('#chooseSotrage')
+      for (let i = 0; i < 8; i++) {
+        if (i == 6 || i == 0) {
+          let cloneContent = productBtn.content.cloneNode(true);
+          let btn = cloneContent.querySelector('button');
+          cloneContent.querySelector('h3').innerHTML = list[i].storage;
+          cloneContent.querySelector('p').innerHTML = `NT${list[i].price}起`;
+          if (i == 0) { btn.setAttribute('value', 64); }
+          if (i == 6) { btn.setAttribute('value', 256); }
+          btn.addEventListener('click', function (e) {
+            chooseSotrage.innerHTML = list[i].storage;
+            chooseSotrage.classList.add('fs-2', 'fw-bolder')
+            if (e.currentTarget.value == 64) {
+              document.querySelectorAll('.network .btn p')[0].innerHTML = `NT${list[0].price}起`;
+              document.querySelectorAll('.network .btn p')[1].innerHTML = `NT${list[10].price}起`;
+            }
+            else {
+              document.querySelectorAll('.network .btn p')[0].innerHTML =`NT${list[6].price}起`;
+              document.querySelectorAll('.network .btn p')[1].innerHTML =`NT${list[15].price}起`;
+            }
+            showPrice();
+          })
+          storage.appendChild(cloneContent)
+        }
+      };
+    }
+
+
+    function addnetworkbtn(list) {
+      let productBtn = document.querySelector('#productBtn');
+      let network = document.querySelector('.network');
+      let chooseSotrage = document.querySelector('#chooseSotrage')
+      for (let i = 0; i < 11; i++) {
+        if (i == 6 || i == 10) {
+          let cloneContent = productBtn.content.cloneNode(true);
+          let btn = cloneContent.querySelector('button');
+          cloneContent.querySelector('h3').innerHTML = list[i].network;
+          cloneContent.querySelector('p').innerHTML = `NT${list[i].price}起`;
+          btn.setAttribute('value', i);
+          btn.addEventListener('click', function (e) {
+            choosenetwork.innerHTML = list[i].network;
+            choosenetwork.classList.add('fs-2', 'fw-bolder')
+            showPrice();
+          })
+          network.appendChild(cloneContent)
+        }
+      };
+    }
+
+
+    let _color, _storage, _network
+    function showPrice() {
+      let price = document.querySelector('#price');
+      _storage = chooseSotrage.innerHTML;
+      _color = chooseColor.innerHTML;
+      _network = choosenetwork.innerHTML;
+      if (_storage == '儲存空間' || _color == '外觀' || _network == '連線能力') {
+        price.innerHTML = ''
+        return
+      }
+      let show = ipadArray.filter(x => x.color == _color && x.storage == _storage && x.network == _network)[0].price;
+      price.innerHTML = `NT$${show}`;
+      price.classList.add('fs-2', 'fw-bolder');
+    }
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

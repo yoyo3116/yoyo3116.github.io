@@ -12,22 +12,23 @@
 
   <title>Hello, world!</title>
   <style>
-    .itembtn
-    {
+    .itembtn {
       border: 1px solid gray;
       width: 47.777777%;
       display: inline-block;
       border-radius: 20px;
       margin: 5px;
     }
+
     .txt {
       margin: 0;
       color: gray;
       font-size: 14px;
     }
-    .row{
-      padding-top:90px;
-      
+
+    .row {
+      padding-top: 90px;
+
     }
   </style>
 </head>
@@ -70,7 +71,7 @@
 
           </div>
           <div id='price'>
-          
+
           </div>
         </div>
       </div>
@@ -87,23 +88,23 @@
       "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=102&amp;hei=102&amp;fmt=png-alpha&amp;.v=1599240136000"
     ]
     window.onload = function () {
-      let ipadArray=[]
+      let ipadArray = []
       requestIpadJson();
     }
-    
+
     function requestIpadJson() {
       const request = new Request(url);
       fetch(request)
-      .then(response=>response.json())
-      .then(result=>{
-        ipadArray=result;
-        console.log(ipadArray);
-        addcolorbtn(ipadArray);
-        addnetworkbtn(ipadArray);
-        addstoragebtn(ipadArray);
-      })
-      .catch(ex=>console.log(ex))
-      .finally((x)=>{console.log('e04')})
+        .then(response => response.json())
+        .then(result => {
+          ipadArray = result;
+          console.log(ipadArray);
+          addcolorbtn(ipadArray);
+          addnetworkbtn(ipadArray);
+          addstoragebtn(ipadArray);
+        })
+        .catch(ex => console.log(ex))
+        .finally((x) => { console.log('e04') })
     }
 
     function addcolorbtn(list) {
@@ -116,7 +117,7 @@
         cloneContent.querySelector('img').setAttribute('src', circle[i]);
         cloneContent.querySelector('.txt').innerHTML = list[i].color;
         btn.addEventListener('click', function (e) {
-          document.querySelector('.imgArea img').setAttribute('src',list[i].picture)
+          document.querySelector('.imgArea img').setAttribute('src', list[i].picture)
           chooseColor.innerHTML = list[i].color;
           chooseColor.classList.add('fs-2', 'fw-bolder')
           showPrice();
@@ -145,8 +146,8 @@
               document.querySelectorAll('.network .btn p')[1].innerHTML = `NT${list[10].price}起`;
             }
             else {
-              document.querySelectorAll('.network .btn p')[0].innerHTML =`NT${list[6].price}起`;
-              document.querySelectorAll('.network .btn p')[1].innerHTML =`NT${list[15].price}起`;
+              document.querySelectorAll('.network .btn p')[0].innerHTML = `NT${list[6].price}起`;
+              document.querySelectorAll('.network .btn p')[1].innerHTML = `NT${list[15].price}起`;
             }
             showPrice();
           })

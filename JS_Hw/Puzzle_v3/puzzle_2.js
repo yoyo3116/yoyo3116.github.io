@@ -1,4 +1,4 @@
-let img = document.querySelectorAll('img');
+let img = document.querySelectorAll('.img');
 let ul = document.querySelector('ul');
 let btn = document.querySelectorAll('.play')
 let wallParents = document.querySelector('#picOne')

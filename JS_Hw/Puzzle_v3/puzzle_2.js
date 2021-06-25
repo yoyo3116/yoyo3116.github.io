@@ -75,7 +75,6 @@ btn.forEach((item) => {
   item.addEventListener('click', function (e) {
     let wall = document.createElement('img');
     wall.setAttribute('src', choImg);
-
     wall.classList.add('wall');
     wallParents.appendChild(wall);
     ul.innerHTML = ''
@@ -123,7 +122,9 @@ btn.forEach((item) => {
       console.log('2');
 
     })
-
+    bricks.forEach(e=>{
+      e.classList.remove("active")
+    })
     let allList = document.querySelectorAll('ul li');
     start(picNum, allList)
     move(picNum, allList)

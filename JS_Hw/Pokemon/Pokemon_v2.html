@@ -92,7 +92,6 @@
   }
   #run:hover{
     transition: transform .2s ease;
-   
     transform:scale(1.3);
   }
   #run:active{
@@ -116,7 +115,7 @@
         <div class="demo"></div>
       </div>
 
-      <div class="col-12 col-md-6 prop">
+      <div class="col-12 col-md-6 ">
         <h3 class='fs-1' id="name">我是誰<br>????</h3>
         <div class="canvasoo">
           <canvas></canvas>
@@ -242,10 +241,10 @@
         if (currentIndex >= bricks.length) currentIndex = 0;
 
         bricks[currentIndex].classList.add("active")
-        steps -=15
+        steps -=65
         if (steps > 0) {
           setTimeout(turnAround, speed)
-          if (steps < Math.floor((allSteps / 2))) speed += 7
+          if (steps < Math.floor((allSteps / 2))) speed += 3
         } else {
           console.log();
 

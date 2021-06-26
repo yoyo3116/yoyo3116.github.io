@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<style>
+  .pokemon {
+    position: absolute;
+    top: 600px;
+    width: 100%;
+    transform: translateX(-100%);
+  }
+
+
+  .container {
+    width: 800px !important;
+    background-color: rgb(248, 49 ,56);
+    padding: 10px;
+    border-radius: 16px;
+    border: 5px gray solid;
+  }
+
+  .demo {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(84, 166, 233);
+    border: 3px black solid;
+    border-radius: 16px;
+    padding: 0 !important;
+   
+  }
+
+
+  .prop {
+    max-width: 300px;
+    width: 300px;
+  }
+  .banner{
+   padding: 0 !important;
+   overflow: hidden;
+    border-radius: 10px;
+  }
+  .bannera{
+    margin: 0px !important;
+  }
+
+  .imgclick{
+    width:100%;
+    height:100%;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .active {
+    top: 0;
+    transition: transform .2s ease;
+    transform: translateX(0);
+  }
+  
+  #name {
+    font-size: 40px;
+    text-align: center;
+    height: 100px;
+    font-weight: bold;
+    color: black;
+  }
+  .canvasoo{
+    width: 100%;
+    height: 240px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 8px;
+  }
+  #GO{
+    font-size: 85px;
+    color: black;
+  }
+  #run:hover{
+    transition: transform .2s ease;
+   
+    transform:scale(1.3);
+  }
+  #run:active{
+    transform: rotate(-180deg);
+    box-shadow: 0 0 20px rgba(0,0,0,1);
+    transition: transform .2s ease;
+    border-radius: 100%;
+    
+  }
+</style>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row mb-3 bannera">
+      <img class=" w-100 banner" src="https://pokemonrevolution.net/forum/uploads/monthly_2021_01/pokemon_play_pokemon_banner-02-2x.jpg.b76ae96fa2fca38a128c2a5483744e4f.jpg" alt="">
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <!-- 圖片 -->
+        <div class="demo"></div>
+      </div>
+
+      <div class="col-12 col-md-6 prop">
+        <h3 class='fs-1' id="name">我是誰<br>????</h3>
+        <div class="canvasoo">
+          <canvas></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-2 col-2 ">
+        <img id="run" class="w-100" src="http://pngimg.com/uploads/pokeball/pokeball_PNG21.png" alt="">
+      </div>
+      <div class="col-md-10 col-10 ">
+        <h3 id="GO">就決定是你了!!!!</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <template id="card">
+    <div class="pokemon col-12">
+      <img src="" alt="">
+    </div>
+  </template>
+
+
+  <script>
+    const pokemonUrl = "https://raw.githubusercontent.com/apprunner/pokemon.json/master/pokedex.json";
+
+    let pokemonArray = [];
+    let card = document.querySelector('#card')
+    let demo = document.querySelector('.demo')
+    let raderChart = document.querySelector('canvas');
+    let name = document.querySelector('#name');
+
+
+    window.onload = function () {
+
+      //抓寶可夢資料
+      let promise1 = fetchChampions(pokemonUrl)
+      promise1
+        .catch(ex => {
+          console.log("網路資料抓取錯誤" + ex);
+        })
+        .finally(() => {
+
+        })
+
+      //物件加入圖片網址
+      let promise2 = Promise.resolve(promise1);
+      promise2
+        .then(result => {
+          pokemonArray = result;
+
+          return addimgurl(pokemonArray)
+        })
+        .catch(ex => {
+          console.log("網址加入錯誤 : " + ex);
+        });
+
+
+      //建立template
+      let promise3 = Promise.resolve(promise2);
+      promise3
+        .then(res => {
+          genTamplate(res)
+        })
+        .catch(ex => {
+          console.log("template建立錯誤 : " + ex);
+        });
+
+    }
+
+    function fetchChampions(url) {
+      const request = new Request(url);
+      return fetch(request).then(response => response.json())
+    }
+
+    //物件加入圖片網址
+    function addimgurl(pokemonArray) {
+      pokemonArray.forEach((item, index) => {
+        let fileName = (index + 1).toString().padStart(3, '0');
+        item.url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+      })
+
+    }
+
+    //渲染圖片
+    function genTamplate(res) {
+      res.forEach((item, index) => {
+        let cloneContent = card.content.cloneNode(true);
+        cloneContent.querySelector('img').src = item.url;
+        cloneContent.querySelector('div').setAttribute('box-id', index + 1)
+        cloneContent.querySelector('img').classList.add('imgclick')
+        demo.appendChild(cloneContent);
+      })
+      let steps = 0;
+      let allSteps = 0;
+      let currentIndex = 0
+      let speed;
+      let bricks = document.querySelectorAll('[box-id]')
+
+
+      bricks = Array.from(bricks).sort((a, b) => {
+        return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
+      })
+
+
+      document.querySelector("#run").addEventListener("click", () => {
+        name.innerHTML='我是誰<br>????'
+        speed =150;
+        let random = Math.floor(Math.random() * bricks.length) + 1;
+        steps = random + bricks.length;
+        allSteps = steps;
+        turnAround();
+      })
+
+      function turnAround() {
+        bricks[currentIndex].classList.remove("active")
+        currentIndex+=  Math.floor(Math.random() *50) + 1;
+        if (currentIndex >= bricks.length) currentIndex = 0;
+
+        bricks[currentIndex].classList.add("active")
+        steps -=15
+        if (steps > 0) {
+          setTimeout(turnAround, speed)
+          if (steps < Math.floor((allSteps / 2))) speed += 7
+        } else {
+          console.log();
+
+
+          console.log(name);
+          name.innerHTML = `
+          ${pokemonArray[currentIndex].name.chinese}<br>
+          ${pokemonArray[currentIndex].name.japanese}`
+
+          let mychart = new Chart(raderChart, {
+            type: 'bar',
+            data: {
+              labels: ['Attack', 'Defense', 'HP', 'Sp.Attack', 'Sp.Defense', 'Speed'],
+              datasets: [{
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1,
+                label: '各屬性能力',
+                data: [pokemonArray[currentIndex].base.Attack,
+                pokemonArray[currentIndex].base.Defense,
+                pokemonArray[currentIndex].base.HP,
+                pokemonArray[currentIndex].base['Sp. Attack'],
+                pokemonArray[currentIndex].base['Sp. Defense'],
+                pokemonArray[currentIndex].base.Speed]
+              }]
+            }
+          })
+
+          console.log(pokemonArray[currentIndex]);
+          console.log(pokemonArray[currentIndex].name.japanese);
+        }
+      }
+    }
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+
+</body>
+
+</html>

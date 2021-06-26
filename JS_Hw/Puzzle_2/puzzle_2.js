@@ -7,6 +7,51 @@ let picNum = [];//移動前的答案
 let picArray = []
 let status = [];
 let tip = document.getElementById('tip');
+let steps = 0;
+let allSteps = 0;
+let currentIndex = 0
+let speed;
+let bricks = document.querySelectorAll('[box-id]')
+
+
+bricks = Array.from(bricks).sort((a, b) => {
+  return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
+})
+document.querySelector("#run").addEventListener("click", () => {
+  speed = 50;
+  let random = Math.floor(Math.random() * bricks.length) + 1;
+  steps = random + (2 * bricks.length);
+  allSteps = steps;
+  turnAround();
+})
+
+function turnAround() {
+  bricks[currentIndex].classList.remove("active")
+  currentIndex++
+  if (currentIndex >= bricks.length) currentIndex = 0;
+
+  bricks[currentIndex].classList.add("active")
+  steps--
+  if (steps > 0) {
+    setTimeout(turnAround, speed)
+    if (steps < Math.floor((allSteps / 3))) speed += 7
+  } else {
+    ul.innerHTML = ''
+    let img = document.createElement('img');
+    img.setAttribute('src', bricks[currentIndex].src);
+    console.log(bricks[currentIndex]);
+    choImg = bricks[currentIndex].src;
+    ul.appendChild(img)
+    if (ul.children.length != 0) {
+      btn.forEach(x => x.disabled = false);
+    }
+
+  }
+}
+
+
+
+
 
 //加入圖片至方格
 img.forEach(item => {
@@ -16,19 +61,21 @@ img.forEach(item => {
     img.setAttribute('src', e.target.src);
     choImg = e.target.src;
     ul.appendChild(img)
-    if(ul.children.length!=0){
-      btn.forEach(x=>x.disabled=false);
+    if (ul.children.length != 0) {
+      btn.forEach(x => x.disabled = false);
     }
-    
+    bricks.forEach(e=>{
+      e.classList.remove("active")
+    })
   })
 });
 
 //點擊難易度
 btn.forEach((item) => {
   item.addEventListener('click', function (e) {
-    let wall=document.createElement('img');
-    wall.setAttribute('src',choImg);
-    
+    let wall = document.createElement('img');
+    wall.setAttribute('src', choImg);
+
     wall.classList.add('wall');
     wallParents.appendChild(wall);
     ul.innerHTML = ''
@@ -122,6 +169,7 @@ function getStatus(arr, numarray) {
   let total = [];
   for (let i = 0; i < arr.length; i += rowNum) {
     cols.push(arr.slice(i, i + rowNum))
+    console.log(cols);
   }
   cols.forEach((row, index) => {
     row.forEach((x, i) => {
@@ -136,24 +184,24 @@ function getStatus(arr, numarray) {
 //更新目前狀態
 function updateStatus(list) {
   list.forEach((x, index) => status[index] = x.innerText)
-  win(picNum ,list)
+  win(picNum, list)
 }
 
 //辦別輸贏
-function win(picNum ,list){
-  let win =[]
-  picNum.forEach((item,index)=>{
-    if(item==Number(list[index].innerHTML)){
+function win(picNum, list) {
+  let win = []
+  picNum.forEach((item, index) => {
+    if (item === Number(list[index].innerHTML)) {
       win.push(item)
     }
-    else{
-     return
+    else {
+      return
     }
   })
- 
+
   console.log(win);
   console.log(picNum);
-  if(win.length==picNum.length-1){
+  if (win.length == picNum.length - 1) {
     alert('win!');
   }
 }
@@ -164,6 +212,7 @@ function move(arr, list) {
     x.addEventListener('click', (e) => {
       let empty = Array.from(list).filter((item) => item.innerText == "")
       let choose = getStatus(status, arr).filter(x => x.name == e.target.innerText)
+      console.log(choose);
       let limit = getStatus(status, arr).filter((x) => (
         ((x.row == choose[0].row - 1 || x.row == choose[0].row + 1) && x.col == choose[0].col)) ||
         ((x.col == choose[0].col - 1 || x.col == choose[0].col + 1) && x.row == choose[0].row));
@@ -192,7 +241,7 @@ function Check_Time() {
   Check_i.innerHTML = Cal_Hour + "hours" + Cal_Minute + "ms" + Cal_Second + "s";
 }
 
-let reset =document.querySelector('#reset');
-reset.addEventListener('click',function(){
+let reset = document.querySelector('#reset');
+reset.addEventListener('click', function () {
   location.reload()
 })

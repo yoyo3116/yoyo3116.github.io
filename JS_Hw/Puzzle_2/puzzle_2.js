@@ -119,6 +119,7 @@ btn.forEach((item) => {
           tipOn = true
         })
       }
+
     })
 
     let allList = document.querySelectorAll('ul li');

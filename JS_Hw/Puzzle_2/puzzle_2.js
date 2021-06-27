@@ -98,8 +98,7 @@ btn.forEach((item) => {
       li.setAttribute('style', `width:${500 / this.dataset.num}px;
     height:${500 / this.dataset.num}px;
     line-height:${500 / this.dataset.num}px;
-    // background-image:url("https://picsum.photos/500/500/?random=${1}");
-    // background-position:${pic_X}% ${pic_Y}%;`);
+    background-position:${pic_X}% ${pic_Y}%;`);
       ul.appendChild(li);
       picNum.push(i);
     }
@@ -120,8 +119,6 @@ btn.forEach((item) => {
           tipOn = true
         })
       }
-      console.log('2');
-
     })
 
     let allList = document.querySelectorAll('ul li');
@@ -151,9 +148,6 @@ function start(arr, list) {
     li.innerText = status[index]
     li.style.backgroundImage = `url(${choImg})`
     li.style.backgroundPosition = `${picArray[Number(li.innerText)].x}% ${picArray[Number(li.innerText)].y}%`
-
-    li.innerText = status[index];
-
     if (li.innerText == arr[arr.length - 1]) {
       li.classList.add('empty')
       li.innerText = ''

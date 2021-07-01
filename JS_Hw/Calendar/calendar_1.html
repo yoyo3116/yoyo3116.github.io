@@ -268,7 +268,6 @@
           time: time.value,
           todo: todo.value
         }
-        console.log(dateArr);
         if (localStorage.getItem(click) == null) {
           let innerDate = []
           innerDate.push(dateArr)
@@ -312,7 +311,6 @@
               Modal.querySelector('#showTodo').innerText
                 = a[j].todo;
               Modal.querySelector('#del').addEventListener('click', function (e) {
-                console.log(who);
                 if (who.parentNode) {
                   who.parentNode.removeChild(who);
                   console.log(who);
@@ -322,8 +320,8 @@
                   return item.date + " " + item.time != who.innerText
                 });
                 window.localStorage.setItem(key, JSON.stringify(allDate));
-                if (allDate == '') {
-                  window.localStorage.clear();
+                if (allDate.length === 0) {
+                  window.localStorage.removeItem(key);
                 }
               })
             })

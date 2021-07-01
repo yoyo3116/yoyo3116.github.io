@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+
+  <title>Hello, world!</title>
+  <style>
+    th,
+    tr {
+      font-size: 20px;
+      color: #ffb6c1;
+      width: 14.2857143%;
+      text-align: center;
+      border: gray 5px solid;
+    }
+
+    th {
+      background-color: rgb(39, 139, 233) !important;
+    }
+
+    td {
+
+      text-align: left;
+      font-size: 18px;
+      height: 130px;
+      color: blue;
+      position: relative;
+
+    }
+
+    .today {
+      font-size: 20px;
+      color: red;
+      box-sizing: border-box;
+      border: 4px rgba(68, 68, 68, 0.3) solid !important;
+      background-color: rgba(39, 139, 233, .2) !important;
+    }
+
+    .fa-plus-circle {
+      position: absolute;
+      left: 80%;
+      right: 0;
+      top: 80%;
+      bottom: 0;
+      margin: auto;
+      color: green;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .date {
+      background-color: yellowgreen;
+      border-radius: 4px;
+      margin: 2px;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .fa-arrow-alt-circle-left,
+    .fa-arrow-alt-circle-right {
+      color: orange;
+      font-size: 30px;
+    }
+
+    #year {
+      color: lightseagreen;
+      font-size: 36px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title text-center">
+          <h3 id="year"></h3>
+          <div class="d-flex justify-content-between">
+            <button class='btn' id="last"><i class="fas fa-arrow-alt-circle-left"></i></button>
+            <h3 class='d-inline-block' id="month"></h3>
+            <button id="next" class='btn'><i class="fas fa-arrow-alt-circle-right"></i></button>
+          </div>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Sunday</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal 紀錄事件-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">新增備忘錄</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h4>事情:</h4>
+          <input type="text" id="date">
+          <h4>時間:</h4>
+          <input type="time" id="time">
+          <h4>說明:</h4>
+          <input type="text" id="todo">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" id="save" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 檢視行程 -->
+  <div class="modal " tabindex="-1" id="exampleModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dataId"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>事件:</h3>
+          <p id="showDate"></p>
+          <h3>時間:</h3>
+          <p id="showTime"></p>
+          <h3>備註:</h3>
+          <p id="showTodo"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="del">刪除此事件</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">確定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <script>
+    let Today = new Date();//今天日期
+    let year_num = new Date().getFullYear();
+    let year = document.querySelector('#year');
+    year.innerText = year_num;
+    let month_num = new Date().getMonth();
+    console.log(month_num);
+    const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    let month = document.querySelector('#month');
+    month.innerText = monthList[month_num];
+    //某月第一天星期幾
+    let firstday = new Date(year_num, month_num, 1).getDay()
+    console.log(firstday);
+    //某月共有幾天
+    let lastday = new Date(year_num, month_num + 1, 0).getDate()
+    console.log(lastday)
+    let tds = document.querySelectorAll('td');
+    let click;//紀錄選取日期
+
+
+    window.onload = function () {
+      createDay()
+      nextMonth()
+      lastMonth()
+      addDate()
+    }
+    let dateObj = window.localStorage;
+
+
+    //新增約會
+    function addDate() {
+      let save = document.querySelector('#save')
+      save.addEventListener('click', function (e) {
+        let dateNum = document.querySelector('#dateNum')
+        let date = document.querySelector('#date')
+        let time = document.querySelector('#time')
+        let todo = document.querySelector('#todo')
+        if (date.value == '' || time.value == '' || todo.value == '') {
+          alert('有格子沒填滿!')
+          return
+        }
+        let dateArr;
+        dateArr = {
+          date: date.value,
+          time: time.value,
+          todo: todo.value
+        }
+        console.log(dateArr);
+        if (localStorage.getItem(click) == null) {
+          let innerDate = []
+          innerDate.push(dateArr)
+          dateObj.setItem(click, JSON.stringify(innerDate));
+        }
+        else {
+          let innerDate = Array.from(JSON.parse(localStorage.getItem(click)))
+          innerDate.push(dateArr)
+          dateObj.setItem(click, JSON.stringify(innerDate))
+        }
+        createDay()
+      })
+    }
+
+    //更新日期
+    function createDay() {
+      firstday = new Date(year_num, month_num, 1).getDay()
+      lastday = new Date(year_num, month_num + 1, 0).getDate()
+      tds.forEach(x => {
+        x.innerText = ''
+      });
+      for (let i = 1; i <= lastday; i++) {
+        let id = `${year_num}/${month_num + 1}/${i}`
+        tds[firstday].innerText = i
+        let addEvent = document.createElement('i');
+        if (localStorage.getItem(`${year_num}/${month_num + 1}/${i}`) != null) {
+          let a = JSON.parse(localStorage.getItem(`${year_num}/${month_num + 1}/${i}`))
+          let key = `${year_num}/${month_num + 1}/${i}`
+          for (let j = 0; j < a.length; j++) {
+            let event = document.createElement('div');
+            event.setAttribute('class', 'date')
+            event.innerHTML = a[j].date + " " + a[j].time;
+            event.addEventListener('click', function (i) {
+              let who = i.currentTarget;
+              let Modal = document.querySelector("#exampleModal2")
+              Modal.querySelector('#dataId').innerText = id;
+              Modal.querySelector('#showDate').innerText
+                = a[j].date;
+              Modal.querySelector('#showTime').innerText
+                = a[j].time;
+              Modal.querySelector('#showTodo').innerText
+                = a[j].todo;
+              Modal.querySelector('#del').addEventListener('click', function (e) {
+                console.log(who);
+                if (who.parentNode) {
+                  who.parentNode.removeChild(who);
+                  console.log(who);
+                }
+                let allDate = JSON.parse(localStorage.getItem(key))
+                allDate = allDate.filter(function (item) {
+                  return item.date + " " + item.time != who.innerText
+                });
+                window.localStorage.setItem(key, JSON.stringify(allDate));
+                if (allDate == '') {
+                  window.localStorage.clear();
+                }
+              })
+            })
+            event.setAttribute('data-bs-toggle', 'modal')
+            event.setAttribute('data-bs-target', '#exampleModal2')
+            tds[firstday].appendChild(event);
+          }
+        }
+        addEvent.classList.add('fas', 'fa-plus-circle')
+        addEvent.setAttribute('data-bs-toggle', 'modal')
+        addEvent.setAttribute('data-bs-target', '#exampleModal')
+        addEvent.setAttribute('id', `${year_num}/${month_num + 1}/${i}`)
+        addEvent.addEventListener('click', function (e) {
+          click = e.currentTarget.id;
+        })
+        tds[firstday].appendChild(addEvent)
+        firstday++;
+      }
+      todayOnline()
+    }
+
+    //渲染當天
+    function todayOnline() {
+      tds[(Today.getDay())].classList.remove('today');
+      Today = new Date()
+      if (year.innerText == Today.getFullYear() && monthList[month_num] == monthList[Today.getMonth()]) {
+        tds[(Today.getDay())].classList.add('today');
+        console.log(year.innerText, Today.getFullYear(), monthList[month_num], monthList[Today.getMonth()]);
+      }
+    }
+
+    //下個月
+    function nextMonth() {
+      let next = document.querySelector('#next')
+      next.addEventListener('click', function () {
+        month_num++;
+        if (month_num > 11) {
+          year_num++
+          year.innerText = year_num;
+          month_num = 0
+        }
+        month.innerText = monthList[month_num];
+        createDay()
+      })
+    }
+
+    //上個月
+    function lastMonth() {
+      let last = document.querySelector('#last')
+      last.addEventListener('click', function () {
+        month_num--;
+        if (month_num < 0) {
+          year_num--
+          year.innerText = year_num;
+          month_num = 11
+        }
+        month.innerText = monthList[month_num];
+        createDay()
+      })
+    }
+
+  </script>
+</body>
+
+</html>

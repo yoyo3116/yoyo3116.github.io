@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/6ca253113b.js" crossorigin="anonymous"></script>
+  <title>行事曆</title>
+  <style>
+    .calender {
+      box-sizing: border-box;
+    }
+
+    td,
+    th {
+      text-align: center;
+    }
+
+    td {
+      box-sizing: border-box;
+      width: 14.2857%;
+      height: 100px;
+    }
+
+    /* td div{
+            overflow: hidden;
+        } */
+    td:hover {
+      background-color: rgba(222, 222, 222.6);
+    }
+
+    span {
+      color: #000;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="calender mx-auto col-10">
+        <div class=" d-flex justify-content-between mb-3">
+          <button class="btn" onclick="lessmonth()"><i class="fas fa-chevron-left"></i></button>
+          <div class="txt d-flex">
+            <h3 id='year' class="mr-2"></h3>
+            <h3 id='month' class="ml-2"></h3>
+            <!-- <button class="btn btn-dark  my-auto ml-2" data-toggle="modal"
+                            data-target="#modal_todolist">新增行程</button> -->
+          </div>
+          <button class="btn" onclick="addmonth()"></i></button>
+        </div>
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wen</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal_todolist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">行程</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body todolist input-group mb-3 d-flex align-items-center">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id='schedule_add' onclick="add()">新增行程</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade " id="modal_addtodolist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">新增行程</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label>
+            標題 :
+            <input type="text" name="" class="ml-1" id='schedule_title'>
+          </label>
+          <label class="ml-2">
+            色彩:
+            <input type="color" id="schedule_color" name="">
+          </label>
+          <div class="d-block">
+            <label>
+              詳細內容 :
+            </label>
+            <textarea class="d-block form-control" id='schedule_description'></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" id='schedule_save' onclick="save()">儲存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id='showtodolist' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close del_close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body show_todolist">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id='schedule_del' onclick="del()">刪除行程</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="input-group mb-3 d-flex align-items-center">
+        <input type="checkbox" aria-label="Checkbox for following text input" class=" ">
+        <span> 3123131</span>
+    </div> -->
+  <script>
+    let month = document.getElementById('month');
+    let year = document.getElementById('year');
+    let year_num = new Date().getFullYear();
+    console.log(year_num);
+    year.innerHTML = year_num;
+    const monthName = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
+    let month_num = new Date().getMonth();
+    console.log(month_num);
+    month.innerHTML = monthName[month_num];
+    let tds = document.querySelectorAll('td');
+    let firstday = new Date(year_num, month_num, 1).getDay();
+    console.log(firstday);
+    let allday = new Date(year_num, month_num + 1, 0).getDate()
+    console.log(allday);
+    let clickday = 0;
+    let todolist = document.getElementsByClassName('todolist')[0];
+    let showlist = document.getElementsByClassName('showtodolist')[0];
+
+    tds.forEach(el => {
+      let p = document.createElement('p');
+      el.appendChild(p);
+      let div = document.createElement('div');
+      div.classList.add('ul_container');
+      el.appendChild(div);
+    })
+    function adddate() {
+
+      for (let i = 1; i <= allday; i++) {
+        // debugger
+        let ps = document.querySelectorAll('td p')
+        ps[firstday].innerText = i;
+        // debugger
+        let scheduleObj;
+        let ul_container = document.querySelectorAll('.ul_container');
+        ul_container[firstday].innerHTML = '';
+        if (localStorage.getItem(`${year_num}${month_num}${i}`) != null) {
+          scheduleObj = JSON.parse(localStorage.getItem(`${year_num}${month_num}${i}`))
+          // debugger
+          ul_container[firstday].innerText = '';
+          let ul = document.createElement('ul')
+          if (scheduleObj.length == 1) {
+            let li = document.createElement('li');
+            let span = document.createElement('span')
+            span.innerHTML = `${scheduleObj[0].title}`;
+            li.appendChild(span);
+            span.style.wordBreak = 'break-all'
+            ul.appendChild(li);
+            li.style.color = `${scheduleObj[0].color}`
+          }
+          else {
+            for (let j = 0; j < 2; j++) {
+              let li = document.createElement('li');
+              let span = document.createElement('span')
+              span.innerHTML = `${scheduleObj[j].title}`;
+              li.appendChild(span);
+              ul.appendChild(li);
+              li.style.color = `${scheduleObj[j].color}`
+            }
+          }
+          ul_container[firstday].appendChild(ul);
+        }
+        // tds[firstday].setAttribute('data-toggle', "modal")
+        // tds[firstday].setAttribute('data-target', "#modal_todolist")
+        tds[firstday].onclick = function () {
+          clickday = this.children[0].textContent;
+          if (clickday != '') {
+            todolist.innerHTML = ''
+            let ul = document.createElement('ul')
+            if (localStorage.getItem(`${year_num}${month_num}${clickday}`) != null) {
+              for (let item of scheduleObj) {
+                let li = document.createElement('li');
+                let span = document.createElement('span');
+                span.innerHTML = `${item.title}`;
+                li.appendChild(span);
+                ul.appendChild(li);
+
+                li.onclick = function () {
+                  let md_head_h5 = document.querySelector('#showtodolist .modal-header h5');
+                  md_head_h5.innerHTML = `${item.title}`;
+                  let md_body_p = document.querySelector('#showtodolist .modal-body p');
+                  md_body_p.innerText = `${item.description}`;
+                  $('#showtodolist').modal('show');
+                  $('#modal_todolist').modal('hide')
+                }
+              }
+            }
+            tod
+          } olist.appendChild(ul)
+          $('#modal_todolist').modal('show')
+        }
+        firstday++;
+      }
+
+    }
+    adddate();
+
+
+    function cleardate() {
+
+      let ps = document.querySelectorAll('td p');
+
+      for (let j = 0; j < tds.length; j++) {
+        // debugger
+        ps[j].innerText = '';
+        //tds[j].removeAttribute('data-toggle', 'data-target')
+      }
+    }
+
+    function addmonth() {
+      cleardate();
+      if (month_num == 11) {
+        year_num++;
+        year.innerHTML = year_num
+        month_num = 0;
+        month.innerHTML = monthName[month_num];
+      }
+      else {
+        month_num++;
+        month.innerHTML = monthName[month_num];
+      }
+      firstday = new Date(year_num, month_num, 1).getDay();
+      allday = new Date(year_num, month_num + 1, 0).getDate();
+
+      adddate()
+    }
+    function lessmonth() {
+      cleardate();
+      if (month_num == 0) {
+        year_num--;
+        year.innerHTML = year_num
+        month_num = 11;
+        month.innerHTML = monthName[month_num];
+        allday = new Date(year_num, month_num + 1, 0).getDate();
+      }
+      else {
+        month_num--;
+        month.innerHTML = monthName[month_num];
+      }
+      firstday = new Date(year_num, month_num, 1).getDay();
+      allday = new Date(year_num, month_num + 1, 0).getDate();
+      adddate()
+    }
+
+
+
+    function save() {
+      let txt_tit = document.getElementById('schedule_title').value;
+      let txt_des = document.getElementById('schedule_description').value;
+      let txt_col = document.getElementById('schedule_color').value;
+      console.log(txt_tit);
+      console.log(txt_des);
+      console.log(txt_col);
+
+
+
+      if (localStorage.getItem(`${year_num}${month_num}${clickday}`) != null) {
+        scheduleObj = JSON.parse(localStorage.getItem(`${year_num}${month_num}${clickday}`));
+
+        let sc = [];
+        for (let i = 0; i < scheduleObj.length + 1; i++) {
+
+          if (i == scheduleObj.length) {
+            sc.push({ title: txt_tit, description: txt_des, color: txt_col })
+          }
+          else {
+            sc.push(scheduleObj[i]);
+          }
+        }
+
+        let txt_sc = JSON.stringify(sc);
+        console.log(txt_sc)
+        let sc_id = `${year_num}${month_num}${clickday}`
+        localStorage.setItem(`${sc_id}`, `${txt_sc}`);
+      }
+      else {
+        let sc = [];
+        sc.push({ title: txt_tit, description: txt_des, color: txt_col })
+        let txt_sc = JSON.stringify(sc);
+        console.log(txt_sc)
+        let sc_id = `${year_num}${month_num}${clickday}`
+        localStorage.setItem(`${sc_id}`, `${txt_sc}`);
+      }
+
+
+
+      firstday = new Date(year_num, month_num, 1).getDay();
+
+
+      cleardate();
+      adddate();
+      document.getElementById('schedule_title').value = '';
+      document.getElementById('schedule_description').value = ''
+      $('#modal_addtodolist').modal('hide')
+    }
+    function add() {
+      $('#modal_addtodolist').modal('show')
+      $('#modal_todolist').modal('hide')
+    }
+    function del() {
+      let title = document.querySelector('#showtodolist h5').textContent;
+      let p = document.querySelector('#showtodolist p').textContent;
+      let id = `${year_num}${month_num}${clickday}`;
+      let scheduleObj = JSON.parse(localStorage.getItem(`${year_num}${month_num}${clickday}`))
+      // debugger
+      let sc = [];
+      if (scheduleObj.length == 1) {
+        localStorage.removeItem(id)
+      }
+      else {
+        scheduleObj.forEach(el => {
+          if (el.title == title && el.description == p) {
+
+          }
+          else {
+            sc.push(el);
+          }
+        })
+        let txt_sc = JSON.stringify(sc);
+        localStorage.setItem(`${id}`, `${txt_sc}`);
+      }
+      firstday = new Date(year_num, month_num, 1).getDay();
+      cleardate();
+      adddate();
+      $('#showtodolist').modal('hide');
+    }
+
+
+  </script>
+
+</body>

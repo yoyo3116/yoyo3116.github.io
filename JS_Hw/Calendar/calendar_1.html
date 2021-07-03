@@ -11,25 +11,35 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
+  <!-- map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
   <title>Hello, world!</title>
   <style>
     th,
     tr {
       font-size: 20px;
-      color: #ffb6c1;
+      color: #e70f2f;
       width: 14.2857143%;
       text-align: center;
-      border: gray 5px solid;
+       border: rgb(63, 131, 219) 1px solid;
     }
 
     th {
-      background-color: rgb(39, 139, 233) !important;
+      background-color: rgba(39, 139, 233, 0.644) !important;
+
     }
 
+   
     td {
-
+      border: rgba(128, 128, 128, 0.452) 1px solid;
       text-align: left;
       font-size: 18px;
       height: 130px;
@@ -57,10 +67,17 @@
       font-size: 20px;
       line-height: 20px;
       text-align: center;
+      transition: .2s;
+    }
+
+    .fa-plus-circle:hover {
+      transform: scale(1.4);
+      transition: .2s;
+      cursor: pointer;
     }
 
     .date {
-      background-color: yellowgreen;
+      /* background-color: yellowgreen; */
       border-radius: 4px;
       margin: 2px;
       font-size: 16px;
@@ -72,12 +89,57 @@
     .fa-arrow-alt-circle-left,
     .fa-arrow-alt-circle-right {
       color: orange;
-      font-size: 30px;
+      font-size: 40px;
+      
     }
 
     #year {
       color: lightseagreen;
       font-size: 36px;
+    }
+
+    .recognition {
+      border-radius: 50%;
+      border: 1px gray solid;
+      background-color: white;
+    }
+
+    .active {
+      box-shadow: 0px 0px 10px rgba(135, 207, 235, 0.692);
+      color: rgb(42, 148, 218);
+    }
+
+    .inputStyle {
+      width: 80%;
+      height: 30px;
+    }
+    #todo{
+      height: 90px;
+    }
+    .label {
+      color: white;
+      border-radius: 4px;
+      font-size: 26px;
+      padding: 0 10px;
+    }
+    .chk{
+      
+    }
+    #month{
+      font-size: 100px;
+      font-weight: 900;
+      color: rgb(237, 100, 141);
+    }
+    .title{
+      overflow: hidden;
+    }
+    #year{
+      font-size: 60px;
+      font-weight: 900;
+    }
+    .table{
+      border-radius: 8px !important; 
+
     }
   </style>
 </head>
@@ -85,85 +147,93 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="title text-center">
-          <h3 id="year"></h3>
-          <div class="d-flex justify-content-between">
+      <div class="col-md-6">
+        <h3 class='d-inline-block' id="month"></h3>
+      </div>
+      <div class="col-md-4 text-center">
+        <h3 class='d-inline-block title'></h3>
+      </div>
+      <div class="col-md-2">
+        <div class="title">
+          <h3 id="year"class="text-end"></h3>
+          <div class="d-flex justify-content-end">
             <button class='btn' id="last"><i class="fas fa-arrow-alt-circle-left"></i></button>
-            <h3 class='d-inline-block' id="month"></h3>
             <button id="next" class='btn'><i class="fas fa-arrow-alt-circle-right"></i></button>
           </div>
         </div>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Sunday</th>
-              <th>Monday</th>
-              <th>Tuesday</th>
-              <th>Wednesday</th>
-              <th>Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        
       </div>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -177,12 +247,27 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h4>事情:</h4>
-          <input type="text" id="date">
-          <h4>時間:</h4>
-          <input type="time" id="time">
-          <h4>說明:</h4>
-          <input type="text" id="todo">
+          <h4 class="pt-1">事情:</h4>
+          <div class="row">
+            <div class="col-md-9"><input class="w-100 pt-1 inputStyle" type="text" id="date"> </div>
+            <div class="col-md-3"><button class='recognition'><i class="fas fa-microphone"></i></button></div>
+          </div>
+          <h4 class="pt-1" >時間:</h4>
+          <div class="row">
+          <div class="col-md-9"><input class="w-100 pt-1 inputStyle" type="time" id="time"></div>
+          </div>
+          <h4 class="pt-1">說明:</h4>
+          <div class="row">
+            <div class="col-md-9"><textarea class="w-100 pt-1 inputStyle" type="text" id="todo" ></textarea></div>
+            <div class="col-md-3"><button class='recognition'><i class="fas fa-microphone"></i></button></div>
+          </div>
+          <h4 class="pt-1">重要性:</h4>
+          <input type="radio" style= "zoom:150%"class="chk" id="urgent" name="drone" value="dc3545" checked>
+          <label class="label bg-danger" for="urgent">緊急</label>
+          <input type="radio"  style= "zoom:150%"class="chk" id="important" name="drone" value="ffc107">
+          <label class="label bg-warning" for="important">重要</label>
+          <input type="radio"  style= "zoom:150%"class="chk" id="normal" name="drone" value="198754">
+          <label class="label bg-success" for="normal">普通</label>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -222,6 +307,7 @@
     crossorigin="anonymous"></script>
 
   <script>
+
     let Today = new Date();//今天日期
     let year_num = new Date().getFullYear();
     let year = document.querySelector('#year');
@@ -241,15 +327,71 @@
     let click;//紀錄選取日期
 
 
+
+
+
+
+
+
+
+
     window.onload = function () {
       createDay()
       nextMonth()
       lastMonth()
       addDate()
     }
+
+    let target;
+    let addParent;
+    let rebtn = document.querySelectorAll('.recognition')
+    rebtn.forEach((x, index) => {
+      x.addEventListener('click', function (e) {
+        if (index == 0) {
+          addParent = document.querySelectorAll('.recognition')[0]
+          target = document.querySelector('#date')
+          console.log(target);
+        }
+        else {
+          addParent = document.querySelectorAll('.recognition')[1]
+          target = document.querySelector('#todo')
+        }
+        Recognition(target)
+      })
+    })
+
+
     let dateObj = window.localStorage;
 
 
+    function Recognition() {
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.lang = "cmn-Hant-TW";
+
+      recognition.onstart = function () {
+        addParent.classList.add('active')
+        target.value = ''
+        console.log('開始辨識');
+      };
+      recognition.onend = function () {
+        addParent.classList.remove('active')
+        console.log('停止辨識!');
+      };
+
+      recognition.onresult = function (event) {
+        var i = event.resultIndex;
+        var j = event.results[i].length - 1;
+        target.value = event.results[i][j].transcript;
+      };
+      recognition.start();
+    }
+
+    function submit()  {
+         
+        };
     //新增約會
     function addDate() {
       let save = document.querySelector('#save')
@@ -257,7 +399,15 @@
         let dateNum = document.querySelector('#dateNum')
         let date = document.querySelector('#date')
         let time = document.querySelector('#time')
-        let todo = document.querySelector('#todo')
+        let todo = document.querySelector('#todo') 
+        let selected ;
+        let obj = document.getElementsByName("drone");
+          for (var i = 0; i < obj.length; i++) {
+            if (obj[i].checked) {
+              selected = obj[i].value;
+            }
+          }
+        console.log(selected)
         if (date.value == '' || time.value == '' || todo.value == '') {
           alert('有格子沒填滿!')
           return
@@ -266,7 +416,8 @@
         dateArr = {
           date: date.value,
           time: time.value,
-          todo: todo.value
+          todo: todo.value,
+          selected:selected
         }
         if (localStorage.getItem(click) == null) {
           let innerDate = []
@@ -277,6 +428,7 @@
           let innerDate = Array.from(JSON.parse(localStorage.getItem(click)))
           innerDate.push(dateArr)
           dateObj.setItem(click, JSON.stringify(innerDate))
+
         }
         createDay()
       })
@@ -300,6 +452,7 @@
             let event = document.createElement('div');
             event.setAttribute('class', 'date')
             event.innerHTML = a[j].date + " " + a[j].time;
+            event.style.backgroundColor = "#"+a[j].selected;
             event.addEventListener('click', function (i) {
               let who = i.currentTarget;
               let Modal = document.querySelector("#exampleModal2")
@@ -328,6 +481,7 @@
             event.setAttribute('data-bs-toggle', 'modal')
             event.setAttribute('data-bs-target', '#exampleModal2')
             tds[firstday].appendChild(event);
+            
           }
         }
         addEvent.classList.add('fas', 'fa-plus-circle')

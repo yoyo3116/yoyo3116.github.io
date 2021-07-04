@@ -37,14 +37,15 @@
 
     }
 
-    #month{
+    #month {
       color: white;
     }
+
     td {
       border: rgba(128, 128, 128, 0.452) 1px solid;
       text-align: left;
       font-size: 20px;
-      height: 130px;
+      height: 80px;
       font-weight: 600;
       color: rgb(26, 101, 212);
       position: relative;
@@ -60,7 +61,7 @@
       box-sizing: border-box;
       border: 2px rgba(68, 68, 68, 0.3) solid !important;
       background-color: rgba(39, 139, 233, .2) !important;
-      animation-name:move ;
+      animation-name: move;
       animation-duration: .2s;
     }
 
@@ -69,7 +70,7 @@
       position: absolute;
       left: 80%;
       right: 0;
-      top: 80%;
+      top: 10%;
       bottom: 0;
       margin: auto;
       color: green;
@@ -82,7 +83,7 @@
       animation-name: moveup;
       animation-duration: .2s;
     }
- 
+
     .fa-plus-circle:hover {
       transform: scale(1.4);
       transition: .2s;
@@ -90,6 +91,7 @@
     }
 
     .date {
+      width: 80%;
       border-radius: 4px;
       margin: 2px;
       font-size: 16px;
@@ -176,7 +178,7 @@
       font-size: 100px;
       font-weight: 900;
       color: rgb(237, 100, 141) !important;
-      animation-name:move ;
+      animation-name: move;
       animation-duration: .2s;
     }
 
@@ -187,20 +189,19 @@
     #year {
       font-size: 60px;
       font-weight: 900;
-      
     }
-
+    
     .table {
       border-radius: 8px !important;
     }
 
     @keyframes moveup {
       from {
-        bottom: 50%;
+        TOP: 30%;
       }
 
       to {
-        bottom: 0;
+        TOP: 0;
       }
     }
 
@@ -212,6 +213,9 @@
       to {
         transform: scale(1.0)
       }
+    }
+    .nullday{
+      background-color: rgba(2, 60, 119, 0.1) !important;
     }
   </style>
 </head>
@@ -597,9 +601,8 @@
         }, 10);
         month.classList.remove('month');
         setTimeout(function () {
-        month.classList.add('month');
-      }, 10);
-        
+          month.classList.add('month');
+        }, 10);
         firstday++;
       }
       todayOnline()
@@ -607,19 +610,19 @@
 
     //渲染當天
     function todayOnline() {
-      tds.forEach((x) => { x.classList.remove('today'); })
-      tds.forEach((x) => { x.classList.remove('nottoday'); })
+      tds.forEach((x) => { x.classList.remove('nottoday','nullday','today'); })
+      tds.forEach((x) =>{
+        if(x.innerText==''){x.classList.add('nullday')}});
       Today = new Date()
       if (year.innerText == Today.getFullYear() && monthList[month_num] == monthList[Today.getMonth()]) {
         tds.forEach((x) => {
-          console.log(x.innerText);
-          console.log(Today.getDate());
+          console.log(x);
           if (Number(x.innerText) === Today.getDate()) {
             x.classList.add('today');
+            
           }
+          
         })
-        console.log(Today.getDate());
-        console.log(year.innerText, Today.getFullYear(), monthList[month_num], monthList[Today.getMonth()]);
       }
     }
 

@@ -97,6 +97,9 @@
       text-align: center;
       font-weight: 600;
       transition: .2s;
+      position: relative;
+      animation-name: moveup;
+      animation-duration: .2s;
     }
 
     .date:hover {
@@ -548,7 +551,6 @@
           let key = `${year_num}/${month_num + 1}/${i}`
           for (let j = 0; j < a.length; j++) {
             let event = document.createElement('div');
-            event.setAttribute('class', 'date')
             event.innerHTML = a[j].date + " " + a[j].time;
             event.style.backgroundColor = "#" + a[j].selected;
             event.addEventListener('click', function (i) {
@@ -579,6 +581,7 @@
             event.setAttribute('data-bs-toggle', 'modal')
             event.setAttribute('data-bs-target', '#exampleModal2')
             tds[firstday].appendChild(event);
+            event.classList.add('date')
           }
         }
         addEvent.classList.add('fas', 'fa-plus-circle')

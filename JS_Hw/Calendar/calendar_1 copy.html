@@ -194,60 +194,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+         
         </tbody>
       </table>
     </div>
@@ -342,224 +289,229 @@
     let tds = document.querySelectorAll('td');
     let click;//紀錄選取日期
 
-
-
-
-
-
-
-
-
-
-
-    window.onload = function () {
-      createDay()
-      nextMonth()
-      lastMonth()
-      addDate()
+    let rows = Math.ceil((lastday +firstday) / 7)
+    let day=1;
+    for(let row = 0 ;row <rows ;row++){
+      let tr =document.createElement('tr');
+      for(let col =0 ;col<7 ;col++){
+        let td =document.createElement('td');
+        tr.appendChild(td)
+        day++
+      } 
+      document.querySelector('tbody').appendChild(tr)
     }
-
-    let target;
-    let addParent;
-    let rebtn = document.querySelectorAll('.recognition')
-    rebtn.forEach((x, index) => {
-      x.addEventListener('click', function (e) {
-        if (index == 0) {
-          addParent = document.querySelectorAll('.recognition')[0]
-          target = document.querySelector('#date')
-          console.log(target);
-        }
-        else {
-          addParent = document.querySelectorAll('.recognition')[1]
-          target = document.querySelector('#todo')
-        }
-        Recognition(target)
-      })
-    })
+    
 
 
-    let dateObj = window.localStorage;
 
 
-    function Recognition() {
-      var recognition = new webkitSpeechRecognition();
 
-      recognition.continuous = false;
-      recognition.interimResults = true;
-      recognition.lang = "cmn-Hant-TW";
 
-      recognition.onstart = function () {
-        addParent.classList.add('active')
-        target.value = ''
-        console.log('開始辨識');
-      };
-      recognition.onend = function () {
-        addParent.classList.remove('active')
-        console.log('停止辨識!');
-      };
 
-      recognition.onresult = function (event) {
-        var i = event.resultIndex;
-        var j = event.results[i].length - 1;
-        target.value = event.results[i][j].transcript;
-      };
-      recognition.start();
-    }
 
-    function submit()  {
+
+    // window.onload = function () {
+    //   createDay()
+    //   nextMonth()
+    //   lastMonth()
+    //   addDate()
+    // }
+
+    // let target;
+    // let addParent;
+    // let rebtn = document.querySelectorAll('.recognition')
+    // rebtn.forEach((x, index) => {
+    //   x.addEventListener('click', function (e) {
+    //     if (index == 0) {
+    //       addParent = document.querySelectorAll('.recognition')[0]
+    //       target = document.querySelector('#date')
+    //       console.log(target);
+    //     }
+    //     else {
+    //       addParent = document.querySelectorAll('.recognition')[1]
+    //       target = document.querySelector('#todo')
+    //     }
+    //     Recognition(target)
+    //   })
+    // })
+
+
+    // let dateObj = window.localStorage;
+
+
+    // function Recognition() {
+    //   var recognition = new webkitSpeechRecognition();
+
+    //   recognition.continuous = false;
+    //   recognition.interimResults = true;
+    //   recognition.lang = "cmn-Hant-TW";
+
+    //   recognition.onstart = function () {
+    //     addParent.classList.add('active')
+    //     target.value = ''
+    //     console.log('開始辨識');
+    //   };
+    //   recognition.onend = function () {
+    //     addParent.classList.remove('active')
+    //     console.log('停止辨識!');
+    //   };
+
+    //   recognition.onresult = function (event) {
+    //     var i = event.resultIndex;
+    //     var j = event.results[i].length - 1;
+    //     target.value = event.results[i][j].transcript;
+    //   };
+    //   recognition.start();
+    // }
+
+    // function submit()  {
          
-        };
-    //新增約會
-    function addDate() {
-      let save = document.querySelector('#save')
-      save.addEventListener('click', function (e) {
-        let dateNum = document.querySelector('#dateNum')
-        let date = document.querySelector('#date')
-        let time = document.querySelector('#time')
-        let todo = document.querySelector('#todo') 
-        let selected ;
-        let obj = document.getElementsByName("drone");
-          for (var i = 0; i < obj.length; i++) {
-            if (obj[i].checked) {
-              selected = obj[i].value;
-            }
-          }
-        console.log(selected)
-        if (date.value == '' || time.value == '' || todo.value == '') {
-          alert('有格子沒填滿!')
-          return
-        }
-        let dateArr;
-        dateArr = {
-          date: date.value,
-          time: time.value,
-          todo: todo.value,
-          selected:selected
-        }
-        if (localStorage.getItem(click) == null) {
-          let innerDate = []
-          innerDate.push(dateArr)
-          dateObj.setItem(click, JSON.stringify(innerDate));
-        }
-        else {
-          let innerDate = Array.from(JSON.parse(localStorage.getItem(click)))
-          innerDate.push(dateArr)
-          dateObj.setItem(click, JSON.stringify(innerDate))
+    //     };
+    // //新增約會
+    // function addDate() {
+    //   let save = document.querySelector('#save')
+    //   save.addEventListener('click', function (e) {
+    //     let dateNum = document.querySelector('#dateNum')
+    //     let date = document.querySelector('#date')
+    //     let time = document.querySelector('#time')
+    //     let todo = document.querySelector('#todo') 
+    //     let selected ;
+    //     let obj = document.getElementsByName("drone");
+    //       for (var i = 0; i < obj.length; i++) {
+    //         if (obj[i].checked) {
+    //           selected = obj[i].value;
+    //         }
+    //       }
+    //     console.log(selected)
+    //     if (date.value == '' || time.value == '' || todo.value == '') {
+    //       alert('有格子沒填滿!')
+    //       return
+    //     }
+    //     let dateArr;
+    //     dateArr = {
+    //       date: date.value,
+    //       time: time.value,
+    //       todo: todo.value,
+    //       selected:selected
+    //     }
+    //     if (localStorage.getItem(click) == null) {
+    //       let innerDate = []
+    //       innerDate.push(dateArr)
+    //       dateObj.setItem(click, JSON.stringify(innerDate));
+    //     }
+    //     else {
+    //       let innerDate = Array.from(JSON.parse(localStorage.getItem(click)))
+    //       innerDate.push(dateArr)
+    //       dateObj.setItem(click, JSON.stringify(innerDate))
 
-        }
-        createDay()
-      })
-    }
+    //     }
+    //     createDay()
+    //   })
+    // }
 
-    //更新日期
-    function createDay() {
-      firstday = new Date(year_num, month_num, 1).getDay()
-      lastday = new Date(year_num, month_num + 1, 0).getDate()
-      tds.forEach(x => {
-        x.innerText = ''
-      });
-      for (let i = 1; i <= lastday; i++) {
-        let id = `${year_num}/${month_num + 1}/${i}`
-        tds[firstday].innerText = i
-        let addEvent = document.createElement('i');
-        if (localStorage.getItem(`${year_num}/${month_num + 1}/${i}`) != null) {
-          let a = JSON.parse(localStorage.getItem(`${year_num}/${month_num + 1}/${i}`))
-          let key = `${year_num}/${month_num + 1}/${i}`
-          for (let j = 0; j < a.length; j++) {
-            let event = document.createElement('div');
-            event.setAttribute('class', 'date')
-            event.innerHTML = a[j].date + " " + a[j].time;
-            event.style.backgroundColor = "#"+a[j].selected;
-            event.addEventListener('click', function (i) {
-              let who = i.currentTarget;
-              let Modal = document.querySelector("#exampleModal2")
-              Modal.querySelector('#dataId').innerText = id;
-              Modal.querySelector('#showDate').innerText
-                = a[j].date;
-              Modal.querySelector('#showTime').innerText
-                = a[j].time;
-              Modal.querySelector('#showTodo').innerText
-                = a[j].todo;
-              Modal.querySelector('#del').addEventListener('click', function (e) {
-                if (who.parentNode) {
-                  who.parentNode.removeChild(who);
-                  console.log(who);
-                }
-                let allDate = JSON.parse(localStorage.getItem(key))
-                allDate = allDate.filter(function (item) {
-                  return item.date + " " + item.time != who.innerText
-                });
-                window.localStorage.setItem(key, JSON.stringify(allDate));
-                if (allDate.length === 0) {
-                  window.localStorage.removeItem(key);
-                }
-              })
-            })
-            event.setAttribute('data-bs-toggle', 'modal')
-            event.setAttribute('data-bs-target', '#exampleModal2')
-            tds[firstday].appendChild(event);
+    // //更新日期
+    // function createDay() {
+    //   firstday = new Date(year_num, month_num, 1).getDay()
+    //   lastday = new Date(year_num, month_num + 1, 0).getDate()
+    //   tds.forEach(x => {
+    //     x.innerText = ''
+    //   });
+    //   for (let i = 1; i <= lastday; i++) {
+    //     let id = `${year_num}/${month_num + 1}/${i}`
+    //     tds[firstday].innerText = i
+    //     let addEvent = document.createElement('i');
+    //     if (localStorage.getItem(`${year_num}/${month_num + 1}/${i}`) != null) {
+    //       let a = JSON.parse(localStorage.getItem(`${year_num}/${month_num + 1}/${i}`))
+    //       let key = `${year_num}/${month_num + 1}/${i}`
+    //       for (let j = 0; j < a.length; j++) {
+    //         let event = document.createElement('div');
+    //         event.setAttribute('class', 'date')
+    //         event.innerHTML = a[j].date + " " + a[j].time;
+    //         event.style.backgroundColor = "#"+a[j].selected;
+    //         event.addEventListener('click', function (i) {
+    //           let who = i.currentTarget;
+    //           let Modal = document.querySelector("#exampleModal2")
+    //           Modal.querySelector('#dataId').innerText = id;
+    //           Modal.querySelector('#showDate').innerText
+    //             = a[j].date;
+    //           Modal.querySelector('#showTime').innerText
+    //             = a[j].time;
+    //           Modal.querySelector('#showTodo').innerText
+    //             = a[j].todo;
+    //           Modal.querySelector('#del').addEventListener('click', function (e) {
+    //             if (who.parentNode) {
+    //               who.parentNode.removeChild(who);
+    //               console.log(who);
+    //             }
+    //             let allDate = JSON.parse(localStorage.getItem(key))
+    //             allDate = allDate.filter(function (item) {
+    //               return item.date + " " + item.time != who.innerText
+    //             });
+    //             window.localStorage.setItem(key, JSON.stringify(allDate));
+    //             if (allDate.length === 0) {
+    //               window.localStorage.removeItem(key);
+    //             }
+    //           })
+    //         })
+    //         event.setAttribute('data-bs-toggle', 'modal')
+    //         event.setAttribute('data-bs-target', '#exampleModal2')
+    //         tds[firstday].appendChild(event);
             
-          }
-        }
-        addEvent.classList.add('fas', 'fa-plus-circle')
-        addEvent.setAttribute('data-bs-toggle', 'modal')
-        addEvent.setAttribute('data-bs-target', '#exampleModal')
-        addEvent.setAttribute('id', `${year_num}/${month_num + 1}/${i}`)
-        addEvent.addEventListener('click', function (e) {
-          click = e.currentTarget.id;
-        })
-        tds[firstday].appendChild(addEvent)
-        firstday++;
-      }
-      todayOnline()
-    }
+    //       }
+    //     }
+    //     addEvent.classList.add('fas', 'fa-plus-circle')
+    //     addEvent.setAttribute('data-bs-toggle', 'modal')
+    //     addEvent.setAttribute('data-bs-target', '#exampleModal')
+    //     addEvent.setAttribute('id', `${year_num}/${month_num + 1}/${i}`)
+    //     addEvent.addEventListener('click', function (e) {
+    //       click = e.currentTarget.id;
+    //     })
+    //     tds[firstday].appendChild(addEvent)
+    //     firstday++;
+    //   }
+    //   todayOnline()
+    // }
 
-    //渲染當天
-    function todayOnline() {
-      tds.forEach((x)=>{x.classList.remove('today');})
-      Today = new Date()
-      if (year.innerText == Today.getFullYear() && monthList[month_num] == monthList[Today.getMonth()]) {
-        tds.forEach((x)=>{
-          console.log(x.innerText);
-          console.log(Today.getDate());
-          if(Number(x.innerText)===Today.getDate()){
-            x.classList.add('today');
-          }
-        })
-        console.log(Today.getDate());
-        console.log(year.innerText, Today.getFullYear(), monthList[month_num], monthList[Today.getMonth()]);
-      }
-    }
+    // //渲染當天
+    // function todayOnline() {
+    //   tds[(Today.getDay())].classList.remove('today');
+    //   Today = new Date()
+    //   if (year.innerText == Today.getFullYear() && monthList[month_num] == monthList[Today.getMonth()]) {
+    //     tds[Today.getDay()+7].classList.add('today');
+    //     console.log(Today.getDate());
+    //     console.log(year.innerText, Today.getFullYear(), monthList[month_num], monthList[Today.getMonth()]);
+    //   }
+    // }
 
-    //下個月
-    function nextMonth() {
-      let next = document.querySelector('#next')
-      next.addEventListener('click', function () {
-        month_num++;
-        if (month_num > 11) {
-          year_num++
-          year.innerText = year_num;
-          month_num = 0
-        }
-        month.innerText = monthList[month_num];
-        createDay()
-      })
-    }
+    // //下個月
+    // function nextMonth() {
+    //   let next = document.querySelector('#next')
+    //   next.addEventListener('click', function () {
+    //     month_num++;
+    //     if (month_num > 11) {
+    //       year_num++
+    //       year.innerText = year_num;
+    //       month_num = 0
+    //     }
+    //     month.innerText = monthList[month_num];
+    //     createDay()
+    //   })
+    // }
 
-    //上個月
-    function lastMonth() {
-      let last = document.querySelector('#last')
-      last.addEventListener('click', function () {
-        month_num--;
-        if (month_num < 0) {
-          year_num--
-          year.innerText = year_num;
-          month_num = 11
-        }
-        month.innerText = monthList[month_num];
-        createDay()
-      })
-    }
+    // //上個月
+    // function lastMonth() {
+    //   let last = document.querySelector('#last')
+    //   last.addEventListener('click', function () {
+    //     month_num--;
+    //     if (month_num < 0) {
+    //       year_num--
+    //       year.innerText = year_num;
+    //       month_num = 11
+    //     }
+    //     month.innerText = monthList[month_num];
+    //     createDay()
+    //   })
+    // }
 
   </script>
 </body>

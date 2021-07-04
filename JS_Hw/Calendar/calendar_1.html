@@ -27,10 +27,9 @@
     tr {
       font-size: 24px;
       color: white;
-      /* color: #e70f2f; */
       width: 14.2857143%;
       text-align: center;
-       border: rgb(63, 131, 219) 1px solid;
+      border: rgb(63, 131, 219) 1px solid;
     }
 
     th {
@@ -38,7 +37,9 @@
 
     }
 
-   
+    #month{
+      color: white;
+    }
     td {
       border: rgba(128, 128, 128, 0.452) 1px solid;
       text-align: left;
@@ -47,9 +48,10 @@
       font-weight: 600;
       color: rgb(26, 101, 212);
       position: relative;
-
     }
-    td:hover{
+
+
+    td:hover {
       background-color: rgba(0, 0, 0, 0.03);
     }
 
@@ -58,7 +60,10 @@
       box-sizing: border-box;
       border: 2px rgba(68, 68, 68, 0.3) solid !important;
       background-color: rgba(39, 139, 233, .2) !important;
+      animation-name:move ;
+      animation-duration: .2s;
     }
+
 
     .fa-plus-circle {
       position: absolute;
@@ -71,9 +76,13 @@
       font-size: 20px;
       line-height: 20px;
       text-align: center;
-      transition: .2s;
     }
 
+    .show {
+      animation-name: moveup;
+      animation-duration: .2s;
+    }
+ 
     .fa-plus-circle:hover {
       transform: scale(1.4);
       transition: .2s;
@@ -89,12 +98,13 @@
       font-weight: 600;
       transition: .2s;
     }
-    .date:hover{
+
+    .date:hover {
       cursor: pointer;
       transform: scale(1.2);
       transition: .2s;
     }
-  
+
 
     .fa-arrow-alt-circle-left,
     .fa-arrow-alt-circle-right {
@@ -102,11 +112,13 @@
       font-size: 40px;
       transition: .2s;
     }
-    .fa-arrow-alt-circle-left:active{
-      transform: scale(1.2) !important; 
+
+    .fa-arrow-alt-circle-left:active {
+      transform: scale(1.2) !important;
       transition: .2s;
-    } 
-    .fa-arrow-alt-circle-right:active{
+    }
+
+    .fa-arrow-alt-circle-right:active {
       transform: scale(1.2) !important;
       transition: .2s;
     }
@@ -131,31 +143,72 @@
       width: 80%;
       height: 30px;
     }
-    #todo{
+
+    #todo {
       height: 90px;
     }
+
     .label {
       color: white;
       border-radius: 4px;
       font-size: 26px;
       padding: 0 10px;
     }
-    .btn:focus, .btn.focus, .btn:active:focus,.btn:active.focus, .btn.active:focus, .btn.active.focus, input:focus, input:active, select:focus, select:active:focus{outline:none; box-shadow:none;}
-    #month{
+
+    .btn:focus,
+    .btn.focus,
+    .btn:active:focus,
+    .btn:active.focus,
+    .btn.active:focus,
+    .btn.active.focus,
+    input:focus,
+    input:active,
+    select:focus,
+    select:active:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .month {
       font-size: 100px;
       font-weight: 900;
-      color: rgb(237, 100, 141);
+      color: rgb(237, 100, 141) !important;
+      animation-name:move ;
+      animation-duration: .2s;
     }
-    .title{
+
+    .title {
       overflow: hidden;
     }
-    #year{
+
+    #year {
       font-size: 60px;
       font-weight: 900;
+      
     }
-    .table{
-      border-radius: 8px !important; 
 
+    .table {
+      border-radius: 8px !important;
+    }
+
+    @keyframes moveup {
+      from {
+        bottom: 50%;
+      }
+
+      to {
+        bottom: 0;
+      }
+    }
+
+    @keyframes move {
+      from {
+        transform: scale(1.3)
+      }
+
+      to {
+        transform: scale(1.0)
+      }
     }
   </style>
 </head>
@@ -171,13 +224,13 @@
       </div>
       <div class="col-md-2">
         <div class="title">
-          <h3 id="year"class="text-end"></h3>
+          <h3 id="year" class="text-end"></h3>
           <div class="d-flex justify-content-end">
             <button class='btn arrow ' id="last"><i class="fas fa-arrow-alt-circle-left"></i></button>
             <button id="next" class='btn arrow'><i class="fas fa-arrow-alt-circle-right"></i></button>
           </div>
         </div>
-        
+
       </div>
     </div>
     <div class="row">
@@ -268,21 +321,21 @@
             <div class="col-md-9"><input class="w-100 pt-1 inputStyle" type="text" id="date"> </div>
             <div class="col-md-3"><button class='recognition'><i class="fas fa-microphone"></i></button></div>
           </div>
-          <h4 class="pt-1" >時間:</h4>
+          <h4 class="pt-1">時間:</h4>
           <div class="row">
-          <div class="col-md-9"><input class="w-100 pt-1 inputStyle" type="time" id="time"></div>
+            <div class="col-md-9"><input class="w-100 pt-1 inputStyle" type="time" id="time"></div>
           </div>
           <h4 class="pt-1">說明:</h4>
           <div class="row">
-            <div class="col-md-9"><textarea class="w-100 pt-1 inputStyle" type="text" id="todo" ></textarea></div>
+            <div class="col-md-9"><textarea class="w-100 pt-1 inputStyle" type="text" id="todo"></textarea></div>
             <div class="col-md-3"><button class='recognition'><i class="fas fa-microphone"></i></button></div>
           </div>
           <h4 class="pt-1">重要性:</h4>
-          <input type="radio" style= "zoom:150%"class="chk" id="urgent" name="drone" value="dc3545" checked>
+          <input type="radio" style="zoom:150%" class="chk" id="urgent" name="drone" value="dc3545" checked>
           <label class="label bg-danger" for="urgent">緊急</label>
-          <input type="radio"  style= "zoom:150%"class="chk" id="important" name="drone" value="ffc107">
+          <input type="radio" style="zoom:150%" class="chk" id="important" name="drone" value="ffc107">
           <label class="label bg-warning" for="important">重要</label>
-          <input type="radio"  style= "zoom:150%"class="chk" id="normal" name="drone" value="198754">
+          <input type="radio" style="zoom:150%" class="chk" id="normal" name="drone" value="198754">
           <label class="label bg-success" for="normal">普通</label>
         </div>
         <div class="modal-footer">
@@ -351,12 +404,35 @@
 
 
 
+    window.onmousewheel = function (e) {
+      if (e.deltaY > 0) {
+        month_num++;
+        if (month_num > 11) {
+          year_num++
+          year.innerText = year_num;
+          month_num = 0
+        }
+        month.innerText = monthList[month_num];
+        createDay()
 
+      }
+      else {
+        month_num--;
+        if (month_num < 0) {
+          year_num--
+          year.innerText = year_num;
+          month_num = 11
+        }
+        month.innerText = monthList[month_num];
+        createDay()
+      }
+    }
     window.onload = function () {
       createDay()
       nextMonth()
       lastMonth()
       addDate()
+
     }
 
     let target;
@@ -406,9 +482,6 @@
       recognition.start();
     }
 
-    function submit()  {
-         
-        };
     //新增約會
     function addDate() {
       let save = document.querySelector('#save')
@@ -416,14 +489,14 @@
         let dateNum = document.querySelector('#dateNum')
         let date = document.querySelector('#date')
         let time = document.querySelector('#time')
-        let todo = document.querySelector('#todo') 
-        let selected ;
+        let todo = document.querySelector('#todo')
+        let selected;
         let obj = document.getElementsByName("drone");
-          for (var i = 0; i < obj.length; i++) {
-            if (obj[i].checked) {
-              selected = obj[i].value;
-            }
+        for (var i = 0; i < obj.length; i++) {
+          if (obj[i].checked) {
+            selected = obj[i].value;
           }
+        }
         console.log(selected)
         if (date.value == '' || time.value == '' || todo.value == '') {
           alert('有格子沒填滿!')
@@ -434,7 +507,7 @@
           date: date.value,
           time: time.value,
           todo: todo.value,
-          selected:selected
+          selected: selected
         }
         if (localStorage.getItem(click) == null) {
           let innerDate = []
@@ -450,6 +523,14 @@
         createDay()
       })
     }
+
+
+
+    function MouseWheel(e) {
+      e = e || window.event;
+      alert(['scrolled ', ((e.wheelDelta <= 0 || e.detail > 0) ? 'down' : 'up')].join(''));
+    }
+
 
     //更新日期
     function createDay() {
@@ -469,7 +550,7 @@
             let event = document.createElement('div');
             event.setAttribute('class', 'date')
             event.innerHTML = a[j].date + " " + a[j].time;
-            event.style.backgroundColor = "#"+a[j].selected;
+            event.style.backgroundColor = "#" + a[j].selected;
             event.addEventListener('click', function (i) {
               let who = i.currentTarget;
               let Modal = document.querySelector("#exampleModal2")
@@ -498,7 +579,6 @@
             event.setAttribute('data-bs-toggle', 'modal')
             event.setAttribute('data-bs-target', '#exampleModal2')
             tds[firstday].appendChild(event);
-            
           }
         }
         addEvent.classList.add('fas', 'fa-plus-circle')
@@ -509,6 +589,14 @@
           click = e.currentTarget.id;
         })
         tds[firstday].appendChild(addEvent)
+        setTimeout(function () {
+          addEvent.classList.add('show');
+        }, 10);
+        month.classList.remove('month');
+        setTimeout(function () {
+        month.classList.add('month');
+      }, 10);
+        
         firstday++;
       }
       todayOnline()
@@ -516,13 +604,14 @@
 
     //渲染當天
     function todayOnline() {
-      tds.forEach((x)=>{x.classList.remove('today');})
+      tds.forEach((x) => { x.classList.remove('today'); })
+      tds.forEach((x) => { x.classList.remove('nottoday'); })
       Today = new Date()
       if (year.innerText == Today.getFullYear() && monthList[month_num] == monthList[Today.getMonth()]) {
-        tds.forEach((x)=>{
+        tds.forEach((x) => {
           console.log(x.innerText);
           console.log(Today.getDate());
-          if(Number(x.innerText)===Today.getDate()){
+          if (Number(x.innerText) === Today.getDate()) {
             x.classList.add('today');
           }
         })

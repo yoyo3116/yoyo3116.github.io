@@ -190,9 +190,30 @@
       font-size: 60px;
       font-weight: 900;
     }
-    
+
     .table {
+
       border-radius: 8px !important;
+    }
+
+    #open {
+      top: 0;
+      bottom: 0;
+      left: 98%;
+      right: 0;
+      margin: auto;
+      font-size: 20px;
+
+    }
+
+    @keyframes moveu {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
     }
 
     @keyframes moveup {
@@ -214,7 +235,8 @@
         transform: scale(1.0)
       }
     }
-    .nullday{
+
+    .nullday {
       background-color: rgba(2, 60, 119, 0.1) !important;
     }
   </style>
@@ -227,7 +249,9 @@
         <h3 class='d-inline-block' id="month"></h3>
       </div>
       <div class="col-md-4 text-center">
-        <h3 class='d-inline-block title'></h3>
+        <h3 class='d-inline-block title'>
+
+        </h3>
       </div>
       <div class="col-md-2">
         <div class="title">
@@ -237,79 +261,84 @@
             <button id="next" class='btn arrow'><i class="fas fa-arrow-alt-circle-right"></i></button>
           </div>
         </div>
-
       </div>
     </div>
     <div class="row">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Sunday</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table_col col-md-12 position-relative">
+        <table class="table">
+          <button class="btn position-absolute" id=open><i class="fas fa-chevron-circle-left"></i></button>
+          <thead>
+            <tr>
+              <th>Sunday</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rightList d-none border text-center">
+        <a  href="https://yoyo3116.github.io/JS_Hw/Puzzle_v3/puzzle_2.html"><img  class=" p-1 w-75"src="./jigsaw.png"></a>
+      </div>
     </div>
   </div>
 
@@ -610,18 +639,19 @@
 
     //渲染當天
     function todayOnline() {
-      tds.forEach((x) => { x.classList.remove('nottoday','nullday','today'); })
-      tds.forEach((x) =>{
-        if(x.innerText==''){x.classList.add('nullday')}});
+      tds.forEach((x) => { x.classList.remove('nottoday', 'nullday', 'today'); })
+      tds.forEach((x) => {
+        if (x.innerText == '') { x.classList.add('nullday') }
+      });
       Today = new Date()
       if (year.innerText == Today.getFullYear() && monthList[month_num] == monthList[Today.getMonth()]) {
         tds.forEach((x) => {
           console.log(x);
           if (Number(x.innerText) === Today.getDate()) {
             x.classList.add('today');
-            
+
           }
-          
+
         })
       }
     }
@@ -656,6 +686,30 @@
       })
     }
 
+
+    let opened = true
+    let open = document.querySelector('#open')
+    open.addEventListener('click', function () {
+      let rightList = document.querySelector('.rightList')
+      let table = document.querySelector('.table_col')
+      if (opened == true) {
+        console.log(opened);
+        rightList.classList.add('col-md-1')
+        rightList.classList.remove('d-none')
+        table.classList.add('col-md-11');
+        table.classList.remove('col-md-12');
+        opened = false
+      }
+      else {
+        rightList.classList.add('d-none')
+        table.classList.remove('col-md-11');
+        table.classList.add('col-md-12');
+        opened = true
+      }
+    })
+
+
+    
   </script>
 </body>
 

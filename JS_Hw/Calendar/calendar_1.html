@@ -203,7 +203,7 @@
       right: 0;
       margin: auto;
       font-size: 20px;
-
+      
     }
 
     @keyframes moveu {
@@ -239,6 +239,31 @@
     .nullday {
       background-color: rgba(2, 60, 119, 0.1) !important;
     }
+    .weather{
+      background-color: rgba(39, 139, 233, 0.644) !important;
+      color: white;
+      border-radius: 10px;
+      padding: 0 5px;
+    }
+    .weather p{
+      font-weight: 900;
+      
+    }
+    .weather h5{
+      color: red;
+      font-weight: 900;
+      margin-bottom: 0;
+      padding-top: 2px;
+    }
+    .weatherTitle{
+      font-size: 20px;
+      font-weight: 900;
+      color: rgb(56, 11, 218);
+    }
+    .rightList{
+      overflow: auto;
+      max-height:600px;
+    }
   </style>
 </head>
 
@@ -266,7 +291,11 @@
     <div class="row">
       <div class="table_col col-md-12 position-relative">
         <table class="table">
-          <button class="btn position-absolute" id=open><i class="fas fa-chevron-circle-left"></i></button>
+          <button class="btn  position-absolute" id=open>
+            <i class="far fa-hand-point-left"></i><br>
+          <i class="text-primary fas fa-cloud-sun"></i><br>
+          <i class="text-danger  fas fa-temperature-high"></i><br>
+          </button>
           <thead>
             <tr>
               <th>Sunday</th>
@@ -335,9 +364,11 @@
             </tr>
           </tbody>
         </table>
+        <h4 class="col-md-10 fw-bolder">※點擊右側"<i class="far fa-hand-point-left"></i>"，可以顯示未來一周天氣</h4>
       </div>
+      
       <div class="rightList d-none border text-center">
-        <a  href="https://yoyo3116.github.io/JS_Hw/Puzzle_v3/puzzle_2.html"><img  class=" p-1 w-75"src="./jigsaw.png"></a>
+        <h4 class="weatherTitle">未來一周天氣</h4>
       </div>
     </div>
   </div>
@@ -440,7 +471,7 @@
 
 
 
-    window.onmousewheel = function (e) {
+    document.querySelector('.table').onmousewheel = function (e) {
       if (e.deltaY > 0) {
         month_num++;
         if (month_num > 11) {
@@ -694,20 +725,46 @@
       let table = document.querySelector('.table_col')
       if (opened == true) {
         console.log(opened);
-        rightList.classList.add('col-md-1')
+        rightList.classList.add('col-md-2')
         rightList.classList.remove('d-none')
-        table.classList.add('col-md-11');
+        table.classList.add('col-md-10');
         table.classList.remove('col-md-12');
         opened = false
       }
       else {
         rightList.classList.add('d-none')
-        table.classList.remove('col-md-11');
+        table.classList.remove('col-md-10');
         table.classList.add('col-md-12');
         opened = true
       }
     })
 
+
+
+    let url ="https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-055?Authorization=CWB-C4733AF1-5DE5-4B5A-9EB4-0FD1090B9181";
+
+    const request =new Request(url);
+    fetch(request)
+    .then(response=>{
+      return response.json()
+    })
+    .then(text=>{
+      let temperature =text.records.locations[0].location[2].weatherElement[1].time;
+      let day  =temperature.map(x=>{return x.startTime})
+      let temp =temperature.map(x=>{return x.elementValue[0].value})
+      for(let i =0 ;i<day.length;i++){
+        let div =document.createElement('div');
+        div.innerHTML=`<h5 class="text-start">${temp[i]}℃</h5>
+                        <p class="text-start">日期/時間:<br>${day[i]}</p>`
+        document.querySelector('.rightList').appendChild(div);
+        div.className='weather'
+      }
+      
+      
+    })
+
+   
+  
 
     
   </script>
